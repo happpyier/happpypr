@@ -8,9 +8,6 @@ app.set("Content-Type", "text/html");
 app.get('/', function(request, response) {
   response.sendFile(path.join(__dirname+'/index.html'));
 });
-app.get('/voting', function(request, response) {
-  response.sendFile(path.join(__dirname+'/voting/index.js'));
-});
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
 });
