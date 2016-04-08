@@ -16,6 +16,15 @@ app.set("Content-Type", "text/html");
 	app.get('/voting', function(request, response) {
 	  response.sendFile(path.join(__dirname+'/voting/index.html'));
 	});
+	app.get('/voting/mypolls', function(request, response) {
+	  response.sendFile(path.join(__dirname+'/voting/mypolls.html'));
+	});
+	app.get('/voting/newpoll', function(request, response) {
+	  response.sendFile(path.join(__dirname+'/voting/newpoll.html'));
+	});
+	app.get('/voting/info', function(request, response) {
+	  response.sendFile(path.join(__dirname+'/voting/info.html'));
+	});
 //<-----Voting App below this line
 
 app.listen(app.get('port'), function() {
