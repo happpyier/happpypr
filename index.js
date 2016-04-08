@@ -16,6 +16,9 @@ app.set("Content-Type", "text/html");
 	app.get('/voting', function(request, response) {
 	  response.sendFile(path.join(__dirname+'/voting/polls.html'));
 	});
+	app.get('/voting/polls', function(request, response) {
+	  response.sendFile(path.join(__dirname+'/voting/polls.html'));
+	});
 	app.get('/voting/mypolls', function(request, response) {
 	  response.sendFile(path.join(__dirname+'/voting/mypolls.html'));
 	});
