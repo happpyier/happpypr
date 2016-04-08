@@ -5,9 +5,19 @@ var path = require("path");
 var url = require("url");
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
-app.get('/', function(request, response) {
-  response.sendFile(path.join(__dirname+'/index.html'));
-});
+
+//Index below this line ----->
+	app.get('/', function(request, response) {
+	  response.sendFile(path.join(__dirname+'/index.html'));
+	});
+//<-----Index below this line
+
+//Voting App below this line ----->
+	app.get('/voting', function(request, response) {
+	  response.sendFile(path.join(__dirname+'/voting/index.js'));
+	});
+//<-----Voting App below this line
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
 });
