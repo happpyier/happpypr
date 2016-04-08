@@ -1,7 +1,7 @@
 {
-  "name": "Happpyier Projects",
+  "name": "happpyier_projects",
   "version": "0.1.5",
-  "description": "This is my Projects Heroku",
+  "description": "this is my projects heroku",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
