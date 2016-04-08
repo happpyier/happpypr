@@ -14,7 +14,7 @@ app.set("Content-Type", "text/html");
 
 //Voting App below this line ----->
 	app.get('/voting', function(request, response) {
-	  response.sendFile(path.join(__dirname+'/voting/index.html'));
+	  response.sendFile(path.join(__dirname+'/voting/polls.html'));
 	});
 	app.get('/voting/mypolls', function(request, response) {
 	  response.sendFile(path.join(__dirname+'/voting/mypolls.html'));
