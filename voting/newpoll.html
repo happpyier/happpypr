@@ -18,6 +18,12 @@
 			.hidden { display: none !important; }
 			.marginLeft10 { margin-left: 10px }
 		</style>
+		<script>
+			function newPoll()
+			{
+				alert("Test Message");
+			}
+		</script>
 	</head>
 	<body>
 		<div class='center'>
@@ -32,19 +38,19 @@
 				<h1 class='marginLeft10'>
 					Make a new poll.
 				</h1>
-				<form class='marginLeft10'>
+				<span class='marginLeft10'>
 					<p>
 						Title:
 					</p>
-					<input type='text' size='75'></input>
+					<input type='text' size='75' id='titleVal'></input>
 					<p>
 						Options (seperated by line):
 					</p>
-					<textarea type='text' cols='75' rows ='10'></textarea>
+					<textarea type='text' cols='75' rows ='10' id='optionsVal'></textarea>
 					<p>
-						<input type='submit' value='Make!'></input>
+						<input type='button' value='Make!' onclick="newPoll();"></input>
 					</p>
-				</form>
+				</span>
 			</div>
 			<div class='spacer'></div> 
 			<div class='bottom'>
