@@ -1,20 +1,60 @@
+
 <html>
 	<head>
 		<style>
-			h1 { font-size: 36px }
-			h2 { font-size: 20px }
-			h2 { font-size: 26px }
-			p { font-size: 16px }
+			h1 { font-size: 36px; }
+			h2 { font-size: 20px; }
+			h2 { font-size: 26px; }
+			p { font-size: 16px; }
+			.center { color:black; margin-left: 200px; margin-right: 200px;}
+			.bgcolor { background-color:#E8E8E8; }
+			.top { text-align: right; height: 40px;}
+			.top div { width: 100px; height: 40px; display: inline-block; text-align: center; line-height: 40px;}
+			.middle { border: 5px solid blue; }
+			.bottom { border: 5px solid green; }
+			.endDiv { margin-right: 20px;}
+			.currentPage { background-color:#c2c2c2; }
 		</style>
 	</head>
 	<body>
-		<div>
-			<h1> Welcome to my Voting App</h1>
-			<div>
-				<p> 
+		<div class='center bgcolor'>
+			<div class='top'>
+				<a href="http://happpypr.herokuapp.com/voting/polls"><div class='currentPage'>Home</div></a>
+				<a href="http://happpypr.herokuapp.com/voting/mypolls"><div>My Polls</div></a>
+				<a href="http://happpypr.herokuapp.com/voting/newpoll"><div>New Poll</div></a>
+				<a href="http://happpypr.herokuapp.com/voting/polls"><div class='endDiv'>Twitter</div></a>
+			</div>
+			<div class='middle bgcolor'>
+				<p>
+					This is div 2.
+				</p>
+				<p>
 					This will be where authenticated can see new polls that are created.
 				</p>
-			</div>			
+				<p> 
+					Link to the  <a href="http://happpypr.herokuapp.com/voting/mypolls"> My Poll Page </a>
+				</p>
+				<p> 
+					Link to the  <a href="http://happpypr.herokuapp.com/voting/newpoll"> New Poll Page </a>
+				</p>
+				<p> 
+					Link to the  <a href="http://happpypr.herokuapp.com/voting/info"> Info Page </a>
+				</p>
+			</div>
+			<div class='bottom bgcolor'>
+				<p>
+					This is div 3.
+				</p>
+				<p>
+					This "Voting App" app is built by @happpyier of freecodecamp
+				</p>
+				<p>
+					following the instructions of "Basejump: Build a Voting App | Free Code Camp".
+				</p>
+				<p>
+					Github repository: happpyier/happpypr
+				</p>
+			</div>
 		</div>
 	</body>
 </html>
