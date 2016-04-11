@@ -21,12 +21,13 @@
 		<script>
 			function newPoll()
 			{
-				var text = "";
+				var randId = "";
 				var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
 				for( var i=0; i < 17; i++ )
-					text += possible.charAt(Math.floor(Math.random() * possible.length));
-				alert(text);
+					randId += possible.charAt(Math.floor(Math.random() * possible.length));
+				alert(randId);
+				//This is where randId will be the id that is inserted.
 			}
 		</script>
 	</head>
