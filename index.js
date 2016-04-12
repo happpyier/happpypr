@@ -25,6 +25,23 @@ app.set("Content-Type", "text/html");
 	app.get('/voting/newpoll', function(request, response) {
 	  response.sendFile(path.join(__dirname+'/voting/newpoll.html'));
 	});
+	app.get('/voting/newpoll/:id', function(request, response) {
+	
+		/*
+	  	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+		{
+			client.query("INSERT INTO image_search VALUES ('"+parametersSQL+"', '"+dateNowVal+"')", function(err, result) {
+			  if (err)
+			   //{ resultsSQL = "Error "+ err; response.send("Error " + err);  }
+			   { resultsidSQL = ("Error " + err); }
+			  else
+			   //{ resultsSQL = "Results " + {results: result.rows}; response.render('pages/db', {results: result.rows} ); }
+			   { resultsidSQL = JSON.stringify(result.rows[0].id); }
+			   done();
+			});	
+		});
+		*/
+	});
 	app.get('/voting/info', function(request, response) {
 	  response.sendFile(path.join(__dirname+'/voting/info.html'));
 	});
