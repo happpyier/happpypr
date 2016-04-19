@@ -19,12 +19,20 @@
 		<script>
 			function generatePoll()
 			{
-				document.getElementById('poll_results').innerHTML = "changed";
+				document.getElementById('poll_results').innerHTML += "changed<br/>";
 				//poll_results
 			}
+			function startup()
+			{
+				for (var i=0; i<2; i++)
+				{
+					generatePoll();
+				}
+			}
+
 		</script>
 	</head>
-	<body onload='generatePoll();'>
+	<body onload='startup();'>
 		<div class='center'>
 			<div class='top bgcolor'>
 				<a href="http://happpypr.herokuapp.com/voting/polls"><div class='currentPage'>Home</div></a>
@@ -37,7 +45,9 @@
 				<p>
 					Select a poll to see the results and vote, or sign-in to make a new poll.
 				</p>
-				<div id='poll_results'> </div>
+				<div id='poll_results'> 
+					
+				</div>
 				<p> 
 					Link to the  <a href="http://happpypr.herokuapp.com/voting/mypolls"> My Poll Page </a>
 				</p>
