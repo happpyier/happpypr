@@ -19,9 +19,9 @@
 			
 		</style>
 		<script>
-			function generatePoll()
+			function generatePoll(id, title)
 			{
-				document.getElementById('poll_results').innerHTML += "<div>changed</div>";
+				document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls"+id+"'>"+title+"</a></div>";
 				//poll_results
 			}
 			function startup()
