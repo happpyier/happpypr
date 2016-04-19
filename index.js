@@ -5,7 +5,7 @@ var path = require("path");
 var url = require("url");
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
-
+// USE THIS AS ONE PROJECT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //Index below this line ----->
 	app.get('/', function(request, response) {
 	  response.sendFile(path.join(__dirname+'/index.html'));
