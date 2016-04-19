@@ -19,7 +19,7 @@ app.set("Content-Type", "text/html");
 	app.get('/voting/polls', function(request, response) {
 	  response.sendFile(path.join(__dirname+'/voting/polls.html'));
 	});
-	app.get('/voting/polls:id', function(request, response) {
+	app.get('/voting/polls/:id', function(request, response) {
 	  response.sendFile(path.join(__dirname+'/voting/thispoll.html'));
 	});
 	app.get('/voting/mypolls', function(request, response) {
