@@ -16,6 +16,18 @@
 			.currentPage { background-color:#c2c2c2; }
 			.hidden { display: none !important; }
 		</style>
+		<script>
+			function generatePoll()
+			{
+				var randId = "";
+				var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+				for( var i=0; i < 17; i++ )
+					randId += possible.charAt(Math.floor(Math.random() * possible.length));
+				alert(randId);
+				//This is where randId will be the id that is inserted.
+			}
+		</script>
 	</head>
 	<body>
 		<div class='center'>
