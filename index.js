@@ -20,16 +20,7 @@ app.set("Content-Type", "text/html");
 	  response.sendFile(path.join(__dirname+'/voting/polls.html'));
 	});
 	app.get('/voting/polls/:id', function(request, response) {
-	    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-		client.query('SELECT * FROM vote_tb', function(err, result) {
-		  done();
-		    if (err)
-		    { console.error(err); response.send("Error " + err); }
-		    else
-		    { response.render(path.join(__dirname+'/voting/thispoll.html'), {results: result.rows} ); }
-		  });
-	    });
-	    response.sendFile(path.join(__dirname+'/voting/thispoll.html'));
+	  response.sendFile(path.join(__dirname+'/voting/thispoll.html'));
 	});
 	app.get('/voting/mypolls', function(request, response) {
 	  response.sendFile(path.join(__dirname+'/voting/mypolls.html'));
