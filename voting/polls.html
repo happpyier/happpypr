@@ -19,17 +19,12 @@
 		<script>
 			function generatePoll()
 			{
-				var randId = "";
-				var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-				for( var i=0; i < 17; i++ )
-					randId += possible.charAt(Math.floor(Math.random() * possible.length));
-				alert(randId);
+				document.getElementById('poll_results').innerHTML = "changed";
 				//poll_results
 			}
 		</script>
 	</head>
-	<body>
+	<body onload='generatePoll();'>
 		<div class='center'>
 			<div class='top bgcolor'>
 				<a href="http://happpypr.herokuapp.com/voting/polls"><div class='currentPage'>Home</div></a>
