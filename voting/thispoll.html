@@ -7,6 +7,7 @@
 			p { font-size: 16px; }
 			#poll_results div { background-color: #FFFFFF; margin-left: 4%; margin-right: 4%; margin-bottom: 1px; height: 25px; text-align: center;}
 			#piechart { float: right; border: 1px solid red; margin-right: 4%; margin-bottom: 4%; margin-top: 4%;}
+			#choicemenu { margin-left: 4%; margin-bottom: 4%; margin-top: 4%; }
 			.center { color:black; margin-left: 15%; margin-right: 15%; }
 			.bgcolor { background-color: #E8E8E8; }
 			.top { text-align: right; height: 40px; }
@@ -45,15 +46,17 @@
 			</div>
 			<div class='spacer'></div> 
 			<div class='middle bgcolor'>
-				<p>
-					I'd like to vote for...:
-				</p>
-				<select>
-				<div id='poll_results'> 
-					
+				<div id='choicemenu'>
+					<p>
+						I'd like to vote for...:
+					</p>
+					<select>
+					<div id='poll_results'> 
+						
+					</div>
+					<option value="custom">I'd like a custom option.</option>
+					</select>
 				</div>
-				<option value="custom">I'd like a custom option.</option>
-				</select>
 				<div id='piechart'>
 					This is where the chart will go.
 				</div>
