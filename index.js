@@ -33,7 +33,7 @@ app.set("Content-Type", "text/html");
 			   done();
 			});	
 		});
-		var KittyAlarm = "Ello Funny Kitty";
+		var KittyAlarm = resultsidSQL;
 		var options = 
 		{
 			headers: { 'kitkat': KittyAlarm }
