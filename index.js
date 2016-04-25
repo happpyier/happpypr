@@ -29,17 +29,15 @@ app.set("Content-Type", "text/html");
 			   { resultsidSQL = ("Error " + err); }
 			  else
 			   //{ resultsSQL = "Results " + {results: result.rows}; response.render('pages/db', {results: result.rows} ); }
-			    { 
-					resultsidSQL = JSON.stringify(result.rows[0]); 
-					var options = 
-					{
-						headers: { 'kitkat': resultsidSQL }
-					} 
-				}
+			   { resultsidSQL = JSON.stringify(result.rows); }
 			   done();
 			});	
 		});
-
+		var KittyAlarm = "Ello Funny Kitty";
+		var options = 
+		{
+			headers: { 'kitkat': KittyAlarm }
+		}
 	  response.sendFile(path.join(__dirname+'/voting/thispoll.html'), options);
 	});
 	app.get('/voting/mypolls', function(request, response) {
