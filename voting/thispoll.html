@@ -34,7 +34,8 @@
 				req.open('GET', document.location, false);
 				req.send(null);
 				var headers = req.getAllResponseHeaders().toLowerCase();
-				document.getElementById('poll_results').headers;
+				var headers2 = JSON.stringify(header);
+				document.getElementById('poll_results').innerHTML = headers2;
 				//alert(headers);
 			}
 
