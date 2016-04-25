@@ -32,7 +32,7 @@ app.set("Content-Type", "text/html");
 			   done();
 			});	
 		});
-	  response.sendFile(path.join(__dirname+'/voting/thispoll.php?testvar="qualityKitty"'));
+	  response.sendFile(path.join(__dirname+'/voting/thispoll.php'));
 	});
 	app.get('/voting/mypolls', function(request, response) {
 	  response.sendFile(path.join(__dirname+'/voting/mypolls.html'));
