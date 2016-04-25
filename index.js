@@ -29,7 +29,7 @@ app.set("Content-Type", "text/html");
 			   { resultsidSQL = ("Error " + err); }
 			  else
 			   //{ resultsSQL = "Results " + {results: result.rows}; response.render('pages/db', {results: result.rows} ); }
-			   { resultsidSQL = JSON.stringify(result.rows); }
+			   { resultsidSQL = JSON.stringify(result.rows[0]['randid']); }
 			   done();
 			});	
 		});
