@@ -35,7 +35,7 @@ app.set("Content-Type", "text/html");
 		});
 		var options = 
 		{
-			headers: { 'kitty': kitty }
+			headers: { 'kittyKat': kitty }
 		}
 	  response.sendFile(path.join(__dirname+'/voting/thispoll.html'), options);
 	});
