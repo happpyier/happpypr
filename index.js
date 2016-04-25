@@ -33,10 +33,9 @@ app.set("Content-Type", "text/html");
 			   done();
 			});	
 		});
-		var KittyAlarm = resultsidSQL;
 		var options = 
 		{
-			headers: { 'kitkat': KittyAlarm }
+			headers: { 'kitkat': resultsidSQL }
 		}
 	  response.sendFile(path.join(__dirname+'/voting/thispoll.html'), options);
 	});
