@@ -34,7 +34,8 @@
 				req.open('GET', document.location, false);
 				req.send(null);
 				var headers = req.getAllResponseHeaders().toLowerCase();
-				alert(headers['kittyKat']);
+				document.getElementById('poll_results').innerHTML = headers;
+				//alert(headers);
 			}
 
 		</script>
