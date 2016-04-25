@@ -36,7 +36,8 @@
 				var headers = req.getAllResponseHeaders().toLowerCase();
 				var headers2 = JSON.stringify(headers);
 				var headers3 = headers2.split("\\r\\n");
-				document.getElementById('poll_results').innerHTML = headers3;
+				var headers4 = typeof(headers3);
+				document.getElementById('poll_results').innerHTML = headers4;
 				//alert(headers);
 			}
 
