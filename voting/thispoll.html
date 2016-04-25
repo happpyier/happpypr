@@ -30,11 +30,11 @@
 			}
 			function startup()
 			{
-				//for (var i=0; i<1; i++)
-				//{
-				//	generatePoll('yPUXZS6RuZECDxztw', 'Example Line '+i);
-				//}
-				alert(resultsidSQL);
+				var req = new XMLHttpRequest();
+				req.open('GET', document.location, false);
+				req.send(null);
+				var headers = req.getAllResponseHeaders().toLowerCase();
+				alert(headers);
 			}
 
 		</script>
