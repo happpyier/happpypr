@@ -3,7 +3,7 @@ var app = express();
 var pg = require('pg');
 var path = require("path");
 var url = require("url");
-var qualityKitty = "Ello";
+var kitty = "Ello";
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 // USE THIS AS ONE PROJECT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,7 +33,11 @@ app.set("Content-Type", "text/html");
 			   done();
 			});	
 		});
-	  response.sendFile(path.join(__dirname+'/voting/thispoll.html?'));
+		var options = 
+		{
+			headers: { 'kitty': kitty }
+		}
+	  response.sendFile(path.join(__dirname+'/voting/thispoll.html?'), options);
 	});
 	app.get('/voting/mypolls', function(request, response) {
 	  response.sendFile(path.join(__dirname+'/voting/mypolls.html'));
