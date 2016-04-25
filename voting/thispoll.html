@@ -33,8 +33,8 @@
 				var req = new XMLHttpRequest();
 				req.open('GET', document.location, false);
 				req.send(null);
-				var headers = req.getAllResponseHeaders().toLowerCase();
-				var headers2 = typeof (headers);
+				var headers = req.getResponseHeaders().toLowerCase();
+				var headers2 = headers;
 				document.getElementById('poll_results').innerHTML = headers2;
 				//alert(headers);
 			}
