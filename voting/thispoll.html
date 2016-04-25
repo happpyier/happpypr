@@ -33,7 +33,7 @@
 				var req = new XMLHttpRequest();
 				req.open('GET', document.location, false);
 				req.send(null);
-				var headers = getResponseHeader('kitkat').toLowerCase();
+				var headers = req.getResponseHeader('kitkat').toLowerCase();
 				var headers2 = JSON.stringify(headers);
 				var headers3 = headers2.split("\\r\\n");
 				var headers4 = headers;
