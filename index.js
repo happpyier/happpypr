@@ -37,7 +37,7 @@ app.set("Content-Type", "text/html");
 		{
 			headers: { 'kitty': kitty }
 		}
-	  response.sendFile(path.join(__dirname+'/voting/thispoll.html?'), options);
+	  response.sendFile(path.join(__dirname+'/voting/thispoll.html'), options);
 	});
 	app.get('/voting/mypolls', function(request, response) {
 	  response.sendFile(path.join(__dirname+'/voting/mypolls.html'));
