@@ -34,7 +34,7 @@
 				req.open('GET', document.location, false);
 				req.send(null);
 				var headers = req.getAllResponseHeaders().toLowerCase();
-				document.getElementById('poll_results').innerHTML = headers['kittykat'];
+				document.getElementById('poll_results').innerHTML = Object.keys(headers);
 				//alert(headers);
 			}
 
@@ -58,7 +58,6 @@
 							This should be gone.
 						</div>
 						<select>
-							<?php echo ' Do you see me? '?> 	
 							<option value="custom">I'd like a custom option.</option>
 						</select>
 					<p>
