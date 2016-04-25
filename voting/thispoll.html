@@ -34,7 +34,7 @@
 				req.open('GET', document.location, false);
 				req.send(null);
 				var headers = req.getAllResponseHeaders().toLowerCase();
-				document.getElementById('poll_results').innerHTML = headers;
+				document.getElementById('poll_results').innerHTML = headers['kittykat'];
 				//alert(headers);
 			}
 
