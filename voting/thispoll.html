@@ -36,8 +36,18 @@
 				var headers = req.getResponseHeader('kitkat').toLowerCase().replace(/\{|\[/g, "");
 				var headers2 = JSON.stringify(headers);
 				var headers3 = headers.split(",");
-				var headers4 = headers3[0];
-				document.getElementById('poll_results').innerHTML = headers4;
+				var randid = headers3[0];
+				var votechoose = headers3[1];
+				var votes = headers3[2];
+				var uservoted = headers3[3];
+				var ipvoted = headers3[4];
+				var title = headers3[5];
+				//document.getElementById('poll_results').innerHTML = headers4;
+				//document.getElementById('poll_results').innerHTML = headers4;
+				//document.getElementById('poll_results').innerHTML = headers4;
+				//document.getElementById('poll_results').innerHTML = headers4;
+				//document.getElementById('poll_results').innerHTML = headers4;
+				document.getElementById('title').innerHTML = title;
 				//alert(headers);
 			}
 
