@@ -38,7 +38,7 @@
 			{
 				var req = new XMLHttpRequest();
 				req.onload = handler;
-				req.open('GET', document.location, false);
+				req.open('GET', document.location, true);
 				req.send(null);
 				var prerandid = req.getResponseHeader('randid_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
 				var pretitle = req.getResponseHeader('title_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
