@@ -22,11 +22,11 @@
 			function generatePoll(id, title)
 			{
 				var req = new XMLHttpRequest();
-				req.open('GET', document.location, false);
+				req.open('GET', document.location, true);
 				req.send(null);
 				var headers = req.getResponseHeader('kitkat').replace(/\{|\[/g, "");
 				var headers2 = JSON.stringify(headers);
-				document.getElementById('title').innerHTML = headers;
+				document.getElementById('testarea').innerHTML = headers;
 				document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+id+"'>"+title+"</a></div>";
 				//poll_results
 			}
