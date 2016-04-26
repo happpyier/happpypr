@@ -44,7 +44,7 @@
 			{
 				var req = new XMLHttpRequest();
 				req.onload = handler;
-				req.open('GET', document.location, false);
+				req.open('GET', document.location, true);
 				req.send(null);
 			}
 			function startup()
