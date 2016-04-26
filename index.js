@@ -25,7 +25,7 @@ app.set("Content-Type", "text/html");
 	});
 	app.get('/voting/polls', function(request, response) {
 	  
-	  	var postSqlVar = "SELECT * FROM vote_tb LIMIT 50";
+	  	var postSqlVar = "SELECT randid, title FROM vote_tb LIMIT 50";
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
 			client.query(postSqlVar, function(err, result) {
