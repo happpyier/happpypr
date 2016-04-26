@@ -37,7 +37,8 @@
 				var headers2 = JSON.stringify(headers);
 				var headers3 = headers.split(",");
 				var randid = req.getResponseHeader('randid_vote').replace(/\{|\[|\"/g, "");
-				var votechoose = req.getResponseHeader('votechoose_vote').replace(/\{|\[|\"/g, "");
+				var prevotechoose = req.getResponseHeader('votechoose_vote').replace(/\{|\[|\"/g, "");
+				var votechoose = prevotechoose.split('|');
 				var votes = req.getResponseHeader('votes_vote').replace(/\{|\[|\"/g, "");
 				var uservoted = req.getResponseHeader('uservoted_vote').replace(/\{|\[|\"/g, "");
 				var ipvoted = req.getResponseHeader('ipvoted_vote').replace(/\{|\[|\"/g, "");
@@ -48,8 +49,15 @@
 				//document.getElementById('poll_results').innerHTML = headers4;
 				//document.getElementById('poll_results').innerHTML = headers4;
 				document.getElementById('title').innerHTML = title;
-				document.getElementById('testarea').innerHTML = votechoose;
+				//document.getElementById('testarea').innerHTML = votechoose;
 				//alert(headers);
+				for (var i=0; i < votechoose.length; i++)
+				{
+					var optn = document.createElement("option");
+					optn.innerHTML = votechoose[i];
+					document.getElementById('poll_results').appendChild(optn); 
+					//<option value="custom">I'd like a custom option.</option>
+				}
 			}
 
 		</script>
