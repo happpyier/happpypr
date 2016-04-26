@@ -26,8 +26,8 @@
 				req.send(null);
 				var randid = req.getResponseHeader('randid_vote_main').replace(/\{|\[|\}|\]/g, "");
 				var title = req.getResponseHeader('title_vote_main').replace(/\{|\[|\}|\]/g, "");
-				var headers2 = JSON.stringify(headers);
-				document.getElementById('testarea').innerHTML = headers;
+				//var headers2 = JSON.stringify(headers);
+				//document.getElementById('testarea').innerHTML = headers;
 				for (var h=0; h<title.length; h++)
 				{
 					document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+randid+"'>"+title+"</a></div>";
