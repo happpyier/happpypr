@@ -24,13 +24,15 @@
 				var req = new XMLHttpRequest();
 				req.open('GET', document.location, false);
 				req.send(null);
-				var randid = req.getResponseHeader('randid_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
-				var title = req.getResponseHeader('title_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
+				var prerandid = req.getResponseHeader('randid_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
+				var pretitle = req.getResponseHeader('title_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
+				var title = pretitle.split('title:');
+				var randid = prerandid.split('randid:');
 				//var headers2 = JSON.stringify(headers);
 				//document.getElementById('testarea').innerHTML = headers;
 				for (var h=0; h<title.length; h++)
 				{
-					document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+randid+"'>"+title+"</a></div>";
+					document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+randid[i]+"'>"+title[i]+"</a></div>";
 				}
 			}
 			function startup()
