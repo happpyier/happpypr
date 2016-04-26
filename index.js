@@ -24,19 +24,19 @@ app.set("Content-Type", "text/html");
 		var pickId = request.params.id;
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
-			client.query("SELECT * FROM vote_tb", function(err, result) {
+			client.query("SELECT * FROM vote_tb WHERE id ="+pickId, function(err, result) {
 			  if (err)
 			   //{ resultsSQL = "Error "+ err; response.send("Error " + err);  }
 			   { resultsidSQL = ("Error " + err); }
 			  else
 			   //{ resultsSQL = "Results " + {results: result.rows}; response.render('pages/db', {results: result.rows} ); }
-			   { resultsidSQL = JSON.stringify(result.rows); }
+			   { randidVal = JSON.stringify(result.rows.randid); }
 			   done();
 			});	
 		});
 		var options = 
 		{
-			headers: { 'kitkat': pickId }
+			headers: { 'kitkat': randidVal }
 		}
 	    response.sendFile(path.join(__dirname+'/voting/thispoll.html'), options);
 	});
