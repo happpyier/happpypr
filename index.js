@@ -22,9 +22,10 @@ app.set("Content-Type", "text/html");
 	});
 	app.get('/voting/polls/:id', function(request, response) {
 		var pickId = request.params.id;
+		var postSqlVar = "SELECT * FROM vote_tb WHERE randid LIKE\'"+pickId+"\'";
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
-			client.query("SELECT * FROM vote_tb WHERE randid LIKE \'pickId\'", function(err, result) {
+			client.query(postSqlVar, function(err, result) {
 			  if (err)
 			   //{ resultsSQL = "Error "+ err; response.send("Error " + err);  }
 			   { resultsidSQL = ("Error " + err); }
@@ -36,7 +37,7 @@ app.set("Content-Type", "text/html");
 		});
 		var options = 
 		{
-			headers: { 'kitkat': resultsidSQL }
+			headers: { 'kitkat': postSqlVar }
 		}
 	    response.sendFile(path.join(__dirname+'/voting/thispoll.html'), options);
 	});
