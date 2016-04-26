@@ -35,8 +35,8 @@
 				req.send(null);
 				var headers = req.getResponseHeader('kitkat').toLowerCase();
 				var headers2 = JSON.stringify(headers);
-				var headers3 = headers2.split("\\r\\n");
-				var headers4 = headers;
+				var headers3 = headers[0].split(",");
+				var headers4 = headers3;
 				document.getElementById('poll_results').innerHTML = headers4;
 				//alert(headers);
 			}
@@ -53,6 +53,7 @@
 			</div>
 			<div class='spacer'></div> 
 			<div class='middle bgcolor'>
+				<div id='title'> </div>
 				<div id='choicemenu'>
 					<p>
 						I'd like to vote for...:
