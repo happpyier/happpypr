@@ -19,7 +19,7 @@
 			
 		</style>
 		<script>
-			function generatePoll(id, title)
+			function generatePoll()
 			{
 				var req = new XMLHttpRequest();
 				req.open('GET', document.location, false);
@@ -28,14 +28,16 @@
 				var title = req.getResponseHeader('title_vote_main').replace(/\{|\[|\}|\]/g, "");
 				var headers2 = JSON.stringify(headers);
 				document.getElementById('testarea').innerHTML = headers;
-				document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+id+"'>"+title+"</a></div>";
-				//poll_results
+				for (var h=0; h<title.length; h++)
+				{
+					document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+randid+"'>"+title+"</a></div>";
+				}
 			}
 			function startup()
 			{
 				for (var i=0; i<2; i++)
 				{
-					generatePoll('yPUXZS6RuZECDxztw', 'Example Line '+i);
+					generatePoll();
 				}
 			}
 
