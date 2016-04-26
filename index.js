@@ -22,7 +22,7 @@ app.set("Content-Type", "text/html");
 	});
 	app.get('/voting/polls/:id', function(request, response) {
 		var pickId = request.params.id;
-		var postSqlVar = "SELECT * FROM vote_tb WHERE randid LIKE\'"+pickId+"\'";
+		var postSqlVar = "SELECT * FROM vote_tb WHERE randid LIKE \'"+pickId+"\'";
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
 			client.query(postSqlVar, function(err, result) {
