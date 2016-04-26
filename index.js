@@ -4,6 +4,12 @@ var pg = require('pg');
 var path = require("path");
 var url = require("url");
 var kitty = "Ello";
+var randid_vote = "";
+var votechoose_vote = "";
+var votes_vote = "";
+var uservoted_vote = "";
+var ipvoted_vote = "";
+var title_vote = "";
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 // USE THIS AS ONE PROJECT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -31,13 +37,29 @@ app.set("Content-Type", "text/html");
 			   { resultsidSQL = ("Error " + err); }
 			  else
 			   //{ resultsSQL = "Results " + {results: result.rows}; response.render('pages/db', {results: result.rows} ); }
-			   { resultsidSQL = JSON.stringify(result.rows); }
+			   { 
+				    resultsidSQL = JSON.stringify(result.rows[0]);
+					randid_voteVal = JSON.stringify(result.rows);
+					votechoose_voteVal = JSON.stringify(result.rows);
+					votes_voteVal = JSON.stringify(result.rows);
+					uservoted_voteVal = JSON.stringify(result.rows);
+					ipvoted_voteVal = JSON.stringify(result.rows);
+					title_voteVal = JSON.stringify(result.rows);				
+			   }
 			   done();
 			});	
 		});
 		var options = 
 		{
-			headers: { 'kitkat': resultsidSQL }
+			headers: { 
+						'kitkat': resultsidSQL,
+						'randid_vote' = randid_voteVal,
+						'votechoose_vote' = votechoose_voteVal,
+						'votes_vote' = votes_voteVal,
+						'uservoted_vote' = uservoted_voteVal,
+						'ipvoted_vote' = ipvoted_voteVal,
+						'title_vote' = title_voteVal	
+					 }
 		}
 	    response.sendFile(path.join(__dirname+'/voting/thispoll.html'), options);
 	});
