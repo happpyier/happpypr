@@ -22,22 +22,26 @@
 			function generatePoll()
 			{
 				var req = new XMLHttpRequest();
-				req.open('GET', document.location, false);
+				req.open('GET', document.location, true);
 				req.send(null);
-				var prerandid = req.getResponseHeader('randid_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
-				var pretitle = req.getResponseHeader('title_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
-				var title = pretitle.split('title:');
-				var randid = prerandid.split('randid:');
-				//var headers2 = JSON.stringify(headers);
-				//document.getElementById('testarea').innerHTML = headers;
-				for (var h=0; h<title.length; h++)
+				setTimeout(function()
 				{
-					document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+randid[h]+"'>"+title[h]+"</a></div>";
-				}
+					var prerandid = req.getResponseHeader('randid_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
+					var pretitle = req.getResponseHeader('title_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
+					var title = pretitle.split('title:');
+					var randid = prerandid.split('randid:');
+					//var headers2 = JSON.stringify(headers);
+					//document.getElementById('testarea').innerHTML = headers;
+					for (var h=0; h<title.length; h++)
+					{
+						document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+randid[h]+"'>"+title[h]+"</a></div>";
+					} 
+				}, 3000);
+
 			}
 			function startup()
 			{
-				setTimeout(function(){ generatePoll(); }, 3000);
+				generatePoll();
 			}
 
 		</script>
@@ -55,6 +59,7 @@
 				<p>
 					Select a poll to see the results and vote, or sign-in to make a new poll.
 				</p>
+				<div id='testarea'> This should not say test area </div>
 				<div id='poll_results'> 
 					
 				</div>
