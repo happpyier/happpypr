@@ -37,7 +37,7 @@ app.set("Content-Type", "text/html");
 		});
 		var options = 
 		{
-			headers: { 'kitkat': postSqlVar }
+			headers: { 'kitkat': resultsidSQL }
 		}
 	    response.sendFile(path.join(__dirname+'/voting/thispoll.html'), options);
 	});
