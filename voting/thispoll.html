@@ -34,7 +34,7 @@
 				req.open('GET', document.location, false);
 				req.send(null);
 				var headers = req.getResponseHeader('kitkat').toLowerCase();
-				var headers2 = JSON.stringify(headers.replace(/{|[/, ""));
+				var headers2 = JSON.stringify(headers.replace(/\{|\[/, ""));
 				var headers3 = headers.split(",");
 				var headers4 = headers3[0];
 				document.getElementById('poll_results').innerHTML = headers4;
