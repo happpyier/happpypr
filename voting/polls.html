@@ -24,11 +24,14 @@
 		    if(this.status == 200 &&
 			  this.responseXML != null) 
 			{
-			  // success!
+			    for (var h=0; h<title.length; h++)
+				{
+					document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+randid[h]+"'>"+title[h]+"</a></div>";
+				}
 		    } 
 			else
 			{
-			// something went wrong
+				// something went wrong
 		    }
 		}
 			function generatePoll()
@@ -43,10 +46,6 @@
 				var randid = prerandid.split('randid:');
 				//var headers2 = JSON.stringify(headers);
 				//document.getElementById('testarea').innerHTML = headers;
-				for (var h=0; h<title.length; h++)
-				{
-					document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+randid[h]+"'>"+title[h]+"</a></div>";
-				}
 			}
 			function startup()
 			{
