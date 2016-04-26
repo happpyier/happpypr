@@ -24,7 +24,7 @@ app.set("Content-Type", "text/html");
 		var pickId = request.params.id;
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
-			client.query('SELECT * FROM vote_tb WHERE randid LIKE %'+pickId+'% ', function(err, result) {
+			client.query('SELECT * FROM vote_tb WHERE randid LIKE '+pickId+'% ', function(err, result) {
 			  if (err)
 			   //{ resultsSQL = "Error "+ err; response.send("Error " + err);  }
 			   { resultsidSQL = ("Error " + err); }
