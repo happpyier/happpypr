@@ -24,7 +24,7 @@ app.set("Content-Type", "text/html");
 	  response.sendFile(path.join(__dirname+'/voting/polls.html'));
 	});
 	app.get('/voting/polls', function(request, response) {
-	  response.sendFile(path.join(__dirname+'/voting/polls.html'));
+	  
 	  	var postSqlVar = "SELECT * FROM vote_tb LIMIT 50";
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
@@ -35,17 +35,18 @@ app.set("Content-Type", "text/html");
 			  else
 			   //{ resultsSQL = "Results " + {results: result.rows}; response.render('pages/db', {results: result.rows} ); }
 			   { 
-				    resultsidSQL = JSON.stringify(result.rows);
-					randid_voteVal = JSON.stringify(result.rows[0].randid);
-					votechoose_voteVal = JSON.stringify(result.rows[0].votechoose);
-					votes_voteVal = JSON.stringify(result.rows[0].votes);
-					uservoted_voteVal = JSON.stringify(result.rows[0].uservoted);
-					ipvoted_voteVal = JSON.stringify(result.rows[0].ipvoted);
-					title_voteVal = JSON.stringify(result.rows[0].title);				
+				    resultsidSQL = JSON.stringify(result.rows);			
 			   }
 			   done();
 			});	
 		});
+		var options = 
+		{
+			headers: { 
+						'kitkat': resultsidSQL,	
+					 }
+		}
+		response.sendFile(path.join(__dirname+'/voting/polls.html'), options);
 	});
 	app.get('/voting/polls/:id', function(request, response) {
 		var pickId = request.params.id;

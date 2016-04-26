@@ -21,6 +21,12 @@
 		<script>
 			function generatePoll(id, title)
 			{
+				var req = new XMLHttpRequest();
+				req.open('GET', document.location, false);
+				req.send(null);
+				var headers = req.getResponseHeader('kitkat').replace(/\{|\[/g, "");
+				var headers2 = JSON.stringify(headers);
+				document.getElementById('title').innerHTML = headers;
 				document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+id+"'>"+title+"</a></div>";
 				//poll_results
 			}
@@ -47,6 +53,7 @@
 				<p>
 					Select a poll to see the results and vote, or sign-in to make a new poll.
 				</p>
+				<div id='testarea'> This should not say test area </div>
 				<div id='poll_results'> 
 					
 				</div>
