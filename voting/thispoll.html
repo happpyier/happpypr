@@ -39,11 +39,12 @@
 				var randid = req.getResponseHeader('randid_vote').replace(/\{|\[|\"/g, "");
 				var prevotechoose = req.getResponseHeader('votechoose_vote').replace(/\{|\[|\"/g, "");
 				var votechoose = prevotechoose.split('|');
-				var votes = req.getResponseHeader('votes_vote').replace(/\{|\[|\"/g, "");
+				var prevotes = req.getResponseHeader('votes_vote').replace(/\{|\[|\"/g, "");
+				var votes = prevotes.split('|');
 				var uservoted = req.getResponseHeader('uservoted_vote').replace(/\{|\[|\"/g, "");
 				var ipvoted = req.getResponseHeader('ipvoted_vote').replace(/\{|\[|\"/g, "");
 				var title = req.getResponseHeader('title_vote').replace(/\{|\[|\"/g, "");
-				//document.getElementById('poll_results').innerHTML = headers4;
+				var total = 0;
 				//document.getElementById('poll_results').innerHTML = headers4;
 				//document.getElementById('poll_results').innerHTML = headers4;
 				//document.getElementById('poll_results').innerHTML = headers4;
@@ -63,6 +64,15 @@
 				optn.innerHTML = 'I\'d like a custom option.';
 				optn.value = 'custom';
 				document.getElementById('poll_results').appendChild(optn);
+				for (var i=0; i < votes.length; i++)
+				{
+					total += votes[i]; 
+				}
+				for (var i=0; i < votes.length; i++)
+				{
+					document.getElementById('poll_results').innerHTML += '<br/>' + votechoose[i] ' ' + votes[i];
+				}
+				document.getElementById('poll_results').innerHTML += '<br/> Total ' + total;
 			}
 
 		</script>
@@ -78,7 +88,7 @@
 			<div class='spacer'></div> 
 			<div class='middle bgcolor'>
 				
-				<div id='testarea'> This should not say test area </div>
+				<!-- <div id='testarea'> This should not say test area </div> -->
 				<div id='choicemenu'>
 					<div id='title'>  </div>
 					<p>
