@@ -21,11 +21,11 @@
 		<script>
 			function generatePoll()
 			{
-				var req = new XMLHttpRequest();
-				req.open('GET', document.location, true);
-				req.send(null);
 				setTimeout(function()
 				{
+					var req = new XMLHttpRequest();
+					req.open('GET', document.location, false);
+					req.send(null);
 					var prerandid = req.getResponseHeader('randid_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
 					var pretitle = req.getResponseHeader('title_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
 					var title = pretitle.split('title:');
