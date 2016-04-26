@@ -55,9 +55,14 @@
 				{
 					var optn = document.createElement("option");
 					optn.innerHTML = votechoose[i];
+					optn.value = votechoose[i];
 					document.getElementById('poll_results').appendChild(optn); 
 					//<option value="custom">I'd like a custom option.</option>
 				}
+				var optn = document.createElement("option");
+				optn.innerHTML = 'I\'d like a custom option.';
+				optn.value = 'custom';
+				document.getElementById('poll_results').appendChild(optn);
 			}
 
 		</script>
@@ -79,9 +84,7 @@
 					<p>
 						I'd like to vote for...:
 					</p>
-						<select id='poll_results'>
-							<option value="custom">I'd like a custom option.</option>
-						</select>
+						<select id='poll_results'> </select>
 					<p>
 						<button id="submitvote"> 
 							<a>Submit</a>
