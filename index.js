@@ -39,11 +39,11 @@ app.set("Content-Type", "text/html");
 			   //{ resultsSQL = "Results " + {results: result.rows}; response.render('pages/db', {results: result.rows} ); }
 			   { 
 				    resultsidSQL = JSON.stringify(result.rows);
-					randid_voteVal = JSON.stringify(result.rows);
-					votechoose_voteVal = JSON.stringify(result.rows);
-					votes_voteVal = JSON.stringify(result.rows);
-					uservoted_voteVal = JSON.stringify(result.rows);
-					ipvoted_voteVal = JSON.stringify(result.rows);
+					randid_voteVal = JSON.stringify(result.rows[0].randid);
+					votechoose_voteVal = JSON.stringify(result.rows[0].votechoose);
+					votes_voteVal = JSON.stringify(result.rows[0].votes);
+					uservoted_voteVal = JSON.stringify(result.rows[0].uservoted);
+					ipvoted_voteVal = JSON.stringify(result.rows[0].ipvoted);
 					title_voteVal = JSON.stringify(result.rows[0].title);				
 			   }
 			   done();
