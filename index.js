@@ -25,25 +25,38 @@ app.set("Content-Type", "text/html");
 	});
 	app.get('/voting/polls', function(request, response) {
 	  
-	  	var postSqlVar = "SELECT randid, title FROM vote_tb LIMIT 50";
+	  	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
+		var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
-			client.query(postSqlVar, function(err, result) {
+			client.query(postSqlVarRandId, function(err, result) {
 			  if (err)
 			   //{ resultsSQL = "Error "+ err; response.send("Error " + err);  }
 			   { resultsidSQL = ("Error " + err); }
 			  else
 			   //{ resultsSQL = "Results " + {results: result.rows}; response.render('pages/db', {results: result.rows} ); }
 			   { 
-				    resultsidSQL = JSON.stringify(result.rows);			
+				    resultsidSQLRandId = JSON.stringify(result.rows);			
 			   }
 			   done();
-			});	
+			});
+			client.query(postSqlVarTitle, function(err, result) {
+			  if (err)
+			   //{ resultsSQL = "Error "+ err; response.send("Error " + err);  }
+			   { resultsidSQL = ("Error " + err); }
+			  else
+			   //{ resultsSQL = "Results " + {results: result.rows}; response.render('pages/db', {results: result.rows} ); }
+			   { 
+				    resultsidSQLTitle = JSON.stringify(result.rows);			
+			   }
+			   done();
+			});				
 		});
 		var options = 
 		{
 			headers: { 
-						'kitkat': resultsidSQL,	
+						'randid_vote_main': resultsidSQLRandId,
+						'title_vote_main': resultsidSQLTitle,							
 					 }
 		}
 		response.sendFile(path.join(__dirname+'/voting/polls.html'), options);
