@@ -44,7 +44,7 @@ app.set("Content-Type", "text/html");
 					votes_voteVal = JSON.stringify(result.rows);
 					uservoted_voteVal = JSON.stringify(result.rows);
 					ipvoted_voteVal = JSON.stringify(result.rows);
-					title_voteVal = JSON.stringify(result.rows.title);				
+					title_voteVal = JSON.stringify(result.rows[0].title);				
 			   }
 			   done();
 			});	
