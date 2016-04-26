@@ -38,7 +38,7 @@ app.set("Content-Type", "text/html");
 			  else
 			   //{ resultsSQL = "Results " + {results: result.rows}; response.render('pages/db', {results: result.rows} ); }
 			   { 
-				    resultsidSQL = JSON.stringify(result.rows[0]);
+				    resultsidSQL = JSON.stringify(result.rows);
 					randid_voteVal = JSON.stringify(result.rows);
 					votechoose_voteVal = JSON.stringify(result.rows);
 					votes_voteVal = JSON.stringify(result.rows);
