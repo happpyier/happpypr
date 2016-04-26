@@ -22,7 +22,6 @@
 			.hidden { display: none !important; }
 			
 		</style>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script>
 			function generatePoll(id, title)
 			{
@@ -31,8 +30,6 @@
 			}
 			function startup()
 			{
-				$( document ).ready(function() 
-				{
 					var req = new XMLHttpRequest();
 					req.open('GET', document.location, false);
 					req.send(null);
@@ -42,7 +39,6 @@
 					var headers4 = typeof(headers3);
 					document.getElementById('poll_results').innerHTML = headers4;
 					//alert(headers);
-				});
 			}
 
 		</script>
