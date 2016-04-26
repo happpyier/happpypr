@@ -24,6 +24,10 @@
 		    if(this.status == 200 &&
 			  this.responseXML != null) 
 			{
+				var prerandid = req.getResponseHeader('randid_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
+				var pretitle = req.getResponseHeader('title_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
+				var title = pretitle.split('title:');
+				var randid = prerandid.split('randid:');
 			    for (var h=0; h<title.length; h++)
 				{
 					document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+randid[h]+"'>"+title[h]+"</a></div>";
@@ -40,10 +44,6 @@
 				req.onload = handler;
 				req.open('GET', document.location, true);
 				req.send(null);
-				var prerandid = req.getResponseHeader('randid_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
-				var pretitle = req.getResponseHeader('title_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
-				var title = pretitle.split('title:');
-				var randid = prerandid.split('randid:');
 				//var headers2 = JSON.stringify(headers);
 				//document.getElementById('testarea').innerHTML = headers;
 			}
