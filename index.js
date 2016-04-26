@@ -53,12 +53,12 @@ app.set("Content-Type", "text/html");
 		{
 			headers: { 
 						'kitkat': resultsidSQL,
-						'randid_vote' = randid_voteVal,
-						'votechoose_vote' = votechoose_voteVal,
-						'votes_vote' = votes_voteVal,
-						'uservoted_vote' = uservoted_voteVal,
-						'ipvoted_vote' = ipvoted_voteVal,
-						'title_vote' = title_voteVal	
+						'randid_vote' : randid_voteVal,
+						'votechoose_vote' : votechoose_voteVal,
+						'votes_vote' : votes_voteVal,
+						'uservoted_vote' : uservoted_voteVal,
+						'ipvoted_vote' : ipvoted_voteVal,
+						'title_vote' : title_voteVal	
 					 }
 		}
 	    response.sendFile(path.join(__dirname+'/voting/thispoll.html'), options);
