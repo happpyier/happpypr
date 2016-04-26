@@ -21,6 +21,7 @@ app.set("Content-Type", "text/html");
 	  response.sendFile(path.join(__dirname+'/voting/polls.html'));
 	});
 	app.get('/voting/polls/:id', function(request, response) {
+		var pickId = request.params.id;
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
 			client.query("SELECT * FROM vote_tb", function(err, result) {
@@ -35,9 +36,9 @@ app.set("Content-Type", "text/html");
 		});
 		var options = 
 		{
-			headers: { 'kitkat': resultsidSQL }
+			headers: { 'kitkat': pickId }
 		}
-	  response.sendFile(path.join(__dirname+'/voting/thispoll.html'), options);
+	    response.sendFile(path.join(__dirname+'/voting/thispoll.html'), options);
 	});
 	app.get('/voting/mypolls', function(request, response) {
 	  response.sendFile(path.join(__dirname+'/voting/mypolls.html'));
