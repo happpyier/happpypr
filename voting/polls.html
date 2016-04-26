@@ -19,9 +19,25 @@
 			
 		</style>
 		<script>
+		function handler() 
+		{
+		    if(this.status == 200 &&
+			  this.responseXML != null &&
+			  this.responseXML.getElementById('test').textContent) 
+			{
+			  // success!
+			  processData(this.responseXML.getElementById('test').textContent);
+		    } 
+			else
+			{
+			// something went wrong
+		    }
+		}
 			function generatePoll()
 			{
+		
 				var req = new XMLHttpRequest();
+				req.onload = handler;
 				req.open('GET', document.location, false);
 				req.send(null);
 				var prerandid = req.getResponseHeader('randid_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
