@@ -18,11 +18,11 @@
 			.hidden { display: none !important; }
 			
 		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script>
 		function handler() 
 		{
-		    if(this.status == 200 &&
-			  this.responseXML != null) 
+		    if(this.status == 200) 
 			{
 			    startup();
 		    } 
@@ -34,7 +34,6 @@
 			function generatePoll()
 			{
 				var req = new XMLHttpRequest();
-				req.onload = handler;
 				req.open('GET', document.location, false);
 				req.send(null);
 				var prerandid = req.getResponseHeader('randid_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
@@ -48,10 +47,14 @@
 					document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+randid[h]+"'>"+title[h]+"</a></div>";
 				}
 			}
-			function startup()
+			$(document).ready(function()
 			{
 				generatePoll();
-			}
+			});
+			//function startup()
+			//{
+			//	generatePoll();
+			//}
 
 		</script>
 	</head>
