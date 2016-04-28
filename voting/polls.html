@@ -22,6 +22,10 @@
 		<script>
 		function processData() 
 		{
+		  	var prerandid = client.getResponseHeader('randid_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
+			var pretitle = client.getResponseHeader('title_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
+			var title = pretitle.split('title:');
+			var randid = prerandid.split('randid:');
 		  generatePoll();
 		}
 
@@ -47,10 +51,6 @@
 		client.send();
 			function generatePoll()
 			{
-				var prerandid = req.getResponseHeader('randid_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
-				var pretitle = req.getResponseHeader('title_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
-				var title = pretitle.split('title:');
-				var randid = prerandid.split('randid:');
 				//var headers2 = JSON.stringify(headers);
 				//document.getElementById('testarea').innerHTML = headers;
 				for (var h=0; h<title.length; h++)
