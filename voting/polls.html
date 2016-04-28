@@ -49,12 +49,16 @@
 			processData();
 		  }
 		}
-		function generatePoll()
-		{
-			client = new XMLHttpRequest();
+					client = new XMLHttpRequest();
 			client.onreadystatechange = handler;
 			client.open("GET", document.location, false);
 			client.send(null);
+		function generatePoll()
+		{
+			//client = new XMLHttpRequest();
+			//client.onreadystatechange = handler;
+			//client.open("GET", document.location, false);
+			//client.send(null);
 		}
 		$(document).ready(function()
 		{
