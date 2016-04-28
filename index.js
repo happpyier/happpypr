@@ -60,7 +60,16 @@ app.set("Content-Type", "text/html");
 					 }
 		}
 		//console.log("test");
-		response.sendFile(path.join(__dirname+'/voting/polls.html'), options);
+		response.sendFile(path.join(__dirname+'/voting/polls.html'), options, function (err) 
+		{
+			if (err) {
+			  console.log(err);
+			  res.status(err.status).end();
+			}
+			else {
+			  console.log('Sent:', resultsidSQLTitle);
+			}
+		  });
 	});
 	app.get('/voting/polls/:id', function(request, response) {
 		var pickId = request.params.id;
