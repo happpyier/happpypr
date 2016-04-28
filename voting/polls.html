@@ -26,7 +26,12 @@
 			var pretitle = client.getResponseHeader('title_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
 			var title = pretitle.split('title:');
 			var randid = prerandid.split('randid:');
-		  generatePoll();
+			//var headers2 = JSON.stringify(headers);
+			//document.getElementById('testarea').innerHTML = headers;
+			for (var h=0; h<title.length; h++)
+			{
+				document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+randid[h]+"'>"+title[h]+"</a></div>";
+			}
 		}
 
 		function handler() 
@@ -51,12 +56,6 @@
 		client.send();
 			function generatePoll()
 			{
-				//var headers2 = JSON.stringify(headers);
-				//document.getElementById('testarea').innerHTML = headers;
-				for (var h=0; h<title.length; h++)
-				{
-					document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+randid[h]+"'>"+title[h]+"</a></div>";
-				}
 				
 			}
 			$(document).ready(function()
