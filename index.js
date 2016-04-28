@@ -59,7 +59,7 @@ app.set("Content-Type", "text/html");
 						'title_vote_main': resultsidSQLTitle,							
 					 }
 		}
-		console.log("test");
+		//console.log("test");
 		response.sendFile(path.join(__dirname+'/voting/polls.html'), options);
 	});
 	app.get('/voting/polls/:id', function(request, response) {
