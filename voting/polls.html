@@ -20,11 +20,33 @@
 		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script>
+		function processData() 
+		{
+		  generatePoll();
+		}
+
+		function handler() 
+		{
+		  if(this.readyState == this.DONE) 
+		  {
+			if(this.status == 200 &&
+			   this.responseXML != null) 
+			{
+			  // success!
+			  processData();
+			  return;
+			}
+			// something went wrong
+			processData(null);
+		  }
+		}
+
+		var client = new XMLHttpRequest();
+		client.onreadystatechange = handler;
+		client.open("GET", "unicorn.xml");
+		client.send();
 			function generatePoll()
 			{
-				var req = new XMLHttpRequest();
-				req.open('GET', document.location, false);
-				req.send(null);
 				var prerandid = req.getResponseHeader('randid_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
 				var pretitle = req.getResponseHeader('title_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
 				var title = pretitle.split('title:');
