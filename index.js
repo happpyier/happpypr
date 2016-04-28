@@ -67,7 +67,7 @@ app.set("Content-Type", "text/html");
 			  res.status(err.status).end();
 			}
 			else {
-			  console.log('Sent:', resultsidSQLTitle);
+			  console.log('Sent:', options);
 			}
 		  });
 	});
