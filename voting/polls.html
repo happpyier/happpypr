@@ -54,7 +54,7 @@
 			client = new XMLHttpRequest();
 			client.onreadystatechange = handler;
 			client.open("GET", document.location, false);
-			client.send();
+			client.send(null);
 		}
 		$(document).ready(function()
 		{
