@@ -53,10 +53,10 @@
 					document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+randid[h]+"'>"+title[h]+"</a></div>";
 				}
 				*/
-				document.getElementById('poll_results').innerHTML = xmlhttp.getResponseHeader('randid_vote_main');
+				document.getElementById('poll_results').innerHTML = xmlhttp.getAllResponseHeaders();
 			}
 		  };
-		  xmlhttp.open("GET", document.location, false);
+		  xmlhttp.open("GET", document.location, true);
 		  xmlhttp.send();
 		}
 		//for (var h=0; h<title.length; h++)
