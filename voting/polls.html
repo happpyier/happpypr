@@ -20,7 +20,7 @@
 		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script>
-		var client = '';
+		//var client = '';
 		function processData() 
 		{
 		  	var prerandid = client.getResponseHeader('randid_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
@@ -49,7 +49,7 @@
 			processData();
 		  }
 		}
-					client = new XMLHttpRequest();
+			var client = new XMLHttpRequest();
 			//client.onreadystatechange = handler;
 			client.open("GET", document.location, false);
 			client.send(null);
