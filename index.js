@@ -65,8 +65,7 @@ app.set("Content-Type", "text/html");
 		  'title_vote_main': resultsidSQLTitle
 		});
 		response.vary('User-Agent').render('docs');
-		alert(resultsidSQLRandId);
-		alert(resultsidSQLTitle);
+
 		response.sendFile(path.join(__dirname+'/voting/polls.html'), function (err) 
 		{
 			if (err) {
@@ -77,7 +76,10 @@ app.set("Content-Type", "text/html");
 			  console.log('Sent:', options);
 			}
 		  });
+		console.log(resultsidSQLRandId);
+		console.log(resultsidSQLTitle);
 	});
+
 	app.get('/voting/polls/:id', function(request, response) {
 		var pickId = request.params.id;
 		var postSqlVar = "SELECT * FROM vote_tb WHERE randid LIKE \'"+pickId+"\'";
