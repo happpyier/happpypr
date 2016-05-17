@@ -59,8 +59,13 @@ app.set("Content-Type", "text/html");
 						'title_vote_main': resultsidSQLTitle,							
 					 }
 		}
+		response.set(
+		{
+		  'randid_vote_main': resultsidSQLRandId,
+		  'title_vote_main': resultsidSQLTitle
+		});
 		//console.log("test");
-		response.sendFile(path.join(__dirname+'/voting/polls.html'), options, function (err) 
+		response.sendFile(path.join(__dirname+'/voting/polls.html'), function (err) 
 		{
 			if (err) {
 			  console.log(err);
