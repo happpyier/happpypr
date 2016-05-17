@@ -38,7 +38,7 @@
 		  var xmlhttp = new XMLHttpRequest();
 		  xmlhttp.onreadystatechange=function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			  document.getElementById("demo").innerHTML =
+			  document.getElementById("poll_results").innerHTML =
 			  xmlhttp.getAllResponseHeaders();
 			}
 		  };
@@ -47,10 +47,7 @@
 }
 		function generatePoll()
 		{
-			//client = new XMLHttpRequest();
-			//client.onreadystatechange = handler;
-			//client.open("GET", document.location, false);
-			//client.send(null);
+			loadXMLDoc();
 		}
 		$(document).ready(function()
 		{
