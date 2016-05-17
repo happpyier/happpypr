@@ -65,7 +65,8 @@ app.set("Content-Type", "text/html");
 		  'title_vote_main': resultsidSQLTitle
 		});
 		response.vary('User-Agent').render('docs');
-		//console.log("test");
+		alert(resultsidSQLRandId);
+		alert(resultsidSQLTitle);
 		response.sendFile(path.join(__dirname+'/voting/polls.html'), function (err) 
 		{
 			if (err) {
