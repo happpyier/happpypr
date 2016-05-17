@@ -66,7 +66,7 @@ app.set("Content-Type", "text/html");
 		});
 		response.vary('User-Agent').render('docs');
 
-		response.sendFile(path.join(__dirname+'/voting/polls.html'), function (err) 
+		response.sendFile(path.join(__dirname+'/voting/polls.html'), options, function (err) 
 		{
 			if (err) {
 			  response.status(err.status).end();
