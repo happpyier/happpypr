@@ -69,16 +69,12 @@ app.set("Content-Type", "text/html");
 		response.sendFile(path.join(__dirname+'/voting/polls.html'), function (err) 
 		{
 			if (err) {
-			  console.log(err);
-			  res.status(err.status).end();
+			  response.status(err.status).end();
 			}
 			else {
-			  console.log('Sent:', options);
+			  response.status('Sent:', options);
 			}
-			console.log(resultsidSQLRandId);
-			console.log(resultsidSQLTitle);
 		  });
-		console.log("this is from the index.js page");
 	});
 
 	app.get('/voting/polls/:id', function(request, response) {
