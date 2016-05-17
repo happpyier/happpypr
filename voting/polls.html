@@ -20,23 +20,6 @@
 		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script>
-		/*
-		var client = '';
-		function processData() 
-		{
-		  	var prerandid = client.getResponseHeader('randid_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
-			var pretitle = client.getResponseHeader('title_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
-			var title = pretitle.split('title:');
-			var randid = prerandid.split('randid:');
-			//var headers2 = JSON.stringify(headers);
-			//document.getElementById('testarea').innerHTML = headers;
-			for (var h=0; h<title.length; h++)
-			{
-				document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+randid[h]+"'>"+title[h]+"</a></div>";
-			}
-		}
-		*/
-		
 		function loadXMLDoc() 
 		{
 		  var xmlhttp = new XMLHttpRequest();
@@ -64,15 +47,7 @@
 		  xmlhttp.open("GET", document.location, true);
 		  xmlhttp.send();
 		}
-		//for (var h=0; h<title.length; h++)
-		//{
-		//	document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+randid[h]+"'>"+title[h]+"</a></div>";
-		//}
-		//$(document).ready(function()
-		//{
-			loadXMLDoc();
-		//});
-		console.log("this is from the polls.html page");
+		loadXMLDoc();
 		</script>
 	</head>
 	<body>
