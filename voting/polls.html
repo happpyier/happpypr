@@ -20,6 +20,7 @@
 		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script>
+		/*
 		var client = '';
 		function processData() 
 		{
@@ -34,9 +35,12 @@
 				document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+randid[h]+"'>"+title[h]+"</a></div>";
 			}
 		}
+		*/
+		
 		function loadXMLDoc() 
 		{
 		  var xmlhttp = new XMLHttpRequest();
+		  var randid = xmlhttp.getResponseHeader('randid_vote_main');
 		  xmlhttp.onreadystatechange=function() 
 		  {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
@@ -54,10 +58,10 @@
 				}
 				*/
 				document.getElementById('poll_results').innerHTML = xmlhttp.getAllResponseHeaders();
-				document.getElementById('poll_results').innerHTML += "<br/> ---------- <br/>" + xmlhttp.getResponseHeader('Date');
+				document.getElementById('poll_results').innerHTML += "<br/> ---------- <br/>" + randid;
 			}
 		  };
-		  xmlhttp.open("GET", document.location, true);
+		  xmlhttp.open("GET", po, true);
 		  xmlhttp.send();
 		}
 		//for (var h=0; h<title.length; h++)
