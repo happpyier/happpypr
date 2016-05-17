@@ -56,7 +56,7 @@
 				document.getElementById('poll_results').innerHTML = xmlhttp.getResponseHeader('randid_vote_main');
 			}
 		  };
-		  xmlhttp.open("GET", document.location, true);
+		  xmlhttp.open("GET", document.location, false);
 		  xmlhttp.send();
 		}
 		//for (var h=0; h<title.length; h++)
