@@ -41,6 +41,7 @@
 		  {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
 			{
+				/*
 				var prerandid = xmlhttp.getResponseHeader('randid_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
 				var pretitle = xmlhttp.getResponseHeader('title_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
 				var title = pretitle.split('title:');
@@ -51,8 +52,8 @@
 				{
 					document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+randid[h]+"'>"+title[h]+"</a></div>";
 				}
-			  //document.getElementById("poll_results").innerHTML =
-			  //xmlhttp.getAllResponseHeaders();
+				*/
+				document.getElementById('poll_results').innerHTML = xmlhttp.getResponseHeader('randid_vote_main');
 			}
 		  };
 		  xmlhttp.open("GET", document.location, true);
