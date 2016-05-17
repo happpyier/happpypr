@@ -34,8 +34,7 @@
 				document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+randid[h]+"'>"+title[h]+"</a></div>";
 			}
 		}
-		var url = document.location;
-		function loadXMLDoc(url) 
+		function loadXMLDoc() 
 		{
 		  var xmlhttp = new XMLHttpRequest();
 		  xmlhttp.onreadystatechange=function() 
@@ -46,7 +45,7 @@
 			  xmlhttp.getAllResponseHeaders();
 			}
 		  };
-		  xmlhttp.open("GET", url, true);
+		  xmlhttp.open("GET", document.location, true);
 		  xmlhttp.send();
 		}
 		//for (var h=0; h<title.length; h++)
