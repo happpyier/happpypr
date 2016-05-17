@@ -64,6 +64,7 @@ app.set("Content-Type", "text/html");
 		  'randid_vote_main': resultsidSQLRandId,
 		  'title_vote_main': resultsidSQLTitle
 		});
+		response.vary('User-Agent').render('docs');
 		//console.log("test");
 		response.sendFile(path.join(__dirname+'/voting/polls.html'), function (err) 
 		{
