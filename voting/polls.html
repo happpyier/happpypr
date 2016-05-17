@@ -20,7 +20,7 @@
 		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script>
-		//var client = '';
+		var client = '';
 		function processData() 
 		{
 		  	var prerandid = client.getResponseHeader('randid_vote_main').replace(/\{|\[|\}|\]|\"/g, "");
@@ -34,24 +34,28 @@
 				document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+randid[h]+"'>"+title[h]+"</a></div>";
 			}
 		}
-		function loadXMLDoc(url) {
+		var url = document.location;
+		function loadXMLDoc(url) 
+		{
 		  var xmlhttp = new XMLHttpRequest();
-		  xmlhttp.onreadystatechange=function() {
-			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			  document.getElementById("poll_results").innerHTML =
+		  xmlhttp.onreadystatechange=function() 
+		  {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+			{
+			  document.getElementById("demo").innerHTML =
 			  xmlhttp.getAllResponseHeaders();
 			}
 		  };
 		  xmlhttp.open("GET", url, true);
 		  xmlhttp.send();
-}
-		function generatePoll()
-		{
-			loadXMLDoc();
 		}
+		//for (var h=0; h<title.length; h++)
+		//{
+		//	document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+randid[h]+"'>"+title[h]+"</a></div>";
+		//}
 		$(document).ready(function()
 		{
-			generatePoll();
+			loadXMLDoc();
 		});
 		</script>
 	</head>
