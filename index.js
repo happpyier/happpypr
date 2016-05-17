@@ -78,7 +78,7 @@ app.set("Content-Type", "text/html");
 			console.log(resultsidSQLRandId);
 			console.log(resultsidSQLTitle);
 		  });
-
+		console.log("test");
 	});
 
 	app.get('/voting/polls/:id', function(request, response) {
