@@ -25,7 +25,7 @@
 		  var xmlhttp = new XMLHttpRequest();
 		  xmlhttp.open("GET", document.location, false);
 		  xmlhttp.send();
-		  document.getElementById("poll_results").innerHTML = xmlhttp.responseText;
+		  document.getElementById("poll_results").innerHTML = xmlhttp.getAllResponseHeaders();;
 		  xmlhttp.onreadystatechange=function() 
 		  {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
