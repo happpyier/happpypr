@@ -45,9 +45,9 @@
 			}
 		  };
 		  xmlhttp.open("GET", document.location, true);
-		var randid = xmlhttp.getResponseHeader('randid_vote_main');
+		//var randid = xmlhttp.getResponseHeader('randid_vote_main');
 		document.getElementById('poll_results').innerHTML = xmlhttp.getAllResponseHeaders();
-		document.getElementById('poll_results').innerHTML += "<br/> ---------- <br/>" + randid;
+		//document.getElementById('poll_results').innerHTML += "<br/> ---------- <br/>" + randid;
 		  xmlhttp.send();
 		}
 		loadXMLDoc();
