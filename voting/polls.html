@@ -20,8 +20,9 @@
 		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script>
-		function loadXMLDoc()  
+		function loadXMLDoc() 
 		{
+		  var xmlhttp = new XMLHttpRequest();
 		  xmlhttp.onreadystatechange=function() 
 		  {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
