@@ -22,11 +22,6 @@
 		<script>
 		function loadXMLDoc() 
 		{
-		  var xmlhttp = new XMLHttpRequest();
-		  xmlhttp.open("GET", document.location, false);
-		  document.getElementById("poll_results").innerHTML = xmlhttp.getAllResponseHeaders();
-		  xmlhttp.send(false);
-		  
 		  xmlhttp.onreadystatechange=function() 
 		  {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
@@ -49,6 +44,9 @@
 			}
 		  };
 		  xmlhttp.open("GET", document.location, true);
+		var randid = xmlhttp.getResponseHeader('randid_vote_main');
+		document.getElementById('poll_results').innerHTML = xmlhttp.getAllResponseHeaders();
+		document.getElementById('poll_results').innerHTML += "<br/> ---------- <br/>" + randid;
 		  xmlhttp.send();
 		}
 		loadXMLDoc();
