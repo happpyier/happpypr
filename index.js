@@ -57,7 +57,7 @@ app.set("Content-Type", "text/html");
 			headers: { 
 						'randid_vote_main': resultsidSQLRandId,
 						'title_vote_main': resultsidSQLTitle,
-						'charset': "dog"
+						'charset': 'ISO-8859-4'
 					 }
 		}
 		response.vary('User-Agent').render('docs');
