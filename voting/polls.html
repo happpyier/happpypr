@@ -45,10 +45,10 @@
 			}
 		  };
 		  xmlhttp.open("GET", document.location, true);
+		  xmlhttp.send();
 		//var randid = xmlhttp.getResponseHeader('randid_vote_main');
 		document.getElementById('poll_results').innerHTML = xmlhttp.getAllResponseHeaders();
 		//document.getElementById('poll_results').innerHTML += "<br/> ---------- <br/>" + randid;
-		  xmlhttp.send();
 		}
 		loadXMLDoc();
 		</script>
