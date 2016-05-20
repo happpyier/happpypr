@@ -56,14 +56,9 @@ app.set("Content-Type", "text/html");
 		{
 			headers: { 
 						'randid_vote_main': resultsidSQLRandId,
-						'title_vote_main': resultsidSQLTitle,							
+						'title_vote_main': resultsidSQLTitle
 					 }
 		}
-		response.set(
-		{
-		  'randid_vote_main': resultsidSQLRandId,
-		  'title_vote_main': resultsidSQLTitle
-		});
 		response.vary('User-Agent').render('docs');
 
 		response.sendFile(path.join(__dirname+'/voting/polls.html'), options, function (err) 
