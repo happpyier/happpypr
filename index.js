@@ -46,17 +46,16 @@ app.get('', function(request, response) {
 				//	response.write(entry);
 				//});
 			}
-		   
 			done();
-			});
 		});
 	});
 	fs.readFile('footer.html', 'utf8', function (err,data) {
-	if (err) 
-	{
-		return console.log(err);
-	}
-	response.end(data);
+		if (err) 
+		{
+			return console.log(err);
+		}
+		response.end(data);
+	});
 	//response.write(preresultsidSQL);
 	//response.end();
 });
