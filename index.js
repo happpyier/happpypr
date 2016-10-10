@@ -40,12 +40,9 @@ app.get('', function(request, response) {
 				rowCount = JSON.stringify(result.rowCount);
 				resultsidSQL = preresultsidSQL.split(",");
 				response.write(typeof(testSQlValue[0]) + "<br/>");
-				for (var i = 0, len = resultsidSQL.length; i < len; i++) {
-					response.write(resultsidSQL[i] + "..." + typeof(resultsidSQL[i]) +"<br/>");
-				}		
-				//resultsidSQL.forEach(function(value){
-				//		response.write(value + "..." + typeof(value) +"<br/>");
-				//});
+				resultsidSQL.forEach(function(value){
+						response.write(value + "..." + typeof(value) +"<br/>");
+				});
 				//resultsidSQL.forEach(function(entry) {
 				//	response.write(entry);
 				//});
