@@ -53,13 +53,13 @@ app.get('', function(request, response) {
 				{
 					return console.log(err);
 				}
-				response.end(data);
+				//response.end(data);
 			});
 		});
 	});
 	
-
-	//response.end()
+	response.write(preresultsidSQL);
+	response.end();
 });
 /*
 app.get('/polls', function(request, response) {
