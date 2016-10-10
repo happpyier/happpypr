@@ -38,7 +38,7 @@ app.get('', function(request, response) {
 				resultsidSQL = JSON.stringify(Object.keys(result));
 				for (var i=0; i < result.rowCount; i++)
 				{
-					response.write(JSON.stringify(result.row[i]['randid']));
+					response.write(JSON.stringify(Object.keys(result.rows));
 				}
 				fs.readFile('footer.html', 'utf8', function (err,data) {
 					if (err) 
