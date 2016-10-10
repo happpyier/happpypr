@@ -35,10 +35,15 @@ app.get('', function(request, response) {
 			else
 		    {
 				
-				resultsidSQL = JSON.stringify(result.rows["0"]["randid"]);
+				resultsidSQL = JSON.stringify(result.rows);
 				arrayRandid = 
 				rowCount = JSON.stringify(result.rowCount);
-				response.write(Object.keys(resultsidSQL));
+				//response.write(resultsidSQL);
+				resultsidSQL.forEach(function(value){
+					value.forEach(function(insideValue){
+						response.write(insideValue);
+					});
+				});
 				//resultsidSQL.forEach(function(entry) {
 				//	response.write(entry);
 				//});
