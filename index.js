@@ -35,7 +35,6 @@ app.get('', function(request, response) {
 			else
 		    {
 				resultsidSQL = JSON.stringify(result.rows);
-				poll_results
 			}
 		   
 			done();
