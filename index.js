@@ -35,11 +35,11 @@ app.get('', function(request, response) {
 			else
 		    {
 				
-				resultsidSQL = JSON.stringify(result.rows);
+				resultsidSQL = result.rows;
 				rowCount = JSON.stringify(result.rowCount);
 				//response.write(rowCount);
 				resultsidSQL.forEach(function(entry) {
-					console.log(entry);
+					response.write(entry);
 				});
 			}
 		   
