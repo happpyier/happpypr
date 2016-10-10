@@ -35,7 +35,7 @@ app.get('', function(request, response) {
 			else
 		    {
 				resultsidSQL = JSON.stringify(result.rows);
-				//response.write(resultsidSQL);
+				response.write(resultsidSQL);
 			}
 		   
 			done();
@@ -49,7 +49,7 @@ app.get('', function(request, response) {
 		}
 		response.write(data);
 	});
-	response.end()
+	//response.end()
 });
 /*
 app.get('/polls', function(request, response) {
