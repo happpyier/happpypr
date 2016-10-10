@@ -18,14 +18,9 @@ app.get('', function(request, response) {
 	var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
 	var testSQL = "SELECT * FROM vote_tb LIMIT 50";
 	
-	fs.readFile('index.html', 'utf8', function (err,data) {
-		if (err) 
-		{
-			return console.log(err);
-		}
-		
-	});
-	
+	var logStream = fs.createWriteStream('index.html', {'flags': 'a'});
+	logStream.write('Initial line...');
+	logStream.end('this is the end line');
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(testSQL, function(err, result) {
 			if (err)
@@ -40,10 +35,7 @@ app.get('', function(request, response) {
 			done();
 		});
 	});
-	fs.appendFile('index.html', 'data to append', function (err) {
-
-	});
-	response.send(data);
+	response.send(logStream);
 });
 /*
 app.get('/polls', function(request, response) {
