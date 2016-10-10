@@ -21,7 +21,22 @@ app.set("Content-Type", "text/html");
 
 //Voting App below this line--------------------------------------------------------------------------------------------------------------------------------------------->
 	app.get('', function(request, response) {
-	  response.sendFile(path.join(__dirname+'/voting/polls.html'));
+	  	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
+		var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
+		var testSQL = "SELECT * FROM vote_tb LIMIT 50";
+		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+		{
+			client.query(testSQL, function(err, result) {
+			  if (err)
+			   //{ resultsSQL = "Error "+ err; response.send("Error " + err);  }
+			   { resultsidSQL = ("Error " + err); }
+			  else
+			   { 
+				    resultsidSQLRandId = JSON.stringify(result.rows);
+					response.send(resultsidSQLRandId);					
+			   }
+			   done();
+			});		
 	});
 	app.get('/polls', function(request, response) {
 	  
