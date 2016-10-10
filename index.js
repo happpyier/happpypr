@@ -33,7 +33,7 @@ app.set("Content-Type", "text/html");
 			  else
 			   { 
 				    resultsidSQLRandId = JSON.stringify(result.rows);
-					response.send(resultsidSQLRandId);					
+					//response.send(resultsidSQLRandId);					
 			   }
 			   done();
 			});		
