@@ -34,24 +34,12 @@ app.set("Content-Type", "text/html");
 			   //{ resultsSQL = "Error "+ err; response.send("Error " + err);  }
 			   { resultsidSQL = ("Error " + err); }
 			  else
-			   //{ resultsSQL = "Results " + {results: result.rows}; response.render('pages/db', {results: result.rows} ); }
 			   { 
 				    resultsidSQLRandId = JSON.stringify(result.rows);
 					response.send(resultsidSQLRandId);					
 			   }
 			   done();
-			});
-			client.query(postSqlVarTitle, function(err, result) {
-			  if (err)
-			   //{ resultsSQL = "Error "+ err; response.send("Error " + err);  }
-			   { resultsidSQL = ("Error " + err); }
-			  else
-			   //{ resultsSQL = "Results " + {results: result.rows}; response.render('pages/db', {results: result.rows} ); }
-			   { 
-				    resultsidSQLTitle = JSON.stringify(result.rows);			
-			   }
-			   done();
-			});				
+			});			
 		});
 		
 		//response.sendFile(path.join(__dirname+'/voting/polls.html'), options, function (err) 
