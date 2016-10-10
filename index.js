@@ -35,12 +35,13 @@ app.get('', function(request, response) {
 			else
 		    {
 				resultsidSQL = JSON.stringify(result.rows);
+				response.write(resultsidSQL);
 			}
 		   
 			done();
 		});
 	});
-	response.write(resultsidSQL);
+	
 	fs.readFile('footer.html', 'utf8', function (err,data) {
 		if (err) 
 		{
