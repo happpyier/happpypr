@@ -36,11 +36,11 @@ app.get('', function(request, response) {
 		    {
 				
 				resultsidSQL = JSON.stringify(result.rows);
-				rowCount = JSON.stringify(result.rowCount);
+				//rowCount = JSON.stringify(result.rowCount);
 				resultsidSQL.forEach(function(entry) {
 					response.write(entry);
 				});
-				response.write(rowCount);
+				//response.write(rowCount);
 				fs.readFile('footer.html', 'utf8', function (err,data) {
 					if (err) 
 					{
