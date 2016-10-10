@@ -35,7 +35,7 @@ app.get('', function(request, response) {
 			else
 		    {
 				
-				resultsidSQL = result.length;
+				resultsidSQL = result.rows.length;
 				response.write(resultsidSQL);
 				fs.readFile('footer.html', 'utf8', function (err,data) {
 					if (err) 
