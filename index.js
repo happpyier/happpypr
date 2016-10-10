@@ -36,7 +36,7 @@ app.get('', function(request, response) {
 		    {
 				
 				resultsidSQL = JSON.stringify(Object.keys(result));
-				var rowCount = JSON.stringify(result.rowCount);
+				var rowCount = parseInt(JSON.stringify(result.rowCount));
 				//for (var i=0; i < rowCount; i++)
 				//{
 				//	response.write(JSON.stringify(Object.keys(result.rows));
