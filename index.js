@@ -13,7 +13,7 @@ var title_vote = "";
 fs = require('fs');
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
-app.get('/', function(request, response) {
+app.get('', function(request, response) {
 	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
 	var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
 	var testSQL = "SELECT randid, title FROM vote_tb LIMIT 50";
