@@ -41,7 +41,7 @@ app.get('', function(request, response) {
 				//{
 				//	response.write(JSON.stringify(Object.keys(result.rows));
 				//}
-				response.write(typeof(rowCount));
+				response.write(rowCount);
 				fs.readFile('footer.html', 'utf8', function (err,data) {
 					if (err) 
 					{
