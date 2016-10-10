@@ -34,21 +34,21 @@ app.get('', function(request, response) {
 			}
 			else
 		    {
-				
 				resultsidSQL = JSON.stringify(result.rows);
 				//rowCount = JSON.stringify(result.rowCount);
-				resultsidSQL.forEach(function(entry) {
-					response.write(entry);
-				});
-				//response.write(rowCount);
-				//fs.readFile('footer.html', 'utf8', function (err,data) {
-				//	if (err) 
-				//	{
-				//		return console.log(err);
-				//	}
-				//	response.end(data);
+				//resultsidSQL.forEach(function(entry) {
+				//	response.write(entry);
 				//});
+				response.write(rowCount);
+
 			}
+			fs.readFile('footer.html', 'utf8', function (err,data) {
+				if (err) 
+				{
+					return console.log(err);
+				}
+				response.end(data);
+			});
 		});
 	});
 	
