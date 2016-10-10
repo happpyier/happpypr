@@ -37,7 +37,7 @@ app.get('', function(request, response) {
 				
 				preresultsidSQL = JSON.stringify(result.rows);
 				rowCount = JSON.stringify(result.rowCount);
-				var resultsidSQL = preresultsidSQL.split(",");
+				var resultsidSQL = preresultsidSQL.split(":");
 				//response.write(typeof(resultsidSQL) + "<br/>" + resultsidSQL);
 				resultsidSQL.forEach(function(value){
 						response.write(value + "..." + typeof(value) +"<br/>");
