@@ -40,7 +40,7 @@ app.get('', function(request, response) {
 				//response.write(resultsidSQL);
 				var myArray = ['1','2',3,4]
 				myArray.forEach(function(value){
-				  console.log(value);
+				  response.write(value);
 				});
 				//resultsidSQL.forEach(function(entry) {
 				//	response.write(entry);
