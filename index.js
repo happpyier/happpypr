@@ -36,10 +36,12 @@ app.get('', function(request, response) {
 		    {
 				
 				resultsidSQL = JSON.stringify(Object.keys(result));
-				for (var i=0; i < result.rowCount; i++)
-				{
-					response.write(JSON.stringify(Object.keys(result.rows));
-				}
+				var rowCount = result.rowCount;
+				//for (var i=0; i < rowCount; i++)
+				//{
+				//	response.write(JSON.stringify(Object.keys(result.rows));
+				//}
+				response.write(rowCount);
 				fs.readFile('footer.html', 'utf8', function (err,data) {
 					if (err) 
 					{
