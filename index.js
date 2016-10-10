@@ -36,7 +36,6 @@ app.get('', function(request, response) {
 		    {
 				
 				resultsidSQL = JSON.stringify(result.rows);
-				arrayRandid = 
 				rowCount = JSON.stringify(result.rowCount);
 				//response.write(resultsidSQL);
 				resultsidSQL.forEach(function(value){
