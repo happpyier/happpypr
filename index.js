@@ -40,7 +40,7 @@ app.get('', function(request, response) {
 			done();
 		});
 	});
-	
+	response.write(resultsidSQL);
 	fs.readFile('footer.html', 'utf8', function (err,data) {
 		if (err) 
 		{
