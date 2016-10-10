@@ -35,9 +35,9 @@ app.get('', function(request, response) {
 			else
 		    {
 				
-				resultsidSQL = JSON.stringify(result.rows);
+				resultsidSQL = JSON.parse(result.rows);
 				rowCount = JSON.stringify(result.rowCount);
-				response.write(resultsidSQL.length);
+				response.write(resultsidSQL);
 				//for (index = 0; index < a.length; ++index) {
 				//console.log(a[index]);
 				//}
