@@ -16,7 +16,7 @@ app.set("Content-Type", "text/html");
 app.get('', function(request, response) {
 	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
 	var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
-	var testSQL = "SELECT randid, title FROM vote_tb LIMIT 50";
+	var queryForSQL = "SELECT randid, title FROM vote_tb LIMIT 50";
 	
 	fs.readFile('index.html', 'utf8', function (err,data) {
 		if (err) 
@@ -27,7 +27,7 @@ app.get('', function(request, response) {
 	});
 	
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-		client.query(testSQL, function(err, result) {
+		client.query(queryForSQL, function(err, result) {
 			if (err)
 		    {
 				resultsidSQL = ("Error term" + err);
@@ -37,7 +37,7 @@ app.get('', function(request, response) {
 				
 				preresultsidSQL = JSON.stringify(result.rows);
 				rowCount = JSON.stringify(result.rowCount);
-				var resultsidSQL = preresultsidSQL.split(":");
+				resultsidSQL = preresultsidSQL.split(":");
 				response.write(preresultsidSQL);
 				//resultsidSQL.forEach(function(value){
 				//		response.write(value + "..." + typeof(value) +"<br/>");
@@ -47,15 +47,16 @@ app.get('', function(request, response) {
 				//});
 			}
 			done();
+			fs.readFile('footer.html', 'utf8', function (err,data) {
+				if (err) 
+				{
+					return console.log(err);
+				}
+				response.end(data);
+			});
 		});
 	});
-	fs.readFile('footer.html', 'utf8', function (err,data) {
-		if (err) 
-		{
-			return console.log(err);
-		}
-		response.end(data);
-	});
+	
 	//response.write(preresultsidSQL);
 	//response.end();
 });
