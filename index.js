@@ -16,22 +16,19 @@ app.get('', function(request, response) {
 	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
 	var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
 	var testSQL = "SELECT * FROM vote_tb LIMIT 50";
-	/*
-	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
-	{
-		client.query(testSQL, function(err, result) {
-		  if (err)
-		   //{ resultsSQL = "Error "+ err; response.send("Error " + err);  }
-		   { resultsidSQL = ("Error " + err); }
-		  else
-		   { 
-				resultsidSQLRandId = JSON.stringify(result.rows);
-				//response.send(resultsidSQLRandId);					
-		   }
-		   done();
-		});
-	*/
-	response.send("Hello it worked");
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    client.query(testSQL, function(err, result) {
+      if (err)
+       //{ resultsSQL = "Error "+ err; response.send("Error " + err);  }
+	   { resultsidSQL = ("Error term" + err); }
+      else
+       //{ resultsSQL = "Results " + {results: result.rows}; response.render('pages/db', {results: result.rows} ); }
+	   { resultsidSQL = JSON.stringify(result.rows); }
+	   
+	   done();
+    });
+  });
+	response.send(resultsidSQL);
 });
 /*
 app.get('/polls', function(request, response) {
