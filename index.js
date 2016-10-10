@@ -36,19 +36,20 @@ app.get('', function(request, response) {
 		    {
 				resultsidSQL = JSON.stringify(result.rows);
 				response.write(resultsidSQL);
+				fs.readFile('footer.html', 'utf8', function (err,data) {
+					if (err) 
+					{
+						return console.log(err);
+					}
+					response.write(data);
+				});
 			}
 		   
 			done();
 		});
 	});
 	
-	fs.readFile('footer.html', 'utf8', function (err,data) {
-		if (err) 
-		{
-			return console.log(err);
-		}
-		response.write(data);
-	});
+
 	//response.end()
 });
 /*
