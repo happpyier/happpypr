@@ -26,7 +26,7 @@ app.get('', function(request, response) {
 		response.write(data);
 	});
 	
-	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+	pg.connect(process.env.DATABASE_URL, function(err, client) {
 		client.query(testSQL, function(err, result) {
 			if (err)
 		    {
@@ -41,16 +41,14 @@ app.get('', function(request, response) {
 					response.write(entry);
 				});
 				//response.write(rowCount);
-				fs.readFile('footer.html', 'utf8', function (err,data) {
-					if (err) 
-					{
-						return console.log(err);
-					}
-					response.end(data);
-				});
+				//fs.readFile('footer.html', 'utf8', function (err,data) {
+				//	if (err) 
+				//	{
+				//		return console.log(err);
+				//	}
+				//	response.end(data);
+				//});
 			}
-		   
-			done();
 		});
 	});
 	
