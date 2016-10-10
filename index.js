@@ -20,7 +20,7 @@ app.set("Content-Type", "text/html");
 //<--------------------------------------------------------------------------------------------------------------------------------------------------Index below this line
 
 //Voting App below this line--------------------------------------------------------------------------------------------------------------------------------------------->
-	app.get('/voting', function(request, response) {
+	app.get('', function(request, response) {
 	  response.sendFile(path.join(__dirname+'/voting/polls.html'));
 	});
 	app.get('/polls', function(request, response) {
@@ -111,10 +111,10 @@ app.set("Content-Type", "text/html");
 	app.get('/mypolls', function(request, response) {
 	  response.sendFile(path.join(__dirname+'/voting/mypolls.html'));
 	});
-	app.get('/voting/newpoll', function(request, response) {
+	app.get('/newpoll', function(request, response) {
 	  response.sendFile(path.join(__dirname+'/voting/newpoll.html'));
 	});
-	app.get('/voting/newpoll/:id', function(request, response) {
+	app.get('/newpoll/:id', function(request, response) {
 	
 		/*
 	  	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
