@@ -38,7 +38,7 @@ app.get('', function(request, response) {
 				resultsidSQL = JSON.stringify(result.rows["0"]["randid"]);
 				arrayRandid = 
 				rowCount = JSON.stringify(result.rowCount);
-				response.write(resultsidSQL[0]);
+				response.write(Object.keys(resultsidSQL));
 				//resultsidSQL.forEach(function(entry) {
 				//	response.write(entry);
 				//});
