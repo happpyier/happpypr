@@ -27,7 +27,7 @@ app.get('', function(request, response) {
 	});
 	
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-		client.query(testSQL, function(err, result) {
+		client.query(postSqlVarTitle, function(err, result) {
 			if (err)
 		    {
 				resultsidSQL = ("Error term" + err);
