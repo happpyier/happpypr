@@ -41,6 +41,14 @@ app.get('', function(request, response) {
 		});
 	});
 	
+	fs.readFile('footer.html', 'utf8', function (err,data) {
+		if (err) 
+		{
+			return console.log(err);
+		}
+		response.send(data);
+	});
+	
 });
 /*
 app.get('/polls', function(request, response) {
