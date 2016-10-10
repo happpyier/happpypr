@@ -17,7 +17,7 @@ app.get('', function(request, response) {
 	var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
 	var testSQL = "SELECT * FROM vote_tb LIMIT 50";
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query(testSQL, function(err, result) {
+    client.query("SELECT * FROM vote_tb LIMIT 50", function(err, result) {
       if (err)
        //{ resultsSQL = "Error "+ err; response.send("Error " + err);  }
 	   { resultsidSQL = ("Error term" + err); }
