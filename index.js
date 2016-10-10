@@ -40,9 +40,7 @@ app.get('', function(request, response) {
 				var resultsidSQL = preresultsidSQL.split(",");
 				//response.write(typeof(resultsidSQL) + "<br/>" + resultsidSQL);
 				resultsidSQL.forEach(function(value){
-					value.forEach(function(innerValue){
-						response.write(innerValue['randid'] + "<br/>");
-					});	
+						response.write(value['randid'] + "<br/>");
 				});
 				//resultsidSQL.forEach(function(entry) {
 				//	response.write(entry);
