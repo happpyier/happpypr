@@ -27,7 +27,7 @@ app.get('', function(request, response) {
 	});
 	
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-		client.query(postSqlVarTitle, function(err, result) {
+		client.query(testSQL, function(err, result) {
 			if (err)
 		    {
 				resultsidSQL = ("Error term" + err);
@@ -35,7 +35,7 @@ app.get('', function(request, response) {
 			else
 		    {
 				
-				resultsidSQL = result.rows[0];
+				resultsidSQL = JSON.stringify(result.rows);
 				response.write(resultsidSQL);
 				fs.readFile('footer.html', 'utf8', function (err,data) {
 					if (err) 
