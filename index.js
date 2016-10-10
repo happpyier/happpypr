@@ -10,24 +10,35 @@ var votes_vote = "";
 var uservoted_vote = "";
 var ipvoted_vote = "";
 var title_vote = "";
+fs = require('fs');
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get('', function(request, response) {
 	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
 	var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
 	var testSQL = "SELECT * FROM vote_tb LIMIT 50";
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query(testSQL, function(err, result) {
-      if (err)
-       //{ resultsSQL = "Error "+ err; response.send("Error " + err);  }
-	   { resultsidSQL = ("Error term" + err); }
-      else
-       //{ resultsSQL = "Results " + {results: result.rows}; response.render('pages/db', {results: result.rows} ); }
-	   { resultsidSQL = JSON.stringify(result.rows); }
-	   
-	   done();
-    });
-  });
+	
+	fs.readFile('index.html', 'utf8', function (err,data) {
+		if (err) 
+		{
+			return console.log(err);
+		}
+		response.send(data);
+	});
+	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+		client.query(testSQL, function(err, result) {
+			if (err)
+		    {
+				resultsidSQL = ("Error term" + err);
+			}
+			else
+		    {
+				resultsidSQL = JSON.stringify(result.rows);
+			}
+		   
+			done();
+		});
+	});
 	response.send(resultsidSQL);
 });
 /*
