@@ -35,10 +35,11 @@ app.get('', function(request, response) {
 			else
 		    {
 				
+				testSQlValue = result.rows;
 				preresultsidSQL = JSON.stringify(result.rows);
 				rowCount = JSON.stringify(result.rowCount);
 				resultsidSQL = preresultsidSQL.split(",");
-				//response.write(resultsidSQL);
+				response.write(typeof(testSQlValue) + "<br/>");
 				resultsidSQL.forEach(function(value){
 						response.write(value + "..." + typeof(value) +"<br/>");
 				});
