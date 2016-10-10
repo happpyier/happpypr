@@ -25,6 +25,7 @@ app.get('', function(request, response) {
 		}
 		response.send(data);
 	});
+	/*
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(testSQL, function(err, result) {
 			if (err)
@@ -40,6 +41,7 @@ app.get('', function(request, response) {
 		});
 	});
 	response.send(resultsidSQL);
+	*/
 });
 /*
 app.get('/polls', function(request, response) {
