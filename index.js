@@ -40,7 +40,7 @@ app.get('', function(request, response) {
 				var resultsidSQL = preresultsidSQL.split(",");
 				//response.write(typeof(resultsidSQL) + "<br/>" + resultsidSQL);
 				resultsidSQL.forEach(function(value){
-						response.write(value + "<br/>");
+						response.write(value + "..." + typeof(value) +"<br/>");
 				});
 				//resultsidSQL.forEach(function(entry) {
 				//	response.write(entry);
