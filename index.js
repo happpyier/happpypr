@@ -23,7 +23,7 @@ app.get('', function(request, response) {
 		{
 			return console.log(err);
 		}
-		response.send(data);
+		
 	});
 	
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -40,8 +40,10 @@ app.get('', function(request, response) {
 			done();
 		});
 	});
-	
-	
+	fs.appendFile('index.html', 'data to append', function (err) {
+
+	});
+	response.send(data);
 });
 /*
 app.get('/polls', function(request, response) {
