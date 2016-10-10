@@ -31,6 +31,7 @@ app.get('', function(request, response) {
 		   done();
 		});
 	*/
+	response.send("Hello it worked");
 });
 /*
 app.get('/polls', function(request, response) {
