@@ -30,6 +30,7 @@ app.get('', function(request, response) {
 		   done();
 		});		
 });
+/*
 app.get('/polls', function(request, response) {
   
 	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
@@ -104,23 +105,7 @@ app.get('/mypolls', function(request, response) {
 app.get('/newpoll', function(request, response) {
   response.sendFile(path.join(__dirname+'/voting/newpoll.html'));
 });
-app.get('/newpoll/:id', function(request, response) {
-
-	/*
-	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
-	{
-		client.query("INSERT INTO image_search VALUES ('"+parametersSQL+"', '"+dateNowVal+"')", function(err, result) {
-		  if (err)
-		   //{ resultsSQL = "Error "+ err; response.send("Error " + err);  }
-		   { resultsidSQL = ("Error " + err); }
-		  else
-		   //{ resultsSQL = "Results " + {results: result.rows}; response.render('pages/db', {results: result.rows} ); }
-		   { resultsidSQL = JSON.stringify(result.rows[0].id); }
-		   done();
-		});	
-	});
-	*/
-});
+*/
 app.get('/info', function(request, response) {
   response.sendFile(path.join(__dirname+'/voting/info.html'));
 });
