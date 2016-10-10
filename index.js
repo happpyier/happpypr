@@ -38,10 +38,10 @@ app.get('', function(request, response) {
 				preresultsidSQL = JSON.stringify(result.rows);
 				rowCount = JSON.stringify(result.rowCount);
 				resultsidSQL = preresultsidSQL.split(",");
-				response.write(preresultsidSQL);
-				//resultsidSQL.forEach(function(value){
-				//		response.write(value + "..." + typeof(value) +"<br/>");
-				//});
+				//response.write(resultsidSQL);
+				resultsidSQL.forEach(function(value){
+						response.write(value + "..." + typeof(value) +"<br/>");
+				});
 				//resultsidSQL.forEach(function(entry) {
 				//	response.write(entry);
 				//});
