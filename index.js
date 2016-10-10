@@ -27,9 +27,10 @@ app.set("Content-Type", "text/html");
 	  
 	  	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
 		var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
+		var testSQL = "SELECT * FROM vote_tb LIMIT 50";
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
-			client.query(postSqlVarRandId, function(err, result) {
+			client.query(testSQL, function(err, result) {
 			  if (err)
 			   //{ resultsSQL = "Error "+ err; response.send("Error " + err);  }
 			   { resultsidSQL = ("Error " + err); }
