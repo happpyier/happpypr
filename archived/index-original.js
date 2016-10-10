@@ -23,7 +23,7 @@ app.set("Content-Type", "text/html");
 	app.get('/voting', function(request, response) {
 	  response.sendFile(path.join(__dirname+'/voting/polls.html'));
 	});
-	app.get('/polls', function(request, response) {
+	app.get('/voting/polls', function(request, response) {
 	  
 	  	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
 		var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
@@ -71,7 +71,7 @@ app.set("Content-Type", "text/html");
 		  });
 	});
 
-	app.get('/polls/:id', function(request, response) {
+	app.get('/voting/polls/:id', function(request, response) {
 		var pickId = request.params.id;
 		var postSqlVar = "SELECT * FROM vote_tb WHERE randid LIKE \'"+pickId+"\'";
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
@@ -108,7 +108,7 @@ app.set("Content-Type", "text/html");
 		}
 	    response.sendFile(path.join(__dirname+'/voting/thispoll.html'), options);
 	});
-	app.get('/mypolls', function(request, response) {
+	app.get('/voting/mypolls', function(request, response) {
 	  response.sendFile(path.join(__dirname+'/voting/mypolls.html'));
 	});
 	app.get('/voting/newpoll', function(request, response) {
@@ -131,7 +131,7 @@ app.set("Content-Type", "text/html");
 		});
 		*/
 	});
-	app.get('/info', function(request, response) {
+	app.get('/voting/info', function(request, response) {
 	  response.sendFile(path.join(__dirname+'/voting/info.html'));
 	});
 //<--------------------------------------------------------------------------------------------------------------------------------------------Voting App below this line
