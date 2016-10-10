@@ -49,7 +49,7 @@ app.get('', function(request, response) {
 		}
 		response.write(data);
 	});
-	
+	response.end()
 });
 /*
 app.get('/polls', function(request, response) {
