@@ -16,7 +16,7 @@ app.set("Content-Type", "text/html");
 app.get('', function(request, response) {
 	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
 	var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
-	var testSQL = "SELECT * FROM vote_tb LIMIT 50";
+	var testSQL = "SELECT randid, title FROM vote_tb LIMIT 50";
 	
 	fs.readFile('index.html', 'utf8', function (err,data) {
 		if (err) 
@@ -35,7 +35,7 @@ app.get('', function(request, response) {
 			else
 		    {
 				resultsidSQL = JSON.stringify(result.rows);
-				response.write(resultsidSQL);
+				response.write(resultsidSQL.randid);
 				fs.readFile('footer.html', 'utf8', function (err,data) {
 					if (err) 
 					{
