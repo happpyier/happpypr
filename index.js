@@ -35,7 +35,7 @@ app.get('', function(request, response) {
 			else
 		    {
 				resultsidSQL = JSON.stringify(result.rows);
-				response.write(resultsidSQL);
+				//response.write(resultsidSQL);
 			}
 		   
 			done();
@@ -47,7 +47,7 @@ app.get('', function(request, response) {
 		{
 			return console.log(err);
 		}
-		response.end(data);
+		response.write(data);
 	});
 	
 });
