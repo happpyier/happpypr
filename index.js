@@ -60,7 +60,8 @@ app.set("Content-Type", "text/html");
 						'Content-Type': 'text/html; charset=ISO-8859-4'
 					 }
 		}
-		response.sendFile(path.join(__dirname+'/voting/polls.html'), options, function (err) 
+		response.send(resultsidSQLRandId);
+		//response.sendFile(path.join(__dirname+'/voting/polls.html'), options, function (err) 
 		{
 			if (err) {
 			  response.status(err.status).end();
