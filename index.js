@@ -16,6 +16,7 @@ app.get('', function(request, response) {
 	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
 	var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
 	var testSQL = "SELECT * FROM vote_tb LIMIT 50";
+	/*
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	{
 		client.query(testSQL, function(err, result) {
@@ -28,7 +29,8 @@ app.get('', function(request, response) {
 				//response.send(resultsidSQLRandId);					
 		   }
 		   done();
-		});		
+		});
+	*/
 });
 /*
 app.get('/polls', function(request, response) {
