@@ -41,7 +41,7 @@ app.get('', function(request, response) {
 					{
 						return console.log(err);
 					}
-					response.send(data);
+					response.end(data);
 				});
 			}
 		   
