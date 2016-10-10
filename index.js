@@ -36,7 +36,8 @@ app.set("Content-Type", "text/html");
 			  else
 			   //{ resultsSQL = "Results " + {results: result.rows}; response.render('pages/db', {results: result.rows} ); }
 			   { 
-				    resultsidSQLRandId = JSON.stringify(result.rows);			
+				    resultsidSQLRandId = JSON.stringify(result.rows);
+					response.send(resultsidSQLRandId);					
 			   }
 			   done();
 			});
@@ -52,15 +53,7 @@ app.set("Content-Type", "text/html");
 			   done();
 			});				
 		});
-		var options = 
-		{
-			headers: { 
-						'randid_vote_main': resultsidSQLRandId,
-						'title_vote_main': resultsidSQLTitle,
-						'Content-Type': 'text/html; charset=ISO-8859-4'
-					 }
-		}
-		response.send(resultsidSQLRandId);
+		
 		//response.sendFile(path.join(__dirname+'/voting/polls.html'), options, function (err) 
 		{
 			if (err) {
