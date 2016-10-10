@@ -35,12 +35,11 @@ app.get('', function(request, response) {
 			else
 		    {
 				
-				resultsidSQL = JSON.stringify(Object.keys(result));
+				resultsidSQL = JSON.stringify(result.rows);
 				rowCount = JSON.stringify(result.rowCount);
-				for (var i=0; i &lt; rowCount; i++)
-				{
-					response.write(i);
-				}
+				resultsidSQL.forEach(function(entry) {
+					response.write(entry);
+				});
 				response.write(rowCount);
 				fs.readFile('footer.html', 'utf8', function (err,data) {
 					if (err) 
