@@ -37,10 +37,11 @@ app.get('', function(request, response) {
 				
 				resultsidSQL = JSON.stringify(result.rows["0"]["randid"]);
 				rowCount = JSON.stringify(result.rowCount);
-				response.write(resultsidSQL);
-				//for (index = 0; index < a.length; ++index) {
-				//console.log(a[index]);
-				//}
+				//response.write(resultsidSQL);
+				var myArray = ['1','2',3,4]
+				myArray.forEach(function(value){
+				  console.log(value);
+				});
 				//resultsidSQL.forEach(function(entry) {
 				//	response.write(entry);
 				//});
