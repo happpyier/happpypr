@@ -53,11 +53,11 @@ app.get('', function(request, response) {
 				{
 					return console.log(err);
 				}
-				response.end(data);
+				//response.end(data);
 			});
 		});
 	});
-	
+	response.write(preresultsidSQL);
 
 	//response.end()
 });
