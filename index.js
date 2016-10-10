@@ -37,12 +37,12 @@ app.get('', function(request, response) {
 				
 				resultsidSQL = JSON.stringify(result.rows);
 				rowCount = JSON.stringify(result.rowCount);
-				//response.write(resultsidSQL);
-				resultsidSQL.forEach(function(value){
-					value.forEach(function(insideValue){
-						response.write(insideValue);
-					});
-				});
+				response.write(resultsidSQL);
+				//resultsidSQL.forEach(function(value){
+				//	value.forEach(function(insideValue){
+				//		response.write(insideValue);
+				//	});
+				//});
 				//resultsidSQL.forEach(function(entry) {
 				//	response.write(entry);
 				//});
