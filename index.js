@@ -39,7 +39,7 @@ app.get('', function(request, response) {
 				preresultsidSQL = JSON.stringify(result.rows);
 				rowCount = JSON.stringify(result.rowCount);
 				resultsidSQL = preresultsidSQL.split(",");
-				response.write(typeof(testSQlValue[0]) + "..." + testSQlValue["randid"] + "<br/>");
+				response.write(typeof(testSQlValue[0]) + "..." + testSQlValue[0]["randid"] + "<br/>");
 				resultsidSQL.forEach(function(value){
 						response.write(value + "..." + typeof(value) +"<br/>");
 				});
