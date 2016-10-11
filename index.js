@@ -23,7 +23,7 @@ app.get('', function(request, response) {
 		{
 			return console.log(err);
 		}
-		response.write(data);
+		response.write(data+"<div id='poll_results'>");
 	});
 	
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
