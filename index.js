@@ -38,7 +38,7 @@ app.get('', function(request, response) {
 				testSQlValue = result.rows;
 				testSQlValue.forEach(function(value){
 					response.write(
-						"<button href='https://happpypr.herokuapp.com/polls/" + value["randid"] + "'>"+value["title"] + "</button>"+"<br/>"
+						"<button onclick='window.open(https://happpypr.herokuapp.com/polls/" + value["randid"] + ")'>"+value["title"] + "</button>"+"<br/>"
 					);
 				});
 			}
