@@ -81,7 +81,6 @@
 				var pie = [[10, "red"], [20, "blue"], [30, "green"]];
 				pie.forEach(function(pie) 
 				{
-					alert (pie[0]);
 					var p = pie[0];
 					var color = pie[1]
 					var NS = "https://happpypr.herokuapp.com/polls/";
@@ -91,10 +90,10 @@
 					circle.setAttribute("r", 50);
 					circle.setAttribute("cx", 100);
 					circle.setAttribute("cy", 100);
-					circle.setAttribute("fill", p[1]);
-					circle.setAttribute("stroke-dasharray", p[0] + " "+ p[0]);
+					circle.setAttribute("fill", color);
+					circle.setAttribute("stroke-dasharray", p + " "+ p);
 					svg.setAttribute("viewBox", "0 0 32 32");
-					title.textContent = p[0];
+					title.textContent = p;
 					pie.textContent = '';
 					document.getElementById("svgMain").appendChild(title);
 					document.getElementById("svgMain").appendChild(circle);
