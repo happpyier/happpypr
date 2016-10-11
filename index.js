@@ -13,7 +13,7 @@ var title_vote = "";
 fs = require('fs');
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
-app.get('', function(request, response) {
+app.get(['', '/polls'], function(request, response) {
 	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
 	var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
 	var queryForSQL = "SELECT randid, title FROM vote_tb LIMIT 50";
@@ -50,40 +50,6 @@ app.get('', function(request, response) {
 			});
 		});
 	});
-	
-	//response.write(preresultsidSQL);
-	//response.end();
-});
-/*
-app.get('/polls', function(request, response) {
-  
-	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
-	var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
-	var testSQL = "SELECT * FROM vote_tb LIMIT 50";
-	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
-	{
-		client.query(testSQL, function(err, result) {
-		  if (err)
-		   //{ resultsSQL = "Error "+ err; response.send("Error " + err);  }
-		   { resultsidSQL = ("Error " + err); }
-		  else
-		   { 
-				resultsidSQLRandId = JSON.stringify(result.rows);
-				response.send(resultsidSQLRandId);					
-		   }
-		   done();
-		});			
-	});
-	
-	//response.sendFile(path.join(__dirname+'/voting/polls.html'), options, function (err) 
-	{
-		if (err) {
-		  response.status(err.status).end();
-		}
-		else {
-		  response.status('Sent:', options);
-		}
-	  });
 });
 
 app.get('/polls/:id', function(request, response) {
@@ -107,22 +73,18 @@ app.get('/polls/:id', function(request, response) {
 				title_voteVal = JSON.stringify(result.rows[0].title);				
 		   }
 		   done();
+		   fs.readFile('thispoll.html', 'utf8', function (err,data) {
+				if (err) 
+				{
+					return console.log(err);
+				}
+				response.end(data);
+			});
 		});	
 	});
-	var options = 
-	{
-		headers: { 
-					'kitkat': resultsidSQL,
-					'randid_vote' : randid_voteVal,
-					'votechoose_vote' : votechoose_voteVal,
-					'votes_vote' : votes_voteVal,
-					'uservoted_vote' : uservoted_voteVal,
-					'ipvoted_vote' : ipvoted_voteVal,
-					'title_vote' : title_voteVal	
-				 }
-	}
-	response.sendFile(path.join(__dirname+'/voting/thispoll.html'), options);
+				
 });
+/*
 app.get('/mypolls', function(request, response) {
   response.sendFile(path.join(__dirname+'/voting/mypolls.html'));
 });
