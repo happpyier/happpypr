@@ -73,16 +73,21 @@ app.get('/polls/:id', function(request, response) {
 				title_voteVal = JSON.stringify(result.rows[0].title);				
 		   }
 		   done();
-		   fs.readFile('thispoll.html', 'utf8', function (err,data) {
-				if (err) 
-				{
-					return console.log(err);
-				}
-				response.end(data);
-			});
 		});	
 	});
-				
+	var options = 
+	{
+		headers: { 
+					'kitkat': resultsidSQL,
+					'randid_vote' : randid_voteVal,
+					'votechoose_vote' : votechoose_voteVal,
+					'votes_vote' : votes_voteVal,
+					'uservoted_vote' : uservoted_voteVal,
+					'ipvoted_vote' : ipvoted_voteVal,
+					'title_vote' : title_voteVal	
+				 }
+	}
+	response.sendFile(path.join(__dirname+'/voting/thispoll.html'), options);
 });
 /*
 app.get('/mypolls', function(request, response) {
