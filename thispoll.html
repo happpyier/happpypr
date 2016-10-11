@@ -5,12 +5,6 @@
 			h2 { font-size: 20px; }
 			h2 { font-size: 26px; }
 			p { font-size: 16px; }
-			circle 
-			{
-				fill: yellowgreen;
-				stroke: #655;
-				stroke-width: 30;
-			}
 			#poll_results div { background-color: #FFFFFF; margin-left: 4%; margin-right: 4%; margin-bottom: 1px; height: 25px; text-align: center;}
 			#piechart { position: relative; height: 250px; width: 250px; border: 1px solid white; bottom:25%; left:50%;}
 			#choicemenu { padding-left: 50px; padding-top: 50px;}
@@ -30,7 +24,7 @@
 				margin-left: 50%;
 				height: 100%;
 				border-radius: 0 100% 100% 0 / 50%;
-				background: #655;
+				background: white;
 				transform-origin: left;
 				transform: rotate(.1turn);
 			}
@@ -39,7 +33,6 @@
 				width: 100px;
 				height: 100px;
 				border-radius: 50%;
-				background: white;
 				background: conic-gradient(deeppink 20%, #fb3 0, #fb3 30%, yellowgreen 0)
 				
 			}
@@ -124,9 +117,7 @@
 						</button>
 					</p>
 				</div>
-				<svg id='piechart'>
-					<circle> </circle>
-				</svg>
+				<div id='piechart' class="pie"> </div>
 			</div>
 			<div class='spacer'></div> 
 			<div class='bottom'>
