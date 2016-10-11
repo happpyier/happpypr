@@ -93,9 +93,8 @@
 					svg.setAttribute("viewBox", "0 0 32 32");
 					title.textContent = pie.textContent;
 					pie.textContent = '';
-					svg.appendChild(title);
-					svg.appendChild(circle);
-					pie.appendChild(svg);
+					document.getElementById("svgMain").appendChild(title);
+					document.getElementById("svgMain").appendChild(circle);
 				});
 			}
 
