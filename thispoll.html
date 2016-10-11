@@ -61,21 +61,21 @@
 				var title = req.getResponseHeader('title_vote').replace(/\{|\[|\"/g, "");
 				var total = 0;
 				document.getElementById('title').innerHTML = title;
-				for (var i=0; i < votechoose.length; i++)
+				votechoose.forEach(function(value)
 				{
 					var optn = document.createElement("option");
-					optn.innerHTML = votechoose[i];
-					optn.value = votechoose[i];
+					optn.innerHTML = value;
+					optn.value = value;
 					document.getElementById('poll_results').appendChild(optn); 
-				}
+				});
 				var optn = document.createElement("option");
 				optn.innerHTML = 'I\'d like a custom option.';
 				optn.value = 'custom';
 				document.getElementById('poll_results').appendChild(optn);
-				for (var i=0; i < votes.length; i++)
+				votes.forEach(function(value)
 				{
-					total += parseInt(votes[i]); 
-				}
+					total += parseInt(value]); 
+				});
 				for (var i=0; i < votes.length; i++)
 				{
 					document.getElementById('piechart').innerHTML +=  votechoose[i] + ' ' + votes[i] + '<br/>';
