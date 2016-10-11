@@ -36,17 +36,11 @@ app.get('', function(request, response) {
 		    {
 				
 				testSQlValue = result.rows;
-				preresultsidSQL = JSON.stringify(result.rows);
-				rowCount = JSON.stringify(result.rowCount);
-				resultsidSQL = preresultsidSQL.split(",");
 				testSQlValue.forEach(function(value){
 					response.write(
-						"<input type='button' href='https://happpypr.herokuapp.com/polls/" + value["randid"] + "'>"+value["title"] + "</input>"+"<br/>"
+						"<button href='https://happpypr.herokuapp.com/polls/" + value["randid"] + "'>"+value["title"] + "</button>"+"<br/>"
 					);
 				});
-				//resultsidSQL.forEach(function(entry) {
-				//	response.write(entry);
-				//});
 			}
 			done();
 			fs.readFile('footer.html', 'utf8', function (err,data) {
