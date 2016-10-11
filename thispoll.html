@@ -6,8 +6,7 @@
 			h2 { font-size: 26px; }
 			p { font-size: 16px; }
 			#poll_results div { background-color: #FFFFFF; margin-left: 4%; margin-right: 4%; margin-bottom: 1px; height: 25px; text-align: center;}
-			
-			#piechart { position: relative; height: 250px; width: 250px; border: 1px solid red; bottom:25%; left:50%;}
+			#piechart { position: relative; height: 250px; width: 250px; border: 1px solid white; bottom:25%; left:50%;}
 			#choicemenu { padding-left: 50px; padding-top: 50px;}
 			#submitvote { background-color: #0000FF; color: #FFFFFF; }
 			#sharetwitter { background-color: #6F6FFF; color: #FFFFFF; }
@@ -18,6 +17,7 @@
 			.endDiv { width: 150px !important;}
 			.hidden { display: none !important; }
 			.middle { height: 450px; }
+			.pie::before { content: ''; display: block; margin-left: 50%; height: 100%; border-radius: 0 100% 100% 0 / 50%; background-color: inherit; transform-origin: left; }
 			.pie { width: 100px; height: 100px; border-radius: 50%; background: yellowgreen; background-image: linear-gradient(to right, transparent 50%, #655 0);}
 			.spacer { height: 20px; background-color:#FFFFFF; }
 			.top { text-align: right; height: 40px; }
