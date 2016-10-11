@@ -40,8 +40,8 @@ app.get('', function(request, response) {
 				rowCount = JSON.stringify(result.rowCount);
 				resultsidSQL = preresultsidSQL.split(",");
 				response.write(typeof(testSQlValue[0]) + "..." + testSQlValue[0]["randid"] + "<br/>");
-				resultsidSQL.forEach(function(value){
-						response.write(value + "..." + typeof(value) +"<br/>");
+				testSQlValue.forEach(function(value){
+						response.write(value["randid"] + "..." + typeof(value) +"<br/>");
 				});
 				//resultsidSQL.forEach(function(entry) {
 				//	response.write(entry);
