@@ -39,9 +39,10 @@ app.get('', function(request, response) {
 				preresultsidSQL = JSON.stringify(result.rows);
 				rowCount = JSON.stringify(result.rowCount);
 				resultsidSQL = preresultsidSQL.split(",");
-				response.write(typeof(testSQlValue[0]) + "..." + testSQlValue[0]["randid"] + "<br/>");
 				testSQlValue.forEach(function(value){
-						response.write(value["randid"] + "..." + typeof(value) +"<br/>");
+					response.write(
+						"<input type='button' href='https://happpypr.herokuapp.com/polls/" + value["randid"] + "'>"+value["title"] + "</input>"+"<br/>"
+					);
 				});
 				//resultsidSQL.forEach(function(entry) {
 				//	response.write(entry);
