@@ -24,14 +24,18 @@
 				margin-left: 50%;
 				height: 100%;
 				border-radius: 0 100% 100% 0 / 50%;
-				background: white;
+				background: #655;
 				transform-origin: left;
 				transform: rotate(.1turn);
 			}
 			.pie 
 			{
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				background: white;
+				background-image: linear-gradient(to right, transparent 50%, #655 0);
 				background: conic-gradient(deeppink 20%, #fb3 0, #fb3 30%, yellowgreen 0)
-				
 			}
 			.spacer { height: 20px; background-color:#FFFFFF; }
 			.top { text-align: right; height: 40px; }
@@ -47,7 +51,7 @@
 			{
 				var req = new XMLHttpRequest();
 				req.open('GET', document.location, false);
-				req.send();
+				req.send(null);
 				var headers = req.getResponseHeader('kitkat').replace(/\{|\[/g, "");
 				var headers2 = JSON.stringify(headers);
 				var headers3 = headers.split(",");
@@ -61,21 +65,21 @@
 				var title = req.getResponseHeader('title_vote').replace(/\{|\[|\"/g, "");
 				var total = 0;
 				document.getElementById('title').innerHTML = title;
-				votechoose.forEach(function(value)
+				for (var i=0; i < votechoose.length; i++)
 				{
 					var optn = document.createElement("option");
-					optn.innerHTML = value;
-					optn.value = value;
+					optn.innerHTML = votechoose[i];
+					optn.value = votechoose[i];
 					document.getElementById('poll_results').appendChild(optn); 
-				});
+				}
 				var optn = document.createElement("option");
 				optn.innerHTML = 'I\'d like a custom option.';
 				optn.value = 'custom';
 				document.getElementById('poll_results').appendChild(optn);
-				votes.forEach(function(value)
+				for (var i=0; i < votes.length; i++)
 				{
-					total += parseInt(value]); 
-				});
+					total += parseInt(votes[i]); 
+				}
 				for (var i=0; i < votes.length; i++)
 				{
 					document.getElementById('piechart').innerHTML +=  votechoose[i] + ' ' + votes[i] + '<br/>';
