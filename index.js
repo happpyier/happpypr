@@ -87,7 +87,7 @@ app.get('/polls/:id', function(request, response) {
 					'title_vote' : title_voteVal	
 				 }
 	}
-	response.sendFile(path.join(__dirname+'/voting/thispoll.html'), options);
+	response.sendFile(path.join(__dirname+'/thispoll.html'), options);
 });
 /*
 app.get('/mypolls', function(request, response) {
