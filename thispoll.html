@@ -17,26 +17,6 @@
 			.endDiv { width: 150px !important;}
 			.hidden { display: none !important; }
 			.middle { height: 450px; }
-			.pie::before 
-			{
-			    content: '';
-				display: block;
-				margin-left: 50%;
-				height: 100%;
-				border-radius: 0 100% 100% 0 / 50%;
-				background: #655;
-				transform-origin: left;
-				transform: rotate(.1turn);
-			}
-			.pie 
-			{
-				width: 100px;
-				height: 100px;
-				border-radius: 50%;
-				background: white;
-				background-image: linear-gradient(to right, transparent 50%, #655 0);
-				background: conic-gradient(deeppink 20%, #fb3 0, #fb3 30%, yellowgreen 0)
-			}
 			.spacer { height: 20px; background-color:#FFFFFF; }
 			.top { text-align: right; height: 40px; }
 			.top div { width: 100px; height: 40px; display: inline-block; text-align: center; line-height: 40px; }
@@ -118,7 +98,11 @@
 						</button>
 					</p>
 				</div>
-				<div id='piechart' class="pie"> </div>
+				<div id='piechart'>
+					<svg width="250" height="250">
+					<circle r="150" cx="200" cy="200" />
+					</svg>
+				</div>
 			</div>
 			<div class='spacer'></div> 
 			<div class='bottom'>
