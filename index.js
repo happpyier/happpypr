@@ -75,7 +75,7 @@ app.get('/polls/:id', function(request, response) {
 		   done();
 		});	
 	});
-	fs.readFile('footer.html', 'utf8', function (err,data) 
+	fs.readFile('thispoll.html', 'utf8', function (err,data) 
 	{
 		if (err) 
 		{
