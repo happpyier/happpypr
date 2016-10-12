@@ -66,17 +66,18 @@
 				for (var i=0; i < votes.length; i++)
 				{
 					document.getElementById('chartCenter').innerHTML +=  votechoose[i] + ' ' + votes[i];
-					labels.push(votechoose[i]);
-					data.push(Math.round((votes[i]/total)*360));
 					var letters = '0123456789ABCDEF';
 					var colorSelection = '#';
 					for (var i = 0; i < 6; i++ ) 
 					{
 						colorSelection += letters[Math.floor(Math.random() * 16)];
 					}
+					data.push(Math.round((votes[i]/total)*360));
+					labels.push(votechoose[i]);
 					colors.push(colorSelection);
 				}
-				//alert (votes.length);
+
+				alert (data + "..." + labels + "..." colors);
 				document.getElementById('chartCenter').innerHTML += 'Total ' + total;
 				function drawSegment(canvas, context, i) 
 				{
