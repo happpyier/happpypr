@@ -29,7 +29,8 @@
 			}
 			function mysqlSubmit(id)
 			{
-				var postSqlVar = "SELECT * FROM vote_tb WHERE randid LIKE \'"+id+"\'";
+				var idMysql = document.getElementById('randid_hidden').innerHTML;
+				var postSqlVar = "SELECT * FROM vote_tb WHERE randid LIKE \'"+idMysql+"\'";
 				pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 				{
 					client.query(postSqlVar, function(err, result) 
@@ -178,7 +179,7 @@
 					</p>
 						<select id='poll_results'> </select>
 					<p>
-						<button id="submitvote"> 
+						<button id="submitvote" onclick="mysqlSubmit();"> 
 							<a>Submit</a>
 						</button>
 					</p>
