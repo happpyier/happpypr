@@ -65,7 +65,7 @@
 				}
 				for (var k=0; k < votes.length; k++)
 				{
-					document.getElementById('chartCenter').innerHTML +=  votechoose[i] + ' ' + votes[i];
+					
 					var letters = '0123456789ABCDEF';
 					var colorSelection = '#';
 					for (var i = 0; i < 6; i++ ) 
@@ -75,6 +75,7 @@
 					data.push((votes[k]/total)*360);
 					labels.push(votechoose[k]);
 					colors.push(colorSelection);
+					document.getElementById('chartCenter').innerHTML +=  votechoose[k] + "<div width='50px' height='50px' style='background-color:" + colorSelection + ";'> </div> " + votes[k];
 					//alert(votechoose[i] + "...labels" + [i]);
 				}
 				//alert(labels + "...labels");
