@@ -47,6 +47,7 @@
 				var labels = [];
 				var data = [];
 				var colors = [];
+				var hoverValue = [];
 				document.getElementById('title').innerHTML = title;
 				for (var i=0; i < votechoose.length; i++)
 				{
@@ -75,7 +76,8 @@
 					data.push((votes[k]/total)*360);
 					labels.push(votechoose[k]);
 					colors.push(colorSelection);
-					document.getElementById('chartCenter').innerHTML +=  votechoose[k] + "<div style='width:10px; height: 10px; background-color:" + colorSelection + "; display: inline-block;'> </div> " + votes[k];
+					hoverValue.push(votes[k]);
+					document.getElementById('chartCenter').innerHTML += "<div style='width:10px; height: 10px; background-color:" + colorSelection + "; display: inline-block;'> </div> " + votechoose[k];
 					//alert(votechoose[i] + "...labels" + [i]);
 				}
 				//alert(labels + "...labels");
