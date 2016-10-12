@@ -63,7 +63,7 @@
 				{
 					total += parseInt(votes[i]); 
 				}
-				for (var i=0; i < votes.length; i++)
+				for (var k=0; k < votes.length; k++)
 				{
 					document.getElementById('chartCenter').innerHTML +=  votechoose[i] + ' ' + votes[i];
 					var letters = '0123456789ABCDEF';
@@ -72,15 +72,15 @@
 					{
 						colorSelection += letters[Math.floor(Math.random() * 16)];
 					}
-					data.push((votes[i]/total)*360);
-					labels.push(votechoose[i]);
+					data.push((votes[k]/total)*360);
+					labels.push(votechoose[k]);
 					colors.push(colorSelection);
-					alert(votechoose[i] + "...labels" + [i]);
+					//alert(votechoose[i] + "...labels" + [i]);
 				}
-				alert(labels + "...labels");
-				var data = [120, 100, 140];
+				//alert(labels + "...labels");
+				//var data = [120, 100, 140];
 				//var labels = ["120", "100", "140"];
-				var colors = ["#FFDAB9", "#E6E6FA", "#E0FFFF"];
+				//var colors = ["#FFDAB9", "#E6E6FA", "#E0FFFF"];
 				document.getElementById('chartCenter').innerHTML += 'Total ' + total;
 				function drawSegment(canvas, context, i) 
 				{
