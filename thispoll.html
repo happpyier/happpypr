@@ -45,14 +45,14 @@
 				var ipvoted = req.getResponseHeader('ipvoted_vote').replace(/\{|\[|\"/g, "");
 				var title = req.getResponseHeader('title_vote').replace(/\{|\[|\"/g, "");
 				*/
-				var randid = randid_vote.replace(/\{|\[|\"/g, "");
-				var prevotechoose = votechoose_vote.replace(/\{|\[|\"/g, "");
+				var randid = randid_voteVal.replace(/\{|\[|\"/g, "");
+				var prevotechoose = votechoose_voteVal.replace(/\{|\[|\"/g, "");
 				var votechoose = prevotechoose.split('|');
-				var prevotes = votes_vote.replace(/\{|\[|\"/g, "");
+				var prevotes = votes_voteVal.replace(/\{|\[|\"/g, "");
 				var votes = prevotes.split('|');
-				var uservoted = uservoted_vote.replace(/\{|\[|\"/g, "");
-				var ipvoted = ipvoted_vote.replace(/\{|\[|\"/g, "");
-				var title = title_vote.replace(/\{|\[|\"/g, "");
+				var uservoted = uservoted_voteVal.replace(/\{|\[|\"/g, "");
+				var ipvoted = ipvoted_voteVal.replace(/\{|\[|\"/g, "");
+				var title = title_voteVal.replace(/\{|\[|\"/g, "");
 				
 				var total = 0;
 				var labels = [];
