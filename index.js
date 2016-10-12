@@ -87,7 +87,7 @@ app.get('/polls/:id', function(request, response) {
 });
 app.get('/submit/:id/:selection', function(request, response) 
 {
-		var pickId = request.params.id;
+	var pickId = request.params.id;
 	var postSqlVar = "UPDATE vote_tb SET votedalready = '1' WHERE randid LIKE \'"+pickId+"\'";
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	{
@@ -103,7 +103,7 @@ app.get('/submit/:id/:selection', function(request, response)
 		});
 
 	});
-	//document.location.href='/polls/' + idMysql;
+	document.location.href='/polls/' + pickId;
 });
 app.get('/mypolls', function(request, response) 
 {
