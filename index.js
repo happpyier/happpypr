@@ -98,14 +98,13 @@ app.get('/submit/:id/:selection', function(request, response)
 				{ resultsidSQL = ("Error " + err); }
 			else
 			{ 
-				response.redirect('/user_profile');
+				response.redirect(location);
 				response.end();
 			}
 			done();
 		});
 
 	});
-	//document.location.href='https://happpypr.herokuapp.com/polls/' + pickId;
 });
 app.get('/mypolls', function(request, response) 
 {
