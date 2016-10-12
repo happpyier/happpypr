@@ -31,19 +31,6 @@
 			{
 				var idMysql = document.getElementById('randid_hidden').innerHTML;
 				var postSqlVar = "SELECT * FROM vote_tb WHERE randid LIKE \'"+idMysql+"\'";
-				pg.connect(process.env.DATABASE_URL, function(err, client, done) 
-				{
-					client.query(postSqlVar, function(err, result) 
-					{
-						if (err)
-						{ resultsidSQL = ("Error " + err); }
-						else
-						{ 
-							alert("it got here");
-						}
-						done();
-					});
-				});
 			}
 			function startup()
 			{
