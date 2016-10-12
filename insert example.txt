@@ -1,0 +1,1 @@
+insert into vote_tb values ('yPUXZS6RuZECDxztw', 'curious', '1', 'Thomas', '108.190.97.161', 'Example of Dog Kings', '1');

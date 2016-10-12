@@ -16,7 +16,7 @@ app.set("Content-Type", "text/html");
 app.get(['', '/polls'], function(request, response) {
 	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
 	var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
-	var queryForSQL = "SELECT randid, title FROM vote_tb LIMIT 50";
+	var queryForSQL = "SELECT DISTINCT randid, title FROM vote_tb LIMIT 50";
 	
 	fs.readFile('index.html', 'utf8', function (err,data) {
 		if (err) 
@@ -88,7 +88,7 @@ app.get('/polls/:id', function(request, response) {
 app.get('/submit/:id/:selection', function(request, response) 
 {
 	var pickId = request.params.id;
-	var postSqlVar = "UPDATE vote_tb SET votedalready = '1' WHERE randid LIKE \'"+pickId+"\'";
+	var postSqlVar = "UPDATE vote_tb  SET votedalready = '1' WHERE randid LIKE \'"+pickId+"\'";
 	var location = '/polls/' + pickId;
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	{
@@ -119,6 +119,8 @@ app.get('/mypolls', function(request, response)
 });
 app.get('/newpoll', function(request, response)
 {
+	//NEED to create the rows by title. with seperate votechoose and votes on each row.
+	
 	fs.readFile('newpoll.html', 'utf8', function (err,data) 
 	{
 		if (err) 
