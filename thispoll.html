@@ -92,6 +92,12 @@
 
 					drawSegmentLabel(canvas, context, i);
 				}
+				canvas = document.getElementById("piechart");
+				var context = canvas.getContext("2d");
+				for (var i = 0; i < data.length; i++) 
+				{
+					drawSegment(canvas, context, i);
+				}
 			}
 
 		</script>
@@ -125,10 +131,8 @@
 						</button>
 					</p>
 				</div>
-				<div  id='piechart'>
-					<svg width='400' height='400' id='svgMain'>
-					</svg>
-				</div>
+				<canvas id="piechart" width="400" height="400">
+				</canvas>
 			</div>
 			<div class='spacer'></div> 
 			<div class='bottom'>
