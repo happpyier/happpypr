@@ -87,7 +87,14 @@ app.get('/polls/:id', function(request, response) {
 });
 app.get('/submit/:id/:selection', function(request, response) 
 {
-	alert ("hello");
+	fs.readFile('info.html', 'utf8', function (err,data) 
+	{
+		if (err) 
+		{
+			return console.log(err);
+		}
+		response.end(data);
+	});	
 });
 app.get('/mypolls', function(request, response) 
 {
