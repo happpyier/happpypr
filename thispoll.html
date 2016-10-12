@@ -92,6 +92,26 @@
 
 					drawSegmentLabel(canvas, context, i);
 				}
+				function drawSegmentLabel(canvas, context, i) 
+				{
+				   context.save();
+				   var x = Math.floor(canvas.width / 2);
+				   var y = Math.floor(canvas.height / 2);
+				   var angle = degreesToRadians(sumTo(data, i));
+
+				   context.translate(x, y);
+				   context.rotate(angle);
+				   var dx = Math.floor(canvas.width * 0.5) - 10;
+				   var dy = Math.floor(canvas.height * 0.05);
+
+				   context.textAlign = "right";
+				   var fontSize = Math.floor(canvas.height / 25);
+				   context.font = fontSize + "pt Helvetica";
+
+				   context.fillText(labels[i], dx, dy);
+
+				   context.restore();
+				}
 				function degreesToRadians(degrees) 
 				{
 					return (degrees * Math.PI)/180;
