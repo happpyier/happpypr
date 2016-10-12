@@ -59,10 +59,8 @@ app.get('/polls/:id', function(request, response) {
 	{
 		client.query(postSqlVar, function(err, result) {
 		  if (err)
-		   //{ resultsSQL = "Error "+ err; response.send("Error " + err);  }
 		   { resultsidSQL = ("Error " + err); }
 		  else
-		   //{ resultsSQL = "Results " + {results: result.rows}; response.render('pages/db', {results: result.rows} ); }
 		   { 
 				resultsidSQL = JSON.stringify(result.rows);
 				randid_voteVal = JSON.stringify(result.rows[0].randid);
@@ -71,7 +69,7 @@ app.get('/polls/:id', function(request, response) {
 				uservoted_voteVal = JSON.stringify(result.rows[0].uservoted);
 				ipvoted_voteVal = JSON.stringify(result.rows[0].ipvoted);
 				title_voteVal = JSON.stringify(result.rows[0].title);
-				response.write( "<div 'class='hidden' id= 'randid_hidden'>" + value["title"] + "</div> <div 'class='hidden' id= 'votechoose_hidden'>" + value["title"] + "</div> <div 'class='hidden' id= 'votes_hidden'>" + value["title"] + "</div> <div 'class='hidden' id= 'uservoted_hidden'>" + value["title"] + "</div> <div 'class='hidden' id= 'ipvoted_hidden'>" + value["title"] + "</div> <div 'class='hidden' id= 'title_hidden'>" + value["title"] + "</div>"	);
+				response.write( "<div 'class='hidden' id= 'randid_hidden'>" + randid_voteVal + "</div> <div 'class='hidden' id= 'votechoose_hidden'>" + votechoose_voteVal + "</div> <div 'class='hidden' id= 'votes_hidden'>" + votes_voteVal + "</div> <div 'class='hidden' id= 'uservoted_hidden'>" + uservoted_voteVal + "</div> <div 'class='hidden' id= 'ipvoted_hidden'>" + ipvoted_voteVal + "</div> <div 'class='hidden' id= 'title_hidden'>" + title_voteVal + "</div>"	);
 		   }
 		   done();
 		   	fs.readFile('thispoll.html', 'utf8', function (err,data) 
