@@ -85,7 +85,7 @@ app.get('/polls/:id', function(request, response) {
 
 	});
 });
-app.get('/polls/submit/:id/:selection', function(request, response) 
+app.get('/submit/:id/:selection', function(request, response) 
 {
 	var pickId = request.params.id;
 	var postSqlVar = "UPDATE vote_tb SET votedalready = 1 WHERE randid LIKE \'"+pickId+"\'";
