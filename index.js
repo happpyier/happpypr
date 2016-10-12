@@ -73,28 +73,49 @@ app.get('/polls/:id', function(request, response) {
 		   }
 		   done();
 		   	fs.readFile('thispoll.html', 'utf8', function (err,data) 
+			{
+				if (err) 
+				{
+					return console.log(err);
+				}
+				response.end(data);
+			});	
+	});
+
+	});
+});
+app.get('/mypolls', function(request, response) 
+{
+	fs.readFile('mypolls.html', 'utf8', function (err,data) 
 	{
 		if (err) 
 		{
 			return console.log(err);
 		}
 		response.end(data);
-		});	
-	});
-
-	});
-	//response.sendFile(path.join(__dirname+'/thispoll.html'), options);
+	});	
 });
-/*
-app.get('/mypolls', function(request, response) {
-  response.sendFile(path.join(__dirname+'/voting/mypolls.html'));
+app.get('/newpoll', function(request, response)
+{
+	fs.readFile('newpoll.html', 'utf8', function (err,data) 
+	{
+		if (err) 
+		{
+			return console.log(err);
+		}
+		response.end(data);
+	});	
 });
-app.get('/newpoll', function(request, response) {
-  response.sendFile(path.join(__dirname+'/voting/newpoll.html'));
-});
-*/
-app.get('/info', function(request, response) {
-  response.sendFile(path.join(__dirname+'/voting/info.html'));
+app.get('/info', function(request, response)
+{
+	fs.readFile('info.html', 'utf8', function (err,data) 
+	{
+		if (err) 
+		{
+			return console.log(err);
+		}
+		response.end(data);
+	});	
 });
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
