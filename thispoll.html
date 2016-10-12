@@ -45,14 +45,14 @@
 				var ipvoted = req.getResponseHeader('ipvoted_vote').replace(/\{|\[|\"/g, "");
 				var title = req.getResponseHeader('title_vote').replace(/\{|\[|\"/g, "");
 				*/
-				var randid = randid_voteVal.replace(/\{|\[|\"/g, "");
-				var prevotechoose = votechoose_voteVal.replace(/\{|\[|\"/g, "");
+				var randid = document.getElementById("randid_hidden").innerHTML.replace(/\{|\[|\"/g, "");
+				var prevotechoose = document.getElementById("votechoose_hidden").innerHTML.replace(/\{|\[|\"/g, "");
 				var votechoose = prevotechoose.split('|');
-				var prevotes = votes_voteVal.replace(/\{|\[|\"/g, "");
+				var prevotes = document.getElementById("votes_hidden").innerHTML.replace(/\{|\[|\"/g, "");
 				var votes = prevotes.split('|');
-				var uservoted = uservoted_voteVal.replace(/\{|\[|\"/g, "");
-				var ipvoted = ipvoted_voteVal.replace(/\{|\[|\"/g, "");
-				var title = title_voteVal.replace(/\{|\[|\"/g, "");
+				var uservoted = document.getElementById("uservoted_hidden").innerHTML.replace(/\{|\[|\"/g, "");
+				var ipvoted = document.getElementById("ipvoted_hidden").innerHTML.replace(/\{|\[|\"/g, "");
+				var title = document.getElementById("title_hidden").innerHTML.replace(/\{|\[|\"/g, "");
 				
 				var total = 0;
 				var labels = [];

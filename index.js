@@ -70,7 +70,11 @@ app.get('/polls/:id', function(request, response) {
 				votes_voteVal = JSON.stringify(result.rows[0].votes);
 				uservoted_voteVal = JSON.stringify(result.rows[0].uservoted);
 				ipvoted_voteVal = JSON.stringify(result.rows[0].ipvoted);
-				title_voteVal = JSON.stringify(result.rows[0].title);				
+				title_voteVal = JSON.stringify(result.rows[0].title);
+				response.write
+				(
+					"<div 'class='hidden' id= 'randid_hidden'>" + value["title"] + "</div> <div 'class='hidden' id= 'votechoose_hidden'>" + value["title"] + "</div> <div 'class='hidden' id= 'votes_hidden'>" + value["title"] + "</div> <div 'class='hidden' id= 'uservoted_hidden'>" + value["title"] + "</div> <div 'class='hidden' id= 'ipvoted_hidden'>" + value["title"] + "</div> <div 'class='hidden' id= 'title_hidden'>" + value["title"] + "</div>"
+				);
 		   }
 		   done();
 		   	fs.readFile('thispoll.html', 'utf8', function (err,data) 
