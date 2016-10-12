@@ -97,7 +97,8 @@ app.get('/submit/:id/:selection', function(request, response)
 				{ resultsidSQL = ("Error " + err); }
 			else
 			{ 
-				
+				alert("it got here")
+				response.end();
 			}
 			done();	
 		});
