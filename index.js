@@ -67,7 +67,7 @@ app.get('/polls/:id', function(request, response) {
 		   { resultsidSQL = ("Error " + err); }
 		  else
 		   { 
-				for (var i = 0, len = result.length; i < len; i++) 
+				for (var i = 0, i < len; i++) 
 				{
 					randid_voteVal += JSON.stringify(result.rows[i].randid);
 					votechoose_voteVal += JSON.stringify(result.rows[i].votechoose);
