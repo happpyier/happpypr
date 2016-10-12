@@ -6,7 +6,7 @@
 			h2 { font-size: 26px; }
 			p { font-size: 16px; }
 			#poll_results div { background-color: #FFFFFF; margin-left: 4%; margin-right: 4%; margin-bottom: 1px; height: 25px; text-align: center;}
-			#chartCenter { position: relative; height: 250px; width: 250px; bottom:50%; left:50%;}
+			#chartCenter { position: relative; height: 250px; width: 250px; bottom:50%; left:50%; background-color: white;}
 			#choicemenu { padding-left: 50px; padding-top: 50px;}
 			#submitvote { background-color: #0000FF; color: #FFFFFF; }
 			#sharetwitter { background-color: #6F6FFF; color: #FFFFFF; }
@@ -44,6 +44,9 @@
 				var ipvoted = req.getResponseHeader('ipvoted_vote').replace(/\{|\[|\"/g, "");
 				var title = req.getResponseHeader('title_vote').replace(/\{|\[|\"/g, "");
 				var total = 0;
+				var labels = [];
+				var data = [];
+				var colors = [];
 				document.getElementById('title').innerHTML = title;
 				for (var i=0; i < votechoose.length; i++)
 				{
@@ -63,11 +66,11 @@
 				for (var i=0; i < votes.length; i++)
 				{
 					document.getElementById('piechart').innerHTML +=  votechoose[i] + ' ' + votes[i];
+					labels.push(votechoose[i]);
+					data.push((votes[i]/total)*360);
+					colors.push(rgb((Math.random() * 255), (Math.random() * 255), (Math.random() * 255)))
 				}
 				document.getElementById('piechart').innerHTML += 'Total ' + total;
-				var data = [120, 100, 140];
-				var labels = ["120", "100", "140"];
-				var colors = ["#FFDAB9", "#E6E6FA", "#E0FFFF"];
 				function drawSegment(canvas, context, i) 
 				{
 					context.save();
