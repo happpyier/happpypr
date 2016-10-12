@@ -92,6 +92,19 @@
 
 					drawSegmentLabel(canvas, context, i);
 				}
+				function degreesToRadians(degrees) 
+				{
+					return (degrees * Math.PI)/180;
+				}
+				function sumTo(a, i) 
+				{
+					var sum = 0;
+					for (var j = 0; j < i; j++) 
+					{
+					  sum += a[j];
+					}
+					return sum;
+				}
 				canvas = document.getElementById("piechart");
 				var context = canvas.getContext("2d");
 				for (var i = 0; i < data.length; i++) 
