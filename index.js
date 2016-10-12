@@ -98,8 +98,7 @@ app.get('/submit/:id/:selection', function(request, response)
 				{ resultsidSQL = ("Error " + err); }
 			else
 			{ 
-				//response.end("Finished");
-				setHeader("Location", location);
+				response.redirect(location);
 			}
 			done();
 		});
