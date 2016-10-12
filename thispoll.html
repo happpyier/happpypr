@@ -76,8 +76,9 @@
 					labels.push(votechoose[i]);
 					colors.push(colorSelection);
 				}
-
-				alert (data + "..." + labels + "..." + colors);
+				var data = [120, 100, 140];
+				var labels = ["120", "100", "140"];
+				var colors = ["#FFDAB9", "#E6E6FA", "#E0FFFF"];
 				document.getElementById('chartCenter').innerHTML += 'Total ' + total;
 				function drawSegment(canvas, context, i) 
 				{
