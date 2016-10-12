@@ -27,6 +27,23 @@
 			{
 				document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+id+"'>"+title+"</a></div>";
 			}
+			function mysqlSubmit(id)
+			{
+				var postSqlVar = "SELECT * FROM vote_tb WHERE randid LIKE \'"+id+"\'";
+				pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+				{
+					client.query(postSqlVar, function(err, result) 
+					{
+						if (err)
+						{ resultsidSQL = ("Error " + err); }
+						else
+						{ 
+							alert("it got here");
+						}
+						done();
+					});
+				});
+			}
 			function startup()
 			{
 				var randid = document.getElementById("randid_hidden").innerHTML.replace(/\{|\[|\"/g, "");
