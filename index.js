@@ -91,7 +91,8 @@ app.get('/submit/:id/:selection', function(request, response)
 	var postSqlVar = "UPDATE vote_tb SET votedalready = '1' WHERE randid LIKE \'"+pickId+"\'";
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	{
-		client.query(postSqlVar, function(err, result) {
+		client.query(postSqlVar, function(err, result) 
+		{
 			if (err)
 				{ resultsidSQL = ("Error " + err); }
 			else
@@ -99,9 +100,10 @@ app.get('/submit/:id/:selection', function(request, response)
 				response.end("Finished");
 			}
 			done();
-	});
+		});
 
 	});
+	document.location.href='/polls/' + idMysql;
 });
 app.get('/mypolls', function(request, response) 
 {
