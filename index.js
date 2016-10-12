@@ -88,7 +88,7 @@ app.get('/polls/:id', function(request, response) {
 app.get('/submit/:id/:selection', function(request, response) 
 {
 	var pickId = request.params.id;
-	var postSqlVar = "UPDATE vote_tb SET votedalready = 1 WHERE randid LIKE \'"+pickId+"\'";
+	var postSqlVar = "UPDATE vote_tb SET votedalready = '1' WHERE randid LIKE \'"+pickId+"\'";
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	{
 		client.query(postSqlVar, function(err, result) 
