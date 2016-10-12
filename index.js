@@ -99,7 +99,7 @@ app.get('/submit/:id/:selection', function(request, response)
 			else
 			{ 
 				//response.end("Finished");
-				res.setHeader("Location", location);
+				setHeader("Location", location);
 			}
 			done();
 		});
