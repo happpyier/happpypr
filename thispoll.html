@@ -29,9 +29,10 @@
 			}
 			function startup()
 			{
-				var req = new XMLHttpRequest();
-				req.open('GET', document.location, false);
-				req.send(null);
+				//var req = new XMLHttpRequest();
+				//req.open('GET', document.location, false);
+				//req.send(null);
+				/*
 				var headers = req.getResponseHeader('kitkat').replace(/\{|\[/g, "");
 				var headers2 = JSON.stringify(headers);
 				var headers3 = headers.split(",");
@@ -43,6 +44,16 @@
 				var uservoted = req.getResponseHeader('uservoted_vote').replace(/\{|\[|\"/g, "");
 				var ipvoted = req.getResponseHeader('ipvoted_vote').replace(/\{|\[|\"/g, "");
 				var title = req.getResponseHeader('title_vote').replace(/\{|\[|\"/g, "");
+				*/
+				var randid = randid_vote.replace(/\{|\[|\"/g, "");
+				var prevotechoose = votechoose_vote.replace(/\{|\[|\"/g, "");
+				var votechoose = prevotechoose.split('|');
+				var prevotes = votes_vote.replace(/\{|\[|\"/g, "");
+				var votes = prevotes.split('|');
+				var uservoted = uservoted_vote.replace(/\{|\[|\"/g, "");
+				var ipvoted = ipvoted_vote.replace(/\{|\[|\"/g, "");
+				var title = title_vote.replace(/\{|\[|\"/g, "");
+				
 				var total = 0;
 				var labels = [];
 				var data = [];
@@ -142,6 +153,7 @@
 				{
 					drawSegment(canvas, context, i);
 				}
+				
 			}
 
 		</script>

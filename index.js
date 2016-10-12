@@ -75,19 +75,12 @@ app.get('/polls/:id', function(request, response) {
 		   done();
 		});	
 	});
-	var options = 
+	fs.readFile('thispoll.html', 'utf8', function (err,data) {
+	if (err) 
 	{
-		headers: { 
-					'kitkat': resultsidSQL,
-					'randid_vote' : randid_voteVal,
-					'votechoose_vote' : votechoose_voteVal,
-					'votes_vote' : votes_voteVal,
-					'uservoted_vote' : uservoted_voteVal,
-					'ipvoted_vote' : ipvoted_voteVal,
-					'title_vote' : title_voteVal	
-				 }
+		return console.log(err);
 	}
-	response.sendFile(path.join(__dirname+'/thispoll.html'), options);
+	//response.sendFile(path.join(__dirname+'/thispoll.html'), options);
 });
 /*
 app.get('/mypolls', function(request, response) {
