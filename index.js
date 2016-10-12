@@ -53,6 +53,11 @@ app.get(['', '/polls'], function(request, response) {
 });
 
 app.get('/polls/:id', function(request, response) {
+	//NEED to create the rows by title. with seperate votechoose and votes on each row.
+	//
+	//
+	//
+	//
 	var pickId = request.params.id;
 	var postSqlVar = "SELECT * FROM vote_tb WHERE randid LIKE \'"+pickId+"\'";
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
@@ -62,14 +67,17 @@ app.get('/polls/:id', function(request, response) {
 		   { resultsidSQL = ("Error " + err); }
 		  else
 		   { 
-				resultsidSQL = JSON.stringify(result.rows);
-				randid_voteVal = JSON.stringify(result.rows[0].randid);
-				votechoose_voteVal = JSON.stringify(result.rows[0].votechoose);
-				votes_voteVal = JSON.stringify(result.rows[0].votes);
-				uservoted_voteVal = JSON.stringify(result.rows[0].uservoted);
-				ipvoted_voteVal = JSON.stringify(result.rows[0].ipvoted);
-				title_voteVal = JSON.stringify(result.rows[0].title);
-				alreadyvoted_voteVal = JSON.stringify(result.rows[0].votedalready);
+				result.forEach(value)
+				{
+					resultsidSQL = JSON.stringify(value.rows);
+					randid_voteVal = JSON.stringify(value.rows[0].randid);
+					votechoose_voteVal = JSON.stringify(value.rows[0].votechoose);
+					votes_voteVal = JSON.stringify(value.rows[0].votes);
+					uservoted_voteVal = JSON.stringify(value.rows[0].uservoted);
+					ipvoted_voteVal = JSON.stringify(value.rows[0].ipvoted);
+					title_voteVal = JSON.stringify(value.rows[0].title);
+					alreadyvoted_voteVal = JSON.stringify(value.rows[0].votedalready);
+				}
 				response.write( "<div class='hidden' style='display:none' id= 'randid_hidden'>" + randid_voteVal + "</div> <div class='hidden' style='display:none' id= 'votechoose_hidden'>" + votechoose_voteVal + "</div> <div class='hidden' style='display:none' id= 'votes_hidden'>" + votes_voteVal + "</div> <div class='hidden' style='display:none' id= 'uservoted_hidden'>" + uservoted_voteVal + "</div> <div class='hidden' style='display:none' id= 'ipvoted_hidden'>" + ipvoted_voteVal + "</div> <div class='hidden' style='display:none' id= 'title_hidden'>" + title_voteVal + "</div> <div class='hidden' style='display:none' id= 'alreadyvoted'>" + alreadyvoted_voteVal + "</div>"	);
 		   }
 		   done();
