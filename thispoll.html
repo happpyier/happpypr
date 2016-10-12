@@ -29,6 +29,15 @@
 			}
 			function startup()
 			{
+				var randid = document.getElementById("randid_hidden").innerHTML.replace(/\{|\[|\"/g, "");
+				var prevotechoose = document.getElementById("votechoose_hidden").innerHTML.replace(/\{|\[|\"/g, "");
+				var votechoose = prevotechoose.split('|');
+				var prevotes = document.getElementById("votes_hidden").innerHTML.replace(/\{|\[|\"/g, "");
+				var votes = prevotes.split('|');
+				var uservoted = document.getElementById("uservoted_hidden").innerHTML.replace(/\{|\[|\"/g, "");
+				var ipvoted = document.getElementById("ipvoted_hidden").innerHTML.replace(/\{|\[|\"/g, "");
+				var title = document.getElementById("title_hidden").innerHTML.replace(/\{|\[|\"/g, "");
+				
 				var total = 0;
 				var labels = [];
 				var data = [];
@@ -133,7 +142,7 @@
 
 		</script>
 	</head>
-	<body onload='startup();'>
+	<body>
 		<div class='center'>
 			<div class='top bgcolor'>
 				<a href="http://happpypr.herokuapp.com/polls"><div class='currentPage'>Home</div></a>
