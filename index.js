@@ -85,6 +85,25 @@ app.get('/polls/:id', function(request, response) {
 
 	});
 });
+app.get('/polls/submit/:id/:selection', function(request, response) 
+{
+	var pickId = request.params.id;
+	var postSqlVar = "UPDATE vote_tb SET votedalready = 1 WHERE randid LIKE \'"+pickId+"\'";
+	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+	{
+		client.query(postSqlVar, function(err, result) 
+		{
+			if (err)
+				{ resultsidSQL = ("Error " + err); }
+			else
+			{ 
+				
+			}
+			done();	
+		});
+
+	});
+});
 app.get('/mypolls', function(request, response) 
 {
 	fs.readFile('mypolls.html', 'utf8', function (err,data) 
