@@ -29,31 +29,6 @@
 			}
 			function startup()
 			{
-				//var req = new XMLHttpRequest();
-				//req.open('GET', document.location, false);
-				//req.send(null);
-				/*
-				var headers = req.getResponseHeader('kitkat').replace(/\{|\[/g, "");
-				var headers2 = JSON.stringify(headers);
-				var headers3 = headers.split(",");
-				var randid = req.getResponseHeader('randid_vote').replace(/\{|\[|\"/g, "");
-				var prevotechoose = req.getResponseHeader('votechoose_vote').replace(/\{|\[|\"/g, "");
-				var votechoose = prevotechoose.split('|');
-				var prevotes = req.getResponseHeader('votes_vote').replace(/\{|\[|\"/g, "");
-				var votes = prevotes.split('|');
-				var uservoted = req.getResponseHeader('uservoted_vote').replace(/\{|\[|\"/g, "");
-				var ipvoted = req.getResponseHeader('ipvoted_vote').replace(/\{|\[|\"/g, "");
-				var title = req.getResponseHeader('title_vote').replace(/\{|\[|\"/g, "");
-				*/
-				var randid = document.getElementById("randid_hidden").innerHTML.replace(/\{|\[|\"/g, "");
-				var prevotechoose = document.getElementById("votechoose_hidden").innerHTML.replace(/\{|\[|\"/g, "");
-				var votechoose = prevotechoose.split('|');
-				var prevotes = document.getElementById("votes_hidden").innerHTML.replace(/\{|\[|\"/g, "");
-				var votes = prevotes.split('|');
-				var uservoted = document.getElementById("uservoted_hidden").innerHTML.replace(/\{|\[|\"/g, "");
-				var ipvoted = document.getElementById("ipvoted_hidden").innerHTML.replace(/\{|\[|\"/g, "");
-				var title = document.getElementById("title_hidden").innerHTML.replace(/\{|\[|\"/g, "");
-				
 				var total = 0;
 				var labels = [];
 				var data = [];
