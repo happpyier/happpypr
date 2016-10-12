@@ -95,6 +95,10 @@ app.get('/mypolls', function(request, response)
 		response.end(data);
 	});	
 });
+app.get('/returnfalse', function(request, response)
+{
+	return false;
+});
 app.get('/newpoll', function(request, response)
 {
 	fs.readFile('newpoll.html', 'utf8', function (err,data) 
