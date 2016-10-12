@@ -78,13 +78,7 @@
 					colors.push(colorSelection);
 					hoverValue.push(votes[k]);
 					document.getElementById('chartCenter').innerHTML += "<div style='width:10px; height: 10px; background-color:" + colorSelection + "; display: inline-block;'> </div> " + votechoose[k];
-					//alert(votechoose[i] + "...labels" + [i]);
 				}
-				//alert(labels + "...labels");
-				//var data = [120, 100, 140];
-				//var labels = ["120", "100", "140"];
-				//var colors = ["#FFDAB9", "#E6E6FA", "#E0FFFF"];
-				document.getElementById('chartCenter').innerHTML += 'Total ' + total;
 				function drawSegment(canvas, context, i) 
 				{
 					context.save();
