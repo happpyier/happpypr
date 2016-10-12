@@ -69,7 +69,8 @@ app.get('/polls/:id', function(request, response) {
 				uservoted_voteVal = JSON.stringify(result.rows[0].uservoted);
 				ipvoted_voteVal = JSON.stringify(result.rows[0].ipvoted);
 				title_voteVal = JSON.stringify(result.rows[0].title);
-				response.write( "<div class='hidden' style='display:none' id= 'randid_hidden'>" + randid_voteVal + "</div> <div class='hidden' style='display:none' id= 'votechoose_hidden'>" + votechoose_voteVal + "</div> <div class='hidden' style='display:none' id= 'votes_hidden'>" + votes_voteVal + "</div> <div class='hidden' style='display:none' id= 'uservoted_hidden'>" + uservoted_voteVal + "</div> <div class='hidden' style='display:none' id= 'ipvoted_hidden'>" + ipvoted_voteVal + "</div> <div class='hidden' style='display:none' id= 'title_hidden'>" + title_voteVal + "</div>"	);
+				alreadyvoted_voteVal = JSON.stringify(result.rows[0].alreadyvoted);
+				response.write( "<div class='hidden' style='display:none' id= 'randid_hidden'>" + randid_voteVal + "</div> <div class='hidden' style='display:none' id= 'votechoose_hidden'>" + votechoose_voteVal + "</div> <div class='hidden' style='display:none' id= 'votes_hidden'>" + votes_voteVal + "</div> <div class='hidden' style='display:none' id= 'uservoted_hidden'>" + uservoted_voteVal + "</div> <div class='hidden' style='display:none' id= 'ipvoted_hidden'>" + ipvoted_voteVal + "</div> <div class='hidden' style='display:none' id= 'title_hidden'>" + title_voteVal + "</div> <div class='hidden' style='display:none' id= 'alreadyvoted'>" + alreadyvoted_voteVal + "</div>"	);
 		   }
 		   done();
 		   	fs.readFile('thispoll.html', 'utf8', function (err,data) 

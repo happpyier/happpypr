@@ -29,8 +29,17 @@
 			}
 			function mysqlSubmit(id)
 			{
-				var idMysql = document.getElementById('randid_hidden').innerHTML;
-				var postSqlVar = "SELECT * FROM vote_tb WHERE randid LIKE \'"+idMysql+"\'";
+				var idMysql = document.getElementById('randid_hidden').innerHTML.replace(/\{|\[|\"/g, "");
+				var didyouvote = document.getElementById("title_hidden").innerHTML.replace(/\{|\[|\"/g, "");
+				if (didyouvote)
+				{
+					alert("Sorry you already voted on this!");
+					return false;
+				}
+				else
+				{
+					//Code to vote.
+				}
 			}
 			function startup()
 			{
@@ -42,7 +51,7 @@
 				var uservoted = document.getElementById("uservoted_hidden").innerHTML.replace(/\{|\[|\"/g, "");
 				var ipvoted = document.getElementById("ipvoted_hidden").innerHTML.replace(/\{|\[|\"/g, "");
 				var title = document.getElementById("title_hidden").innerHTML.replace(/\{|\[|\"/g, "");
-				
+				var alreadyvoted = document.getElementById("title_hidden").innerHTML.replace(/\{|\[|\"/g, "");
 				var total = 0;
 				var labels = [];
 				var data = [];
