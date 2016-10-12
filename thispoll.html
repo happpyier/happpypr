@@ -67,7 +67,7 @@
 				{
 					document.getElementById('chartCenter').innerHTML +=  votechoose[i] + ' ' + votes[i];
 					labels.push(votechoose[i]);
-					data.push((votes[i]/total)*360);
+					data.push(Math.round((votes[i]/total)*360));
 					var letters = '0123456789ABCDEF';
 					var colorSelection = '#';
 					for (var i = 0; i < 6; i++ ) 
@@ -77,7 +77,7 @@
 					var colorSelection;
 					colors.push(colorSelection);
 				}
-				alert (votes.length);
+				//alert (votes.length);
 				document.getElementById('piechart').innerHTML += 'Total ' + total;
 				function drawSegment(canvas, context, i) 
 				{
