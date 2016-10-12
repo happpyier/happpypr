@@ -103,7 +103,7 @@ app.get('/submit/:id/:selection', function(request, response)
 		});
 
 	});
-	document.location.href='/polls/' + idMysql;
+	//document.location.href='/polls/' + idMysql;
 });
 app.get('/mypolls', function(request, response) 
 {
