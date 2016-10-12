@@ -75,11 +75,14 @@ app.get('/polls/:id', function(request, response) {
 		   done();
 		});	
 	});
-	fs.readFile('thispoll.html', 'utf8', function (err,data) {
-	if (err) 
+	fs.readFile('footer.html', 'utf8', function (err,data) 
 	{
-		return console.log(err);
-	}
+		if (err) 
+		{
+			return console.log(err);
+		}
+		response.end(data);
+	});
 	//response.sendFile(path.join(__dirname+'/thispoll.html'), options);
 });
 /*
