@@ -103,7 +103,7 @@ app.get('/submit/:id/:selection', function(request, response)
 		});
 
 	});
-	document.location.href='/polls/' + pickId;
+	document.location.href='https://happpypr.herokuapp.com/polls/' + pickId;
 });
 app.get('/mypolls', function(request, response) 
 {
