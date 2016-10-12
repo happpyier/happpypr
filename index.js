@@ -69,7 +69,6 @@ app.get('/polls/:id', function(request, response) {
 		   { 
 				result.forEach( function (value)
 				{
-					resultsidSQL = JSON.stringify(value.rows);
 					randid_voteVal = JSON.stringify(value.rows[0].randid);
 					votechoose_voteVal = JSON.stringify(value.rows[0].votechoose);
 					votes_voteVal = JSON.stringify(value.rows[0].votes);
