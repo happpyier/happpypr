@@ -30,7 +30,7 @@
 			function mysqlSubmit(id)
 			{
 				var idMysql = document.getElementById('randid_hidden').innerHTML.replace(/\{|\[|\"/g, "");
-				var didyouvote = document.getElementById("title_hidden").innerHTML.replace(/\{|\[|\"/g, "");
+				var didyouvote = document.getElementById("alreadyvoted").innerHTML.replace(/\{|\[|\"/g, "");
 				if (didyouvote == 1)
 				{
 					alert("Sorry you already voted on this!");
@@ -54,7 +54,7 @@
 				var uservoted = document.getElementById("uservoted_hidden").innerHTML.replace(/\{|\[|\"/g, "");
 				var ipvoted = document.getElementById("ipvoted_hidden").innerHTML.replace(/\{|\[|\"/g, "");
 				var title = document.getElementById("title_hidden").innerHTML.replace(/\{|\[|\"/g, "");
-				var alreadyvoted = document.getElementById("title_hidden").innerHTML.replace(/\{|\[|\"/g, "");
+				var alreadyvoted = document.getElementById("alreadyvoted").innerHTML.replace(/\{|\[|\"/g, "");
 				var total = 0;
 				var labels = [];
 				var data = [];
