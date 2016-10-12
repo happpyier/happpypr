@@ -87,26 +87,7 @@ app.get('/polls/:id', function(request, response) {
 });
 app.get('/submit/:id/:selection', function(request, response) 
 {
-	alert ("can you see me?");
-	/*
-	var pickId = request.params.id;
-	var postSqlVar = "UPDATE vote_tb SET votedalready = '1' WHERE randid LIKE \'"+pickId+"\'";
-	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
-	{
-		client.query(postSqlVar, function(err, result) 
-		{
-			if (err)
-				{ resultsidSQL = ("Error " + err); }
-			else
-			{ 
-				alert("it got here")
-				response.end();
-			}
-			done();	
-		});
-
-	});
-	*/
+	alert ("hello");
 });
 app.get('/mypolls', function(request, response) 
 {
