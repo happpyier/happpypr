@@ -73,15 +73,16 @@ app.get('/polls/:id', function(request, response) {
 				title_voteVal = JSON.stringify(result.rows[0].title);				
 		   }
 		   done();
-		});	
-	});
-	fs.readFile('thispoll.html', 'utf8', function (err,data) 
+		   	fs.readFile('thispoll.html', 'utf8', function (err,data) 
 	{
 		if (err) 
 		{
 			return console.log(err);
 		}
 		response.end(data);
+		});	
+	});
+
 	});
 	//response.sendFile(path.join(__dirname+'/thispoll.html'), options);
 });
