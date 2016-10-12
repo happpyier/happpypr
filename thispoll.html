@@ -65,7 +65,7 @@
 				}
 				for (var i=0; i < votes.length; i++)
 				{
-					document.getElementById('piechart').innerHTML +=  votechoose[i] + ' ' + votes[i];
+					document.getElementById('chartCenter').innerHTML +=  votechoose[i] + ' ' + votes[i];
 					labels.push(votechoose[i]);
 					data.push((votes[i]/total)*360);
 					var letters = '0123456789ABCDEF';
