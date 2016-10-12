@@ -89,6 +89,7 @@ app.get('/submit/:id/:selection', function(request, response)
 {
 	var pickId = request.params.id;
 	var postSqlVar = "UPDATE vote_tb SET votedalready = '1' WHERE randid LIKE \'"+pickId+"\'";
+	var location = '/polls/' + pickId;
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	{
 		client.query(postSqlVar, function(err, result) 
@@ -97,7 +98,8 @@ app.get('/submit/:id/:selection', function(request, response)
 				{ resultsidSQL = ("Error " + err); }
 			else
 			{ 
-				response.end("Finished");
+				//response.end("Finished");
+				res.setHeader("Location", location);
 			}
 			done();
 		});
