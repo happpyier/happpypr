@@ -109,11 +109,20 @@ app.get('/polls/:id', function(request, response) {
 app.get('/submit/:id/:selection', function(request, response) 
 {
 	var pickId = request.params.id;
-	var postSqlVar = "UPDATE vote_tb  SET votedalready = '1' WHERE randid LIKE \'"+pickId+"\'";
+	var clientIP = request.ip;
+	var selectionVar = request.params.selection;
+	var postSqlVar1 = "UPDATE vote_tb  SET votedalready = '1' WHERE ipvoted LIKE \'"+clientIP+"\'";
+	var postSqlVar2 = "UPDATE vote_tb  SET votes = votes+1 WHERE voteschoose = \'"+selectionVar+"\'";
 	var location = '/polls/' + pickId;
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	{
-		client.query(postSqlVar, function(err, result) 
+		client.query(postSqlVar1, function(err, result) 
+		{
+			if (err)
+				{ resultsidSQL = ("Error " + err); }
+			done();
+		});
+				client.query(postSqlVar2, function(err, result) 
 		{
 			if (err)
 				{ resultsidSQL = ("Error " + err); }
