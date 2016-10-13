@@ -76,15 +76,13 @@ app.get('/polls/:id', function(request, response) {
 					votes_vote = votes_vote +  value["votes"]  + "|";
 					uservoted_vote = uservoted_vote +  value["uservoted"]  + "|";
 					ipvoted_vote = ipvoted_vote +  value["ipvoted"]  + "|";
-					title_vote = title_vote;
+					title_vote = value["title"] ;
 					votedalready = votedalready +  value["votedalready"]  + "|";
 				});
-				randid_vote = randid_vote.substring(0, randid_vote.length - 1);
 				votechoose_vote = votechoose_vote.substring(0, votechoose_vote.length - 1);
 				votes_vote = votes_vote.substring(0, votes_vote.length - 1);
 				uservoted_vote = uservoted_vote.substring(0, uservoted_vote.length - 1);
 				ipvoted_vote = ipvoted_vote.substring(0, ipvoted_vote.length - 1);
-				title_vote = title_vote.substring(0, title_vote.length - 1);
 				votedalready = votedalready.substring(0, votedalready.length - 1);			
 				response.write( "<div class='hidden' style='display:none' id= 'randid_hidden'>" + randid_vote + "</div> <div class='hidden' style='display:none' id= 'votechoose_hidden'>" + votechoose_vote + "</div> <div class='hidden' style='display:none' id= 'votes_hidden'>" + votes_vote + "</div> <div class='hidden' style='display:none' id= 'uservoted_hidden'>" + uservoted_vote + "</div> <div class='hidden' style='display:none' id= 'ipvoted_hidden'>" + ipvoted_vote + "</div> <div class='hidden' style='display:none' id= 'title_hidden'>" + title_vote + "</div> <div class='hidden' style='display:none' id= 'alreadyvoted'>" + votedalready + "</div>"	);
 		   }
