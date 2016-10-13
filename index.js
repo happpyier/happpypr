@@ -67,26 +67,25 @@ app.get('/polls/:id', function(request, response) {
 		   { resultsidSQL = ("Error " + err); }
 		  else
 		   { 
-				/*
-				for (var i = 0, i < len; i++) 
-				{
-					randid_voteVal += JSON.stringify(result.rows[i].randid);
-					votechoose_voteVal += JSON.stringify(result.rows[i].votechoose);
-					votes_voteVal += JSON.stringify(result.rows[i].votes);
-					uservoted_voteVal += JSON.stringify(result.rows[i].uservoted);
-					ipvoted_voteVal += JSON.stringify(result.rows[i].ipvoted);
-					title_voteVal+= JSON.stringify(result.rows[i].title);
-					alreadyvoted_voteVal += JSON.stringify(result.rows[i].votedalready);
-				}
-				*/
+					var randid_voteVal = "";
+					var votechoose_voteVal = "";
+					var votes_voteVal = "";
+					var uservoted_voteVal = "";
+					var ipvoted_voteVal = "";
+					var title_voteVal = "";
+					var alreadyvoted_voteVal = "";
+					
 					alertVar = result.rowCount;
-					randid_voteVal = JSON.stringify(result.rows[0].randid);
-					votechoose_voteVal = JSON.stringify(result.rows[0].votechoose);
-					votes_voteVal = JSON.stringify(result.rows[0].votes);
-					uservoted_voteVal = JSON.stringify(result.rows[0].uservoted);
-					ipvoted_voteVal = JSON.stringify(result.rows[0].ipvoted);
-					title_voteVal = JSON.stringify(result.rows[0].title);
-					alreadyvoted_voteVal = JSON.stringify(result.rows[0].votedalready);
+					for (var i = 0, i < alertVar; i++)
+					{
+						randid_voteVal += JSON.stringify(result.rows[i].randid);
+						votechoose_voteVal += JSON.stringify(result.rows[i].votechoose);
+						votes_voteVal += JSON.stringify(result.rows[i].votes);
+						uservoted_voteVal += JSON.stringify(result.rows[i].uservoted);
+						ipvoted_voteVal += JSON.stringify(result.rows[i].ipvoted);
+						title_voteVal += JSON.stringify(result.rows[i].title);
+						alreadyvoted_voteVal += JSON.stringify(result.rows[i].votedalready);
+					}
 				response.write( "<div>" + alertVar + "</div> <div class='hidden' style='display:none' id= 'randid_hidden'>" + randid_voteVal + "</div> <div class='hidden' style='display:none' id= 'votechoose_hidden'>" + votechoose_voteVal + "</div> <div class='hidden' style='display:none' id= 'votes_hidden'>" + votes_voteVal + "</div> <div class='hidden' style='display:none' id= 'uservoted_hidden'>" + uservoted_voteVal + "</div> <div class='hidden' style='display:none' id= 'ipvoted_hidden'>" + ipvoted_voteVal + "</div> <div class='hidden' style='display:none' id= 'title_hidden'>" + title_voteVal + "</div> <div class='hidden' style='display:none' id= 'alreadyvoted'>" + alreadyvoted_voteVal + "</div>"	);
 		   }
 		   done();
