@@ -67,21 +67,11 @@ app.get('/polls/:id', function(request, response) {
 		   { resultsidSQL = ("Error " + err); }
 		  else
 		   { 
-					var randid_voteVal = "";
-					var votechoose_voteVal = "";
-					var votes_voteVal = "";
-					var uservoted_voteVal = "";
-					var ipvoted_voteVal = "";
-					var title_voteVal = "";
-					var alreadyvoted_voteVal = "";
-					
-					
-					for (var i = 0, i < alertVar; i++)
-					{
-						alertVar = result.rows[i].randid;
-
-					}
-				response.write( "<div>" + alertVar + "</div> <div class='hidden' style='display:none' id= 'randid_hidden'>" + randid_voteVal + "</div> <div class='hidden' style='display:none' id= 'votechoose_hidden'>" + votechoose_voteVal + "</div> <div class='hidden' style='display:none' id= 'votes_hidden'>" + votes_voteVal + "</div> <div class='hidden' style='display:none' id= 'uservoted_hidden'>" + uservoted_voteVal + "</div> <div class='hidden' style='display:none' id= 'ipvoted_hidden'>" + ipvoted_voteVal + "</div> <div class='hidden' style='display:none' id= 'title_hidden'>" + title_voteVal + "</div> <div class='hidden' style='display:none' id= 'alreadyvoted'>" + alreadyvoted_voteVal + "</div>"	);
+				alertVar = result.rows;
+				alertVar.forEach(function(value)
+				{
+					response.write( "<div class='hidden' style='display:none' id= 'randid_hidden'>" + value["randid"] + "</div> <div class='hidden' style='display:none' id= 'votechoose_hidden'>" + value["votechoose"] + "</div> <div class='hidden' style='display:none' id= 'votes_hidden'>" + value["votes"] + "</div> <div class='hidden' style='display:none' id= 'uservoted_hidden'>" + value["uservoted"] + "</div> <div class='hidden' style='display:none' id= 'ipvoted_hidden'>" + value["ipvoted"] + "</div> <div class='hidden' style='display:none' id= 'title_hidden'>" + value["title"] + "</div> <div class='hidden' style='display:none' id= 'alreadyvoted'>" + value["alreadyvoted"] + "</div>"	);
+				});
 		   }
 		   done();
 		   	fs.readFile('thispoll.html', 'utf8', function (err,data) 
