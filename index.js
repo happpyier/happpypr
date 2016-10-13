@@ -122,21 +122,21 @@ app.get('/submit/:id/:selection', function(request, response)
 				{ resultsidSQL = ("Error " + err); }
 			else
 			{
-				client.query(postSqlVar2, function(err, result) 
-				{
-					if (err)
-						{ resultsidSQL = ("Error " + err); }
-					else
-					{ 
-						response.redirect(location);
-						response.end();
-					}
-					done();
-				});
+				console.log("success");
 			}
+			done();
 		});
-
-
+		client.query(postSqlVar2, function(err, result) 
+		{
+			if (err)
+				{ resultsidSQL = ("Error " + err); }
+			else
+			{ 
+				response.redirect(location);
+				response.end();
+			}
+			done();
+		});
 	});
 });
 app.get('/mypolls', function(request, response) 
