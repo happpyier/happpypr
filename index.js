@@ -112,7 +112,7 @@ app.get('/submit/:id/:selection', function(request, response)
 	var clientIP = request.ip;
 	var selectionVar = request.params.selection;
 	var postSqlVar1 = "UPDATE vote_tb  SET votedalready = '1' WHERE ipvoted LIKE \'"+clientIP+"\'";
-	var postSqlVar2 = "UPDATE vote_tb  SET votes = votes+1 WHERE votechoose = \'"+selectionVar+"\'";
+	var postSqlVar2 = "UPDATE vote_tb  SET votes = votes+1, ipvoted=\'"+clientIP+"\' WHERE votechoose = \'"+selectionVar+"\'";
 	var location = '/polls/' + pickId;
 	//response.write (postSqlVar1 + "<br/>" + postSqlVar2);
 	//response.end();
