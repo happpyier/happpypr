@@ -71,7 +71,7 @@ app.get('/polls/:id', function(request, response) {
 				alertVar = result.rows;
 				alertVar.forEach(function(value)
 				{
-					var randid_vote = randid_vote + value["randid"];
+					var randid_vote += value["randid"];
 					var votechoose_vote = value["votechoose"];
 					var votes_vote = value["votes"];
 					var uservoted_vote = value["uservoted"];
@@ -79,7 +79,7 @@ app.get('/polls/:id', function(request, response) {
 					var title_vote = value["title"];
 					var votedalready = value["votedalready"];
 				
-				response.write( "<div>" + alertVar + "</div><div class='hidden' style='display:none' id= 'randid_hidden'>" + value["randid"] + "</div> <div class='hidden' style='display:none' id= 'votechoose_hidden'>" + value["votechoose"] + "</div> <div class='hidden' style='display:none' id= 'votes_hidden'>" + value["votes"] + "</div> <div class='hidden' style='display:none' id= 'uservoted_hidden'>" + value["uservoted"] + "</div> <div class='hidden' style='display:none' id= 'ipvoted_hidden'>" + value["ipvoted"] + "</div> <div class='hidden' style='display:none' id= 'title_hidden'>" + value["title"] + "</div> <div class='hidden' style='display:none' id= 'alreadyvoted'>" + value["alreadyvoted"] + "</div>"	);
+				response.write( "<div>" + alertVar + "</div><div class='hidden' style='display:none' id= 'randid_hidden'>" + randid_vote + "</div> <div class='hidden' style='display:none' id= 'votechoose_hidden'>" + value["votechoose"] + "</div> <div class='hidden' style='display:none' id= 'votes_hidden'>" + value["votes"] + "</div> <div class='hidden' style='display:none' id= 'uservoted_hidden'>" + value["uservoted"] + "</div> <div class='hidden' style='display:none' id= 'ipvoted_hidden'>" + value["ipvoted"] + "</div> <div class='hidden' style='display:none' id= 'title_hidden'>" + value["title"] + "</div> <div class='hidden' style='display:none' id= 'alreadyvoted'>" + value["alreadyvoted"] + "</div>"	);
 				});
 		   }
 		   done();
