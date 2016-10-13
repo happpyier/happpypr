@@ -71,7 +71,7 @@ app.get('/polls/:id', function(request, response) {
 				alertVar = result.rows;
 				alertVar.forEach(function(value)
 				{
-					randid_vote = randid_vote + value["randid"];
+					randid_vote = randid_vote + "|" +value["randid"];
 					votechoose_vote = votechoose_vote +  value["votechoose"];
 					votes_vote = votes_vote +  value["votes"];
 					uservoted_vote = uservoted_vote +  value["uservoted"];
