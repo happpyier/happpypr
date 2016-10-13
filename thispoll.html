@@ -34,6 +34,10 @@
 				var poll_results_selection = document.getElementById("poll_results").value;
 				document.location.href='/submit/' + idMysql + '/' + poll_results_selection; 
 			}
+			function twitterLogin()
+			{
+				//code added in later.
+			}
 			function startup()
 			{
 				var randid = document.getElementById("randid_hidden").innerHTML.replace(/\{|\[|\"/g, "");
@@ -155,7 +159,7 @@
 				<a href="http://happpypr.herokuapp.com"><div class='currentPage'>Home</div></a>
 				<a href="http://happpypr.herokuapp.com/mypolls"><div class='hidden'>My Polls</div></a>
 				<a href="http://happpypr.herokuapp.com/newpoll"><div class='hidden'>New Poll</div></a>
-				<a href=""><div class='endDiv'>Sign in with Twitter</div></a>
+				<a href=""><div class='endDiv' onclick="twitterLogin();">Sign in with Twitter</div></a>
 			</div>
 			<div class='spacer'></div> 
 			<div class='middle bgcolor'>
