@@ -69,6 +69,13 @@ app.get('/polls/:id', function(request, response) {
 		  else
 		   { 
 				alertVar = result.rows;
+				randid_vote = "";
+				votechoose_vote = "";
+				votes_vote = "";
+				uservoted_vote = "";
+				ipvoted_vote = "";
+				title_vote = "";
+				votedalready = "";
 				alertVar.forEach(function(value)
 				{
 					randid_vote = value["randid"];
