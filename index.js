@@ -109,7 +109,7 @@ app.get('/polls/:id', function(request, response) {
 app.get('/submit/:id/:selection', function(request, response) 
 {
 	var pickId = request.params.id;
-	var clientIP = request.connection.remoteAddress;
+	var clientIP = request.ip.substring(7);
 	var selectionVar = request.params.selection;
 	var postSqlVar1 = "UPDATE vote_tb  SET votedalready = '1' WHERE ipvoted LIKE '"+clientIP+"'";
 	var postSqlVar2 = "UPDATE vote_tb  SET votes = votes+1, ipvoted='"+clientIP+"' WHERE votechoose = '"+selectionVar+"'";
