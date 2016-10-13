@@ -31,6 +31,7 @@
 			{
 				var idMysql = document.getElementById('randid_hidden').innerHTML.replace(/\{|\[|\"/g, "");
 				var didyouvote = document.getElementById("alreadyvoted").innerHTML.replace(/\{|\[|\"/g, "");
+				alert(didyouvote);
 				if (didyouvote == 1)
 				{
 					alert("Sorry you already voted on this!");
