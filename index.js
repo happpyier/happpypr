@@ -79,7 +79,7 @@ app.get('/polls/:id', function(request, response) {
 					alreadyvoted_voteVal += JSON.stringify(result.rows[i].votedalready);
 				}
 				*/
-					alertVar = Object.keys(result);
+					alertVar = result.rowCount;
 					randid_voteVal = JSON.stringify(result.rows[0].randid);
 					votechoose_voteVal = JSON.stringify(result.rows[0].votechoose);
 					votes_voteVal = JSON.stringify(result.rows[0].votes);
