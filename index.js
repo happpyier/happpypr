@@ -120,18 +120,22 @@ app.get('/submit/:id/:selection', function(request, response)
 		{
 			if (err)
 				{ resultsidSQL = ("Error " + err); }
-		});
-		client.query(postSqlVar2, function(err, result) 
-		{
-			if (err)
-				{ resultsidSQL = ("Error " + err); }
 			else
-			{ 
-				response.redirect(location);
-				response.end();
+			{
+				client.query(postSqlVar2, function(err, result) 
+				{
+					if (err)
+						{ resultsidSQL = ("Error " + err); }
+					else
+					{ 
+						response.redirect(location);
+						response.end();
+					}
+					done();
+				});
 			}
-			done();
 		});
+
 
 	});
 });
