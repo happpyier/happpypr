@@ -120,7 +120,11 @@ app.get('/submit/:id/:selection', function(request, response)
 		{
 			if (err)
 				{ resultsidSQL = ("Error " + err); }
-			done();
+			else
+			{ 
+				done();
+			}
+			
 		});
 				client.query(postSqlVar2, function(err, result) 
 		{
