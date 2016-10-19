@@ -179,7 +179,7 @@ app.get('/info', function(request, response)
 });
 app.get('/twitter/auth', function(request, response)
 {
-	var request = 
+	var request1 = 
 	{
 		port: 443,
 		host: 'api.twitter.com',
@@ -190,9 +190,11 @@ app.get('/twitter/auth', function(request, response)
 		body: body
 	}
 
-	request = oauth.request(request, function(response) {});
-	req.write(body);
-	req.end();	
+	request1 = oauth.request(request, function(response) {
+		request.write(body);
+		request.end();
+	});
+	
 });
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
