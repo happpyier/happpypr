@@ -17,6 +17,15 @@
 			.currentPage { background-color:#c2c2c2; }
 			.hidden { display: none !important; }
 		</style>
+		<script>
+			function loadTwitter()
+			{
+				var URL = "www.google.com";
+				var name = "_blank";
+				var specs = "height=500,width=500";
+				window.open(URL,name,specs)
+			}
+		</script>
 	</head>
 	<body>
 		<div class='center'>
@@ -24,7 +33,7 @@
 				<a href="http://happpypr.herokuapp.com"><div>Home</div></a>
 				<a href="http://happpypr.herokuapp.commypolls"><div class=' hidden currentPage'>My Polls</div></a>
 				<a href="http://happpypr.herokuapp.comnewpoll"><div class='hidden'>New Poll</div></a>
-				<a href=""><div class='endDiv'>Sign in with Twitter</div></a>
+				<div class='endDiv' onclick="twitterLogin();">Sign in with Twitter</div>
 			</div>
 			<div class='spacer'></div> 
 			<div class='middle bgcolor'>
