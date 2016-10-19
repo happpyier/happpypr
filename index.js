@@ -176,6 +176,17 @@ app.get('/info', function(request, response)
 		response.end(data);
 	});	
 });
+app.get('/twitter/auth', function(request, response)
+{
+	fs.readFile('twitterAuth.html', 'utf8', function (err,data) 
+	{
+		if (err) 
+		{
+			return console.log(err);
+		}
+		response.end(data);
+	});	
+});
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
 });
