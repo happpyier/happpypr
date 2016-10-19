@@ -3,7 +3,6 @@ var app = express();
 var pg = require('pg');
 var path = require("path");
 var url = require("url");
-var kitty = "Ello";
 var randid_vote = "";
 var votechoose_vote = "";
 var votes_vote = "";
