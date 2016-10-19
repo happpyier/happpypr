@@ -178,6 +178,7 @@ app.get('/info', function(request, response)
 });
 app.get('/twitter/auth', function(request, response)
 {
+	//https://api.twitter.com/oauth/authenticate?oauth_token=Z6eEdO8MOmk394WozF5oKyuAv855l4Mlqo7hhlSLik
 	fs.readFile('twitterAuth.html', 'utf8', function (err,data) 
 	{
 		if (err) 
