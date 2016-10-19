@@ -179,21 +179,8 @@ app.get('/info', function(request, response)
 });
 app.get('/twitter/auth', function(request, response)
 {
-	var request1 = 
-	{
-		port: 443,
-		host: 'api.twitter.com',
-		https: true,
-		path: '/1/statuses/update.json',
-		oauth_signature: signer,
-		method: 'POST',
-		body: body
-	}
-
-	request1 = oauth.request(request, function(response) {
-		request.write(body);
-		request.end();
-	});
+	response.write("making a oauth request.");
+	response.end();
 	
 });
 app.listen(app.get('port'), function() {
