@@ -180,7 +180,7 @@ app.get('/info', function(request, response)
 app.get('/twitter/auth', function(request, response)
 {
 	var request = 
-	{
+	({
 		port: 443,
 		host: 'api.twitter.com',
 		https: true,
@@ -188,7 +188,7 @@ app.get('/twitter/auth', function(request, response)
 		oauth_signature: signer,
 		method: 'POST',
 		body: body
-	}
+	});
 
 	request = oauth.request(request, function(response) { ... });
 	req.write(body);
