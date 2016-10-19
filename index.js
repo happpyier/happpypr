@@ -3,6 +3,7 @@ var app = express();
 var pg = require('pg');
 var path = require("path");
 var url = require("url");
+var oauth = require('oauth-client');
 var randid_vote = "";
 var votechoose_vote = "";
 var votes_vote = "";
@@ -178,15 +179,20 @@ app.get('/info', function(request, response)
 });
 app.get('/twitter/auth', function(request, response)
 {
-	//https://api.twitter.com/oauth/authenticate?oauth_token=Z6eEdO8MOmk394WozF5oKyuAv855l4Mlqo7hhlSLik
-	fs.readFile('twitterAuth.html', 'utf8', function (err,data) 
+	var request = 
 	{
-		if (err) 
-		{
-			return console.log(err);
-		}
-		response.end(data);
-	});	
+		port: 443,
+		host: 'api.twitter.com',
+		https: true,
+		path: '/1/statuses/update.json',
+		oauth_signature: signer,
+		method: 'POST',
+		body: body
+	}
+
+	request = oauth.request(request, function(response) { ... });
+	req.write(body);
+	req.end();	
 });
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
