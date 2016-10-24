@@ -188,8 +188,8 @@ app.get('/twitter/auth', function(request, response)
 	oauth_nonce='4572616e48616d6d65724c61686176',
 	oauth_version='1.0'";
 	location="https://api.twitter.com/oauth/request_token"+Authorization;
-	response.redirect(location);
-	response.write("making a oauth request.");
+	//response.redirect(location);
+	response.write(location);
 	response.end();
 	
 });
