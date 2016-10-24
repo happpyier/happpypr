@@ -179,7 +179,8 @@ app.get('/info', function(request, response)
 });
 app.get('/twitter/auth', function(request, response)
 {
-	//https://api.twitter.com/oauth/authorize?oauth_token=981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm
+	//$signing_key = encode_rfc3986($consumer_secret).'&'.encode_rfc3986($oauth_token_secret);
+	//oauth oauth_nonce="K7ny27JTpKVsTgdyLdDfmQQWVLERj2zAK5BslRsqyw", oauth_callback="http%3A%2F%2Fmyapp.com%3A3005%2Ftwitter%2Fprocess_callback",  oauth_consumer_key="YZoBVI9Ak2MAxLTRJ460c65Oq ", oauth_version="1.0";
 	response.write("making a oauth request.");
 	response.end();
 	
