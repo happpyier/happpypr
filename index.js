@@ -179,7 +179,7 @@ app.get('/info', function(request, response)
 });
 app.get('/twitter/auth', function(request, response)
 {
-	Token = new Token("	981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm", "bxxYDmsh7UUFCnJssfinAYCXf8nNAC7kFwrYsQrnx64TP");
+	Token = new Token("981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm", "bxxYDmsh7UUFCnJssfinAYCXf8nNAC7kFwrYsQrnx64TP");
 	Credential c = new Credential("happpyier", "YZoBVI9Ak2MAxLTRJ460c65Oq", "UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP", token);
 	UserAccountManager m = UserAccountManager.getInstance(c);
  
