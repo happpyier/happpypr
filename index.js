@@ -179,9 +179,16 @@ app.get('/info', function(request, response)
 });
 app.get('/twitter/auth', function(request, response)
 {
-	//$signing_key = encode_rfc3986($consumer_secret).'&'.encode_rfc3986($oauth_token_secret);
-	//oauth oauth_nonce="K7ny27JTpKVsTgdyLdDfmQQWVLERj2zAK5BslRsqyw", oauth_callback="http%3A%2F%2Fmyapp.com%3A3005%2Ftwitter%2Fprocess_callback",  oauth_consumer_key="YZoBVI9Ak2MAxLTRJ460c65Oq ", oauth_version="1.0";
-	location="https://api.twitter.com/oauth/authenticate?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0";
+	
+	Authorization:
+	oauth_consumer_key="YZoBVI9Ak2MAxLTRJ460c65Oq",
+	oauth_token="981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm",
+	oauth_signature_method="HMAC-SHA1",
+	oauth_signature="wOJIO9A2W5mFwDgiDvZbTSMK%2FPY%3D",
+	oauth_timestamp="137131200",
+	oauth_nonce="4572616e48616d6d65724c61686176",
+	oauth_version="1.0"
+	location="https://api.twitter.com/oauth/request_token"+Authorization;
 	response.redirect(location);
 	response.write("making a oauth request.");
 	response.end();
