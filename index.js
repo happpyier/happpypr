@@ -179,7 +179,17 @@ app.get('/info', function(request, response)
 });
 app.get('/twitter/auth', function(request, response)
 {
-	//oauth 
+	Token = new Token("	981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm", "bxxYDmsh7UUFCnJssfinAYCXf8nNAC7kFwrYsQrnx64TP");
+	Credential c = new Credential("happpyier", "YZoBVI9Ak2MAxLTRJ460c65Oq", "UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP", token);
+	UserAccountManager m = UserAccountManager.getInstance(c);
+ 
+	if (m.verifyCredential()) 
+	{
+		GeoLocation loc = new GeoLocation("+37.5", "+26.7");
+		Tweet t = new Tweet("Cool! Geo-located tweet via Twitter API ME. \o/", loc);
+		TweetER ter = TweetER.getInstance(m);
+		t = ter.post(t);
+	}
 	response.write("making a oauth request.");
 	response.end();
 	
