@@ -179,6 +179,7 @@ app.get('/info', function(request, response)
 });
 app.get('/twitter/auth', function(request, response)
 {
+	//oauth 
 	response.write("making a oauth request.");
 	response.end();
 	
