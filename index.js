@@ -201,7 +201,7 @@ app.get('/twitter/auth', function(req, res)
 			res.write('Response: ' + chunk);
 		});
 	});
-	res.write(Object.keys(post_options));
+	res.write(post_options[0]);
 	post_req.write("Hello");
 	post_req.end();
 	res.end();
