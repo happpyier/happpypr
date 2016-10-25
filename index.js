@@ -195,6 +195,7 @@ app.get('/twitter/auth', function(req, res)
 	  // Set up the request
 	  var post_req = http.request(post_options, function(res) {
 		  res.setEncoding('utf8');
+		  res.write("it got here");
 		  res.on('data', function (chunk) {
 			  res.write('Response: ' + chunk);
 		  });
