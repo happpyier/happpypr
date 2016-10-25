@@ -192,15 +192,7 @@ app.get('/twitter/auth', function(req, res)
 			'Content-Length': 76
 		}
 	}
-	var post_req = http.request(post_options, function(res) 
-	{
-		res.setEncoding('utf8');
-		res.write("it got here");
-		res.on('data', function (chunk) 
-		{
-			res.write('Response: ' + chunk);
-		});
-	});
+
 	res.write(post_options);
 	post_req.write("Hello");
 	post_req.end();
