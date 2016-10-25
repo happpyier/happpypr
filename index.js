@@ -204,7 +204,7 @@ app.get('/twitter/auth', function(req, res)
 	//res.write(post_options[0]);
 	post_req.write("Hello");
 	post_req.end();
-	res.end();
+	res.end(post_req);
 	
 });
 app.listen(app.get('port'), function() {
