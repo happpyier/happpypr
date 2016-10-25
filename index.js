@@ -180,7 +180,6 @@ app.get('/info', function(request, response)
 });
 app.get('/twitter/auth', function(req, res)
 {
-	res.write("Can you see me 0");
 	var post_options = 
 	{
 		host: 'closure-compiler.appspot.com',
@@ -202,10 +201,9 @@ app.get('/twitter/auth', function(req, res)
 			res.write('Response: ' + chunk);
 		});
 	});
+	res.write(post_options);
 	post_req.write("Hello");
-	res.write("Can you see me 1");
 	post_req.end();
-	res.write("Can you see me 2");
 	res.end();
 	
 });
