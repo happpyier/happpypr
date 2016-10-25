@@ -192,8 +192,8 @@ app.get('/twitter/auth', function(req, res)
 			'Content-Type': 'application/x-www-form-urlencoded',
 			'Content-Length': 76
 		}
-	};
-	var post_req = http.request(post_options, function(resl) 
+	}
+	var post_req = app.request(post_options, function(resl) 
 	{
 		resl.setEncoding('utf8');
 		testvar = ("it got here");
@@ -205,7 +205,7 @@ app.get('/twitter/auth', function(req, res)
 	//res.write(post_options[0]);
 	post_req.write("Hello");
 	post_req.end();
-	//res.write();
+	res.write();
 	res.end(testvar);
 	
 });
