@@ -1,6 +1,7 @@
 var express = require('express'); 
 var app = express();
 var pg = require('pg');
+var http = require('http');
 var path = require("path");
 var url = require("url");
 var oauth = require('oauth-client');
@@ -177,14 +178,43 @@ app.get('/info', function(request, response)
 		response.end(data);
 	});	
 });
-app.get('/twitter/auth', function(request, response)
+app.get('/twitter/auth', function(req, res)
 {
 	
-	Authorization ='?oauth_consumer_key=YZoBVI9Ak2MAxLTRJ460c65Oq&oauth_token=981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm&oauth_signature_method=HMAC-SHA1&oauth_signature=wOJIO9A2W5mFwDgiDvZbTSMK%2FPY%3D&oauth_timestamp=137131200&oauth_nonce=4572616e48616d6d65724c61686176&oauth_version=1.0';
-	location="https://api.twitter.com/oauth/request_token"+Authorization;
-	response.redirect(location);
+	  // An object of options to indicate where to post to
+	  var post_options = {
+		  host: 'api.twitter.com'
+		  Content-Length: 76
+		  Connection: close
+		  User-Agent: OAuth gem v0.4.4
+		  Content-Type: application/x-www-form-urlencoded
+		  headers: {
+			  oauth oauth_consumer_key="xvz1evFS4wEEPTGEFPHBog", 
+              oauth_nonce="kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg", 
+              oauth_signature="tnnArxj06cWHq44gCs1OSKk%2FjLY%3D", 
+              oauth_signature_method="HMAC-SHA1", 
+              oauth_timestamp="1318622958", 
+              oauth_token="370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb", 
+              oauth_version="1.0"
+		  }
+	  };
+
+	  // Set up the request
+	  var post_req = http.request(post_options, function(res) {
+		  res.setEncoding('utf8');
+		  res.on('data', function (chunk) {
+			  console.log('Response: ' + chunk);
+		  });
+	  });
+
+	  // post the data
+	  post_req.write(post_data);
+	  post_req.end();
+	//Authorization ='?oauth_consumer_key=YZoBVI9Ak2MAxLTRJ460c65Oq&oauth_token=981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm&oauth_signature_method=HMAC-SHA1&oauth_signature=wOJIO9A2W5mFwDgiDvZbTSMK%2FPY%3D&oauth_timestamp=137131200&oauth_nonce=4572616e48616d6d65724c61686176&oauth_version=1.0';
+	//location="https://api.twitter.com/oauth/request_token"+Authorization;
+	//res.redirect(location);
 	//response.write(location);
-	response.end();
+	res.end();
 	
 });
 app.listen(app.get('port'), function() {
