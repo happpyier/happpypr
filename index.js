@@ -180,6 +180,7 @@ app.get('/info', function(request, response)
 });
 app.get('/twitter/auth', function(req, res)
 {
+	testvar = "should not be this";
 	var post_options = 
 	{
 		host: 'closure-compiler.appspot.com',
@@ -204,6 +205,7 @@ app.get('/twitter/auth', function(req, res)
 	//res.write(post_options[0]);
 	post_req.write("Hello");
 	post_req.end();
+	//res.write();
 	res.end(testvar);
 	
 });
