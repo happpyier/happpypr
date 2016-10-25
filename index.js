@@ -183,21 +183,14 @@ app.get('/twitter/auth', function(req, res)
 	
 	  // An object of options to indicate where to post to
 	  var post_options = {
-		  host: 'api.twitter.com'
-		  Content-Length: 76
-		  Connection: close
-		  User-Agent: OAuth gem v0.4.4
-		  Content-Type: application/x-www-form-urlencoded
-		  headers: {
-			  oauth oauth_consumer_key="xvz1evFS4wEEPTGEFPHBog", 
-              oauth_nonce="kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg", 
-              oauth_signature="tnnArxj06cWHq44gCs1OSKk%2FjLY%3D", 
-              oauth_signature_method="HMAC-SHA1", 
-              oauth_timestamp="1318622958", 
-              oauth_token="370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb", 
-              oauth_version="1.0"
-		  }
-	  };
+      host: 'closure-compiler.appspot.com',
+      port: '80',
+      path: '/compile',
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Length': 76
+      };
 
 	  // Set up the request
 	  var post_req = http.request(post_options, function(res) {
