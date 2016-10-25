@@ -193,14 +193,9 @@ app.get('/twitter/auth', function(req, res)
 			'Content-Length': 76
 		}
 	}
-	var post_req = app.request(post_options, function(resl) 
+	app.post('/', function (req, res) 
 	{
-		resl.setEncoding('utf8');
-		testvar = ("it got here");
-		resl.on('data', function (chunk) 
-		{
-			resl.write('Response: ' + chunk);
-		});
+		testvar = "haha I've been overwritten";
 	});
 	//res.write(post_options[0]);
 	post_req.write("Hello");
