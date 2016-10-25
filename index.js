@@ -195,7 +195,7 @@ app.get('/twitter/auth', function(req, res)
 	var post_req = http.request(post_options, function(resl) 
 	{
 		resl.setEncoding('utf8');
-		resl.write("it got here");
+		testvar = ("it got here");
 		resl.on('data', function (chunk) 
 		{
 			resl.write('Response: ' + chunk);
@@ -204,7 +204,7 @@ app.get('/twitter/auth', function(req, res)
 	//res.write(post_options[0]);
 	post_req.write("Hello");
 	post_req.end();
-	res.end(post_req);
+	res.end(testvar);
 	
 });
 app.listen(app.get('port'), function() {
