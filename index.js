@@ -192,7 +192,7 @@ app.get('/twitter/auth', function(req, res)
 			'Content-Type': 'application/x-www-form-urlencoded',
 			'Content-Length': 76
 		}
-	}
+	};
 	var post_req = http.request(post_options, function(resl) 
 	{
 		resl.setEncoding('utf8');
