@@ -190,8 +190,8 @@ app.get('/twitter/auth', function(req, res)
       headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           'Content-Length': 76
-      };
-	  }
+      }
+	  };
 	  // Set up the request
 	  var post_req = http.request(post_options, function(res) {
 		  res.setEncoding('utf8');
