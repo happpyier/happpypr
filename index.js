@@ -201,7 +201,7 @@ app.get('/twitter/auth', function(req, res)
 	  });
 
 	  // post the data
-	  //post_req.write(po);
+	  post_req.write("Hello");
 	  post_req.end();
 	//Authorization ='?oauth_consumer_key=YZoBVI9Ak2MAxLTRJ460c65Oq&oauth_token=981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm&oauth_signature_method=HMAC-SHA1&oauth_signature=wOJIO9A2W5mFwDgiDvZbTSMK%2FPY%3D&oauth_timestamp=137131200&oauth_nonce=4572616e48616d6d65724c61686176&oauth_version=1.0';
 	//location="https://api.twitter.com/oauth/request_token"+Authorization;
