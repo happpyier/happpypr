@@ -192,13 +192,13 @@ app.get('/twitter/auth', function(req, res)
 			'Content-Length': 76
 		}
 	}
-	var post_req = http.request(post_options, function(res) 
+	var post_req = http.request(post_options, function(resl) 
 	{
-		res.setEncoding('utf8');
-		res.write("it got here");
-		res.on('data', function (chunk) 
+		resl.setEncoding('utf8');
+		resl.write("it got here");
+		resl.on('data', function (chunk) 
 		{
-			res.write('Response: ' + chunk);
+			resl.write('Response: ' + chunk);
 		});
 	});
 	//res.write(post_options[0]);
