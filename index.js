@@ -5,7 +5,7 @@ const https = require('https');
 const fs = require('fs');
 var path = require("path");
 var url = require("url");
-require('oauth-client');
+var oauth = require('oauth-client');
 var randid_vote = "";
 var votechoose_vote = "";
 var votes_vote = "";
