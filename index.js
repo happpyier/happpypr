@@ -186,6 +186,7 @@ app.get('/twitter/auth oauth/authorize' , function(request, response)
 	var Authorization = 'oauth_consumer_key="WVpvQlZJOUFrMk1BeExUUko0NjBjNjVPcQ=="&oauth_version="1.0"';
 	var location = '//https://api.twitter.com/oauth/request_token?' + Authorization;
 	response.redirect(location);
+	response.end();
 	
 });
 app.listen(app.get('port'), function() {
