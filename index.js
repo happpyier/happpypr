@@ -192,7 +192,7 @@ app.get('/twitter/auth', function(req, res)
 		method: 'POST',
 		body: body
 	}
-	request = oauth.request(request, function(response) { response.end(); });
+	request = oauth.request(request, function(response) { });
 	req.write(body);
 	response.on('end', function () {
 			token.decode(data);
