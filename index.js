@@ -182,6 +182,7 @@ app.get('/info', function(request, response)
 app.get('/twitter/auth', function(req, res)
 {
 	testvar = "should not be this";
+	/*
 	var request = 
 	{
 		port: 443,
@@ -191,7 +192,7 @@ app.get('/twitter/auth', function(req, res)
 		oauth_signature: signer,
 		method: 'POST',
 		body: body
-	}
+	}*/
 	request = oauth.request(request, function(response) { });
 	req.write(body);
 	response.on('end', function () {
