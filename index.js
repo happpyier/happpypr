@@ -195,7 +195,8 @@ app.get('/twitter/auth', function(req, res)
 	}
 	app.post('/', function (req, res) 
 	{
-		testvar = "haha I've been overwritten";
+		testvar = "haha I've been overwritten <br/>";
+		res.write(testvar);
 		res.end();
 	});
 	res.end(testvar);
