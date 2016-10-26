@@ -195,9 +195,9 @@ app.get('/twitter/auth', function(req, res)
 	}
 	app.post('/twitter/auth', function (req, res) {
 		canYouSeeMe = 'POST request to homepage 1';
-		return canYouSeeMe;
+		res.send(canYouSeeMe);
 	});
-	res.send(canYouSeeMe);
+
 	res.end(testvar);
 	
 });
