@@ -192,7 +192,7 @@ app.get('/twitter/auth', function(req, res)
 		body: body
 	}
 	request = oauth.request(request, function(response) { response.write("Hello"); });
-	req.write(body);
+	//req.write(body);
 	req.end();
 });
 app.listen(app.get('port'), function() {
