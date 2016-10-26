@@ -194,7 +194,7 @@ app.get('/twitter/auth', function(req, res)
 			'Content-Length': 76
 		}
 	}
-	https.createServer(options, (req, res) => 
+	https.createServer(options, function (req, res) 
 	{
 		res.end('hello world\n');
 	}).listen(8000);
