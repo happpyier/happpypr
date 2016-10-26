@@ -194,8 +194,9 @@ app.get('/twitter/auth', function(req, res)
 		}
 	}
 	app.post('/twitter/auth', function (req, res) {
-		res.send('POST request to homepage');
+		res.send('POST request to homepage 1');
 	});
+	res.send('POST request to homepage 2');
 	res.end(testvar);
 	
 });
