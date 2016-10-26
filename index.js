@@ -198,7 +198,7 @@ app.get('/twitter/auth', function(req, res)
 		testvar = "haha I've been overwritten";
 		res.end();
 	});
-	res.write();
+	res.write("Ha");
 	res.end(testvar);
 	
 });
