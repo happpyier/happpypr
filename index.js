@@ -193,7 +193,7 @@ app.get('/twitter/auth', function(req, res)
 			'Content-Length': 76
 		}
 	}
-	app.post('/', function (req, res) 
+	app.post('/twitter/auth', function (req, res) 
 	{
 		testvar = "haha I've been overwritten <br/>";
 		res.write(testvar);
