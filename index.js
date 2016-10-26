@@ -184,7 +184,8 @@ app.get('/info', function(request, response)
 app.get('/twitter/auth' , function(request, response)
 {
 	var Authorization = 'oauth_consumer_key=YZoBVI9Ak2MAxLTRJ460c65Oq&oauth_signature_method=PLAINTEXT&oauth_signature=kd94hf93k423kf44%26&oauth_timestamp=1191242090&oauth_nonce=hsu94j3884jdopsl&oauth_version=1.0';
-	var location = 'http://api.twitter.com/oauth/request_token?' + Authorization;
+	//var location = 'https://api.twitter.com/oauth/request_token?' + Authorization;
+	var location = 'https://api.twitter.com/oauth/authenticate?oauth_token=Z6eEdO8MOmk394WozF5oKyuAv855l4Mlqo7hhlSLik';
 	response.redirect(location);
 	response.end();
 	
