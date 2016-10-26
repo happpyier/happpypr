@@ -5,7 +5,7 @@ const https = require('https');
 const fs = require('fs');
 var path = require("path");
 var url = require("url");
-var oauth = require('oauth-client');
+require('oauth-client');
 var randid_vote = "";
 var votechoose_vote = "";
 var votes_vote = "";
@@ -192,12 +192,13 @@ app.get('/twitter/auth', function(req, res)
 		method: 'POST',
 		body: body
 	}
-	request = oauth.request(request, function(response) { response.end("Hello"); });
+	request = oauth.request(request, function(response) { response.end(); });
 	req.write(body);
-	req.end();
+	response.on('end', function () {
+			token.decode(data);
+		});
+	});
 
-
-	res.end(testvar);
 	
 });
 app.listen(app.get('port'), function() {
