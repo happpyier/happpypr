@@ -183,7 +183,7 @@ app.get('/info', function(request, response)
 });
 app.get('/twitter/auth' , function(request, response)
 {
-	var Authorization = 'oauth_consumer_key="WVpvQlZJOUFrMk1BeExUUko0NjBjNjVPcQ=="&oauth_version="1.0"';
+	var Authorization = 'oauth_consumer_key="YZoBVI9Ak2MAxLTRJ460c65Oq"&oauth_version="1.0"';
 	var location = '//https://api.twitter.com/oauth/request_token?' + Authorization;
 	response.redirect(location);
 	response.end();
