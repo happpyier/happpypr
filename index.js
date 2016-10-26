@@ -182,22 +182,20 @@ app.get('/info', function(request, response)
 app.get('/twitter/auth', function(req, res)
 {
 	testvar = "should not be this";
-	var post_options = 
+	var request = 
 	{
-		host: 'closure-compiler.appspot.com',
-		port: '80',
-		path: '/compile',
+		port: 443,
+		host: 'api.twitter.com',
+		https: true,
+		path: '/1/statuses/update.json',
+		oauth_signature: signer,
 		method: 'POST',
-		headers: 
-		{
-			'Content-Type': 'application/x-www-form-urlencoded',
-			'Content-Length': 76
-		}
+		body: body
 	}
-	https.createServer(options, function (req, res) 
-	{
-		res.end('hello world\n');
-	}).listen(8000);
+	request = oauth.request(request, function(response) { response.end("Hello"); });
+	req.write(body);
+	req.end();
+
 
 	res.end(testvar);
 	
