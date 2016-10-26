@@ -198,9 +198,6 @@ app.get('/twitter/auth', function(req, res)
 		testvar = "haha I've been overwritten";
 		res1.end();
 	});
-	//res.write(post_options[0]);
-	post_req.write("Hello");
-	post_req.end();
 	res.write();
 	res.end(testvar);
 	
