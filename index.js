@@ -6,7 +6,7 @@ const fs = require('fs');
 var path = require("path");
 var url = require("url");
 //var oauth = require('oauth-client');
-require('oauth');
+//require('oauth');
 require('oauth-client');
 var randid_vote = "";
 var votechoose_vote = "";
