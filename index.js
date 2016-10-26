@@ -1,7 +1,8 @@
 var express = require('express'); 
 var app = express();
 var pg = require('pg');
-var http = require('http');
+const https = require('https');
+const fs = require('fs');
 var path = require("path");
 var url = require("url");
 var oauth = require('oauth-client');
@@ -193,10 +194,10 @@ app.get('/twitter/auth', function(req, res)
 			'Content-Length': 76
 		}
 	}
-	app.post('/twitter/auth', function (req, res) {
-		canYouSeeMe = 'POST request to homepage 1';
-		res.send(canYouSeeMe);
-	});
+	https.createServer(options, (req, res) => 
+	{
+		res.end('hello world\n');
+	}).listen(8000);
 
 	res.end(testvar);
 	
