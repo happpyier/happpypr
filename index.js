@@ -204,7 +204,7 @@ app.get('/twitter/auth' , function(request, response)
 		  'HMAC-SHA1'
 		);
 		oauth.get(
-		  'https://api.twitter.com/1.1/trends/place.json?id=23424977',
+		  'https://api.twitter.com/oauth/authorize',
 		  '981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm', //test user token
 		  'bxxYDmsh7UUFCnJssfinAYCXf8nNAC7kFwrYsQrnx64TP', //test user secret            
 		  function (e, data, res){
