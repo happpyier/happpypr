@@ -206,6 +206,8 @@ app.get('/twitter/auth' , function(request, response)
 		console.log('==>Access the protected resource with access token');
 		console.log(err);
 		console.log(data);
+		response.write(data);
+		response.end();
 	});
 });
 app.listen(app.get('port'), function() {
