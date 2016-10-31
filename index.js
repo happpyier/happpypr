@@ -201,7 +201,7 @@ app.get('/twitter/auth' , function(request, response)
 	});
 
 	// Access the protected resource with access token
-	var url='http://term.ie/oauth/example/echo_api.php?method=foo&bar=baz';
+	var url='https://api.twitter.com/oauth/authorize';
 	consumer.get(url,'accesskey', 'accesssecret', function (err, data, response){
 		console.log('==>Access the protected resource with access token');
 		console.log(err);
