@@ -15,7 +15,14 @@ var uservoted_vote = "";
 var ipvoted_vote = "";
 var title_vote = "";
 var votedalready = "";
-fs = require('fs');
+const options = {
+  
+};
+
+https.createServer(options, (req, res) => {
+  res.writeHead(200);
+  res.end('hello world\n');
+}).listen(8000);
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get(['', '/polls'], function(request, response) {
