@@ -202,14 +202,14 @@ app.get('/twitter/auth' , function(reque, response)
 		  'Content-Type': 'application/json'
 		}
 	};
-	var req = http.request(options, function(res) 
+	//var req = http.request(options, function(res) 
 	{
 	//  res.setEncoding('utf8');
 	//  res.on('data', function (body) 
 	//  {
 	//	console.log('Body: ' + body);
 	//  });
-	});
+	//});
 	//req.on('error', function(e) {
 	//  console.log('problem with request: ' + e.message);
 	//});
