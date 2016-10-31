@@ -181,7 +181,7 @@ app.get('/info', function(request, response)
 		response.end(data);
 	});	
 });
-app.get('/twitter/auth' , function(req, res)
+app.get('/twitter/auth' , function(reque, response)
 {
 	/*
 	var Authorization = 'oauth_consumer_key=YZoBVI9Ak2MAxLTRJ460c65Oq&oauth_signature_method=PLAINTEXT&oauth_signature=kd94hf93k423kf44%26&oauth_timestamp=1191242090&oauth_nonce=hsu94j3884jdopsl&oauth_version=1.0';
@@ -211,8 +211,8 @@ app.get('/twitter/auth' , function(req, res)
 	//  console.log('problem with request: ' + e.message);
 	//});
 	// write data to request body
-	res.write('{"string": "Hello, World"}');
-	res.end();
+	response.write('{"string": "Hello, World"}');
+	response.end();
 	
 });
 app.listen(app.get('port'), function() {
