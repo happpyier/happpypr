@@ -5,7 +5,7 @@ const https = require('https');
 const fs = require('fs');
 var path = require("path");
 var url = require("url");
-var OAuth = require('oauth');
+var OAuth = require('oauth').OAuth;
 var randid_vote = "";
 var votechoose_vote = "";
 var votes_vote = "";
@@ -189,33 +189,15 @@ app.get('/twitter/auth' , function(request, response)
 	//var location = 'https://api.twitter.com/oauth/authenticate?oauth_token=981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm';
 	//response.redirect(location);
 	//response.end();
-	describe('OAuth1.0',function()
-	{
-	  var OAuth = require('oauth');
-
-	  it('tests trends Twitter API v1.1',function(done){
-		var oauth = new OAuth.OAuth(
-		  'https://api.twitter.com/oauth/request_token',
-		  'https://api.twitter.com/oauth/access_token',
-		  'YZoBVI9Ak2MAxLTRJ460c65Oq',
-		  'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
-		  '1.0A',
-		  null,
-		  'HMAC-SHA1'
-		);
-		oauth.get(
-		  'https://api.twitter.com/oauth/authorize',
-		  '981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm', //test user token
-		  'bxxYDmsh7UUFCnJssfinAYCXf8nNAC7kFwrYsQrnx64TP', //test user secret            
-		  function (e, data, res){
-			if (e) console.error(e);        
-			console.log(require('util').inspect(data));
-			done();      
-		  });    
-	  });
-	});
-
-	
+	consumer = new OAuth('http://term.ie/oauth/example/request_token.php',
+                    'http://term.ie/oauth/example/access_token.php',
+                    'YZoBVI9Ak2MAxLTRJ460c65Oq', 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP', '1.0',
+                    null, 'HMAC-SHA1');
+	// Get the request token                    
+	consumer.getOAuthRequestToken(function(err, oauth_token, oauth_token_secret, results ){
+    console.log('==>Get the request token');
+    console.log(arguments);
+});
 });
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
