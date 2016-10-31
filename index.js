@@ -199,20 +199,20 @@ app.get('/twitter/auth' , function(req, res)
 		  'Content-Type': 'application/json'
 		}
 	};
-	var req = http.request(options, function(res) 
-	{
-	  res.setEncoding('utf8');
-	  res.on('data', function (body) 
-	  {
-		console.log('Body: ' + body);
-	  });
-	});
+	//var req = http.request(options, function(res) 
+	//{
+	//  res.setEncoding('utf8');
+	//  res.on('data', function (body) 
+	//  {
+	//	console.log('Body: ' + body);
+	//  });
+	//});
 	//req.on('error', function(e) {
 	//  console.log('problem with request: ' + e.message);
 	//});
 	// write data to request body
-	res.write('{"string": "Hello, World"}');
-	res.end();
+	req.write('{"string": "Hello, World"}');
+	req.end();
 	
 });
 app.listen(app.get('port'), function() {
