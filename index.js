@@ -202,8 +202,8 @@ app.get('/twitter/auth' , function(request, response)
 		);
 		oauth.get(
 		  'https://api.twitter.com/1.1/trends/place.json?id=23424977',
-		  '	981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm', //test user token
-		  '	bxxYDmsh7UUFCnJssfinAYCXf8nNAC7kFwrYsQrnx64TP', //test user secret            
+		  '981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm', //test user token
+		  'bxxYDmsh7UUFCnJssfinAYCXf8nNAC7kFwrYsQrnx64TP', //test user secret            
 		  function (e, data, res){
 			if (e) console.error(e);        
 			console.log(require('util').inspect(data));
