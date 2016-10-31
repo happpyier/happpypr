@@ -197,9 +197,10 @@ app.get('/twitter/auth' , function(request, response)
 	consumer.getOAuthRequestToken(function(err, oauth_token, oauth_token_secret, results ){
     console.log('==>Get the request token');
     console.log(arguments);
-	testvar = arguments;
+	console.log("it worked yeah");
+	testvar = results;
 	});
-	response.write(Object.keys(testvar));
+	response.write(testvar);
 	response.end();
 });
 app.listen(app.get('port'), function() {
