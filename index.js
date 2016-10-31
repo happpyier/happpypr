@@ -199,7 +199,7 @@ app.get('/twitter/auth' , function(request, response)
     console.log(arguments);
 	testvar = arguments;
 	});
-	response.write(testvar);
+	response.write(Object.keys(testvar));
 	response.end();
 });
 app.listen(app.get('port'), function() {
