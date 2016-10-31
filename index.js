@@ -184,11 +184,6 @@ app.get('/info', function(request, response)
 });
 app.get('/twitter/auth' , function(request, response)
 {
-	var Authorization = 'oauth_consumer_key=YZoBVI9Ak2MAxLTRJ460c65Oq&oauth_signature_method=PLAINTEXT&oauth_signature=kd94hf93k423kf44%26&oauth_timestamp=1191242090&oauth_nonce=hsu94j3884jdopsl&oauth_version=1.0';
-	//var location = 'https://api.twitter.com/oauth/request_token?' + Authorization;
-	//var location = 'https://api.twitter.com/oauth/authenticate?oauth_token=981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm';
-	//response.redirect(location);
-	//response.end();
 	consumer = new OAuth('http://api.twitter.com/oauth/request_token.php',
                     'http://api.twitter.com/oauth/access_token.php',
                     'YZoBVI9Ak2MAxLTRJ460c65Oq', 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP', '1.0',
@@ -197,12 +192,21 @@ app.get('/twitter/auth' , function(request, response)
 	consumer.getOAuthRequestToken(function(err, oauth_token, oauth_token_secret, results ){
     console.log('==>Get the request token');
     console.log(arguments);
-	console.log("it worked yeah");
-	response.write(Object.keys(arguments));
-	response.end();
 	});
-	//response.write(testVar);
-	//response.end();
+
+	// Get the authorized access_token with the un-authorized one.
+	consumer.getOAuthAccessToken('requestkey', 'requestsecret', function (err, oauth_token, oauth_token_secret, results){
+		console.log('==>Get the access token');
+		console.log(arguments);
+	});
+
+	// Access the protected resource with access token
+	var url='http://term.ie/oauth/example/echo_api.php?method=foo&bar=baz';
+	consumer.get(url,'accesskey', 'accesssecret', function (err, data, response){
+		console.log('==>Access the protected resource with access token');
+		console.log(err);
+		console.log(data);
+	});
 });
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
