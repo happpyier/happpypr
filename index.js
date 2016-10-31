@@ -196,7 +196,7 @@ app.get('/twitter/auth' , function(req, res)
 		method: 'POST',
 		headers: 
 		{
-		  'Content-Type': 'application/json',
+		  'Content-Type': 'application/json'
 		}
 	};
 	//var req = http.request(options, function(res) 
