@@ -211,8 +211,8 @@ app.get('/twitter/auth' , function(req, res)
 	//  console.log('problem with request: ' + e.message);
 	//});
 	// write data to request body
-	req.write('{"string": "Hello, World"}');
-	req.end();
+	res.write('{"string": "Hello, World"}');
+	res.end();
 	
 });
 app.listen(app.get('port'), function() {
