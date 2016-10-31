@@ -185,12 +185,15 @@ app.get('/twitter/auth' , function(request, response)
                     'YZoBVI9Ak2MAxLTRJ460c65Oq', 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP', '1.0',
                     null, 'HMAC-SHA1');
 	// Get the request token                    
-	consumer.getOAuthRequestToken(function(err, oauth_token, oauth_token_secret, results ){
+	consumer.getOAuthRequestToken(function(err, oauth_token, oauth_token_secret, results )
+	{
+		console.log('==>Get the request token');
+		console.log(arguments);
 		testVar = JSON.stringify(arguments);
 		response.write(arguments[0].data);
 		response.write("request token");
 		response.end();
-	});
+	});                  
 	/*
 	// Get the authorized access_token with the un-authorized one.
 	consumer.getOAuthAccessToken('requestkey', 'requestsecret', function (err, oauth_token, oauth_token_secret, results){
