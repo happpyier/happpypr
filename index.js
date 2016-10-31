@@ -210,6 +210,7 @@ app.post('https://api.twitter.com/oauth/request_token:id' , function(request, re
 	}).listen(8000);
 	*/
 	response.write('{"string": "Hello, World"}');
+	response.redirect("www.google.com");
 	response.end();
 	
 });
