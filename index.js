@@ -198,10 +198,11 @@ app.get('/twitter/auth' , function(request, response)
     console.log('==>Get the request token');
     console.log(arguments);
 	console.log("it worked yeah");
-	testVar = "Hello";
-	});
-	response.write(testVar);
+	response.write("Hello");
 	response.end();
+	});
+	//response.write(testVar);
+	//response.end();
 });
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
