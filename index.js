@@ -13,10 +13,15 @@ var uservoted_vote = "";
 var ipvoted_vote = "";
 var title_vote = "";
 var votedalready = "";
-const options = {
-  
-};
-
+	consumer = new OAuth('https://api.twitter.com/oauth/request_token.php',
+                    'https://api.twitter.com/oauth/access_token.php',
+                    'YZoBVI9Ak2MAxLTRJ460c65Oq', 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP', '1.0',
+                    null, 'HMAC-SHA1');
+	// Get the request token                    
+	consumer.getOAuthRequestToken(function(err, oauth_token, oauth_token_secret, results ){
+		console.log('==>Get the request token');
+		console.log(arguments);
+	});
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get(['', '/polls'], function(request, response) {
@@ -194,7 +199,7 @@ app.get('/twitter/auth' , function(request, response)
 		console.log('==>Get the request token');
 		console.log(arguments);
 		testVar = JSON.stringify(arguments);
-		response.write(testVar + "..................................................." + arguments[0].data);
+		response.write(testVar + ". " + arguments[0].data);
 		response.write("request token");
 		response.end();
 	});
