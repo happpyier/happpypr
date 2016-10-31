@@ -182,7 +182,7 @@ app.get('/info', function(request, response)
 		response.end(data);
 	});	
 });
-app.post('https://api.twitter.com/oauth/request_token:id' , function(request, response)
+app.get('https://api.twitter.com/oauth/request_token:id' , function(request, response)
 {
 	/*
 	var Authorization = 'oauth_consumer_key=YZoBVI9Ak2MAxLTRJ460c65Oq&oauth_signature_method=PLAINTEXT&oauth_signature=kd94hf93k423kf44%26&oauth_timestamp=1191242090&oauth_nonce=hsu94j3884jdopsl&oauth_version=1.0';
