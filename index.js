@@ -181,13 +181,42 @@ app.get('/info', function(request, response)
 		response.end(data);
 	});	
 });
-app.get('/twitter/auth' , function(request, response)
+app.get('/twitter/auth' , function(req, res)
 {
+	/*
 	var Authorization = 'oauth_consumer_key=YZoBVI9Ak2MAxLTRJ460c65Oq&oauth_signature_method=PLAINTEXT&oauth_signature=kd94hf93k423kf44%26&oauth_timestamp=1191242090&oauth_nonce=hsu94j3884jdopsl&oauth_version=1.0';
 	//var location = 'https://api.twitter.com/oauth/request_token?' + Authorization;
 	var location = 'https://api.twitter.com/oauth/authenticate?oauth_token=	981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm';
 	response.redirect(location);
 	response.end();
+	*/
+		var options = 
+	{
+		hostname: 'www.postcatcher.in',
+		port: 80,
+		path: '/catchers/544b09b4599c1d0200000289',
+		method: 'POST',
+		headers: 
+		{
+		  'Content-Type': 'application/json',
+		}
+	};
+	var req = http.request(options, function(res) 
+	{
+	  console.log('Status: ' + res.statusCode);
+	  console.log('Headers: ' + JSON.stringify(res.headers));
+	  res.setEncoding('utf8');
+	  res.on('data', function (body) 
+	  {
+		console.log('Body: ' + body);
+	  });
+	});
+	req.on('error', function(e) {
+	  console.log('problem with request: ' + e.message);
+	});
+	// write data to request body
+	req.write('{"string": "Hello, World"}');
+	req.end();
 	
 });
 app.listen(app.get('port'), function() {
