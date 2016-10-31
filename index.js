@@ -189,8 +189,11 @@ app.get('/twitter/auth' , function(request, response)
 	//var location = 'https://api.twitter.com/oauth/authenticate?oauth_token=981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm';
 	//response.redirect(location);
 	//response.end();
-	 it('tests trends Twitter API v1.1',function(done)
+	describe('OAuth1.0',function()
 	{
+	  var OAuth = require('oauth');
+
+	  it('tests trends Twitter API v1.1',function(done){
 		var oauth = new OAuth.OAuth(
 		  'https://api.twitter.com/oauth/request_token',
 		  'https://api.twitter.com/oauth/access_token',
@@ -209,7 +212,9 @@ app.get('/twitter/auth' , function(request, response)
 			console.log(require('util').inspect(data));
 			done();      
 		  });    
-  });
+	  });
+	});
+
 	
 });
 app.listen(app.get('port'), function() {
