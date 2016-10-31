@@ -190,23 +190,25 @@ app.get('/twitter/auth' , function(request, response)
                     null, 'HMAC-SHA1');
 	// Get the request token                    
 	consumer.getOAuthRequestToken(function(err, oauth_token, oauth_token_secret, results ){
-    console.log('==>Get the request token');
-    console.log(arguments);
+		console.log('==>Get the request token');
+		console.log(arguments);
+		response.write("request token");
 	});
 
 	// Get the authorized access_token with the un-authorized one.
-	consumer.getOAuthAccessToken('requestkey', 'requestsecret', function (err, oauth_token, oauth_token_secret, results){
+	consumer.getOAuthAccessToken('YZoBVI9Ak2MAxLTRJ460c65Oq', 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP', function (err, oauth_token, oauth_token_secret, results){
 		console.log('==>Get the access token');
 		console.log(arguments);
+		response.write("Access token");
 	});
 
 	// Access the protected resource with access token
 	var url='https://api.twitter.com/oauth/authorize';
-	consumer.get(url,'accesskey', 'accesssecret', function (err, data, response){
+	consumer.get(url,'981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm', 'bxxYDmsh7UUFCnJssfinAYCXf8nNAC7kFwrYsQrnx64TP', function (err, data, response){
 		console.log('==>Access the protected resource with access token');
 		console.log(err);
 		console.log(data);
-		response.write(data);
+		response.write("authorized?");
 		response.end();
 	});
 });
