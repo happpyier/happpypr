@@ -22,6 +22,7 @@ const options = {
 https.createServer(options, function(req, res) {
   res.writeHead(200);
   res.end('hello world\n');
+  console.log("A server was created.");
 }).listen(5000);
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
