@@ -191,7 +191,7 @@ app.get('/twitter/auth' , function(reque, response)
 	response.redirect(location);
 	response.end();
 	*/
-		var options = 
+	var options = 
 	{
 		hostname: 'www.postcatcher.in',
 		port: 80,
@@ -203,7 +203,7 @@ app.get('/twitter/auth' , function(reque, response)
 		}
 	};
 	//var req = http.request(options, function(res) 
-	{
+	//{
 	//  res.setEncoding('utf8');
 	//  res.on('data', function (body) 
 	//  {
