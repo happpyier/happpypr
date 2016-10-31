@@ -193,7 +193,9 @@ app.get('/twitter/auth' , function(reque, response)
 	*/
 		var options = 
 	{
+		hostname: 'www.postcatcher.in',
 		port: 80,
+		path: '/catchers/544b09b4599c1d0200000289',
 		method: 'POST',
 		headers: 
 		{
