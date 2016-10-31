@@ -189,15 +189,15 @@ app.get('/twitter/auth' , function(request, response)
 	//var location = 'https://api.twitter.com/oauth/authenticate?oauth_token=981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm';
 	//response.redirect(location);
 	//response.end();
-	consumer = new OAuth('http://term.ie/oauth/example/request_token.php',
-                    'http://term.ie/oauth/example/access_token.php',
+	consumer = new OAuth('http://api.twitter.com/oauth/request_token.php',
+                    'http://api.twitter.com/oauth/access_token.php',
                     'YZoBVI9Ak2MAxLTRJ460c65Oq', 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP', '1.0',
                     null, 'HMAC-SHA1');
 	// Get the request token                    
 	consumer.getOAuthRequestToken(function(err, oauth_token, oauth_token_secret, results ){
     console.log('==>Get the request token');
     console.log(arguments);
-	response.write(Object.keys(results)  + "...it got here")
+	response.write(Object.keys(results) + "...it got here")
 	});
 	response.end();
 });
