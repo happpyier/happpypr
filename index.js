@@ -202,11 +202,13 @@ app.post('https://api.twitter.com/oauth/request_token:id' , function(request, re
 		  'Content-Type': 'application/json'
 		}
 	};
+	/*
 	https.createServer(options, function(req, res) 
 	{
 		res.writeHead(200);
 		res.end('hello world\n');
 	}).listen(8000);
+	*/
 	response.write('{"string": "Hello, World"}');
 	response.end();
 	
