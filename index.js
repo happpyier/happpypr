@@ -168,7 +168,7 @@ app.get('/newpoll', function(request, response)
 		response.end(data);
 	});	
 });
-app.get('/https://api.twitter.com/oauth/authenticate?oauth_token=:id', function(request, response)
+app.get('/https://api.twitter.com/oauth/:id', function(request, response)
 {
 	res.cookie('loggedIN', "Authorized", { domain: 'https://happpypr.herokuapp.com/', expires: new Date(Date.now() + 900000), httpOnly: true });
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
