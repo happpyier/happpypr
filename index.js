@@ -195,6 +195,7 @@ app.get('/twitter/auth' , function(request, response)
 	  console.log(tweets);  // The favorites. 
 	  console.log(response);  // Raw response object. 
 	});
+	response.end();
 });
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
