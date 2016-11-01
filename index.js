@@ -174,6 +174,10 @@ app.get('/newpoll', function(request, response)
 });
 app.get('/windowClose', function(request, response)
 {
+	var testIngVar = Object.keys(request);
+	response.write(testIngVar);
+	response.end();
+	/*
 	twitter.getAccessToken(requestTokenToUse, requestTokenSecretToUse, oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
     if (error) {
         console.log(error);
@@ -184,21 +188,9 @@ app.get('/windowClose', function(request, response)
         //Step 4: Verify Credentials belongs here 
     }
 	});
-	twitter.verifyCredentials(accessTokenToUse, accessTokenSecretToUse, params, function(error, data, response) {
-    if (error) {
-        //something was wrong with either accessToken or accessTokenSecret 
-        //start over with Step 1 
-    } else {
-        //accessToken and accessTokenSecret can now be used to make api-calls (not yet implemented) 
-        //data contains the user-data described in the official Twitter-API-docs 
-        //you could e.g. display his screen_name 
-        //console.log(data["screen_name"]);
-		response.write(data["screen_name"]);
-    }
-	});
-	
-	response.write(requestTokenToUse + "...requestTokenToUse <br/>" + requestSecretToUse + "...requestSecretToUse" );
+	response.write(accessTokenToUse + "...requestTokenToUse <br/>" + accessTokenSecretToUse + "...requestSecretToUse" );
 	response.end();
+	*/
 	/*
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
 	{
@@ -236,9 +228,7 @@ app.get("/twitter/auth", function(req, res) {
 			_requestSecret = requestSecret;
 			requestTokenToUse = requestToken;
 			requestSecretToUse = requestSecret;
-			twitter.getAuthUrl(requestToken, options);
-			res.end();
-			//res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
+			res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
 		}
 	});
 });
