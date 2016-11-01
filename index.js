@@ -174,7 +174,7 @@ app.get('/newpoll', function(request, response)
 });
 app.get('/windowClose', function(request, response)
 {
-	var testIngVar = JSON.stringify(Object.keys(request));
+	var testIngVar = JSON.stringify(Object.keys(request.url));
 	//var secondTest3 = request.get('oauth_verifier');
 	//var stringified3 = JSON.stringify(secondTest3);
 	response.write(testIngVar);
