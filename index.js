@@ -170,7 +170,11 @@ app.get('/newpoll', function(request, response)
 });
 app.get('/https://api.twitter.com/oauth/:id', function(request, response)
 {
-	res.cookie('loggedIN', "Authorized", { domain: 'https://happpypr.herokuapp.com/', expires: new Date(Date.now() + 900000), httpOnly: true });
+	response.cookie('loggedIN', "Authorized", { domain: 'https://happpypr.herokuapp.com/', expires: new Date(Date.now() + 900000), httpOnly: true });
+	response.redirect("https://happpypr.herokuapp.com/windowClose");
+});
+app.get('/windowClose', function(request, response)
+{
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
 	{
 		if (err) 
@@ -180,6 +184,7 @@ app.get('/https://api.twitter.com/oauth/:id', function(request, response)
 		response.end(data);
 	});	
 });
+
 app.get('/info', function(request, response)
 {
 	fs.readFile('info.html', 'utf8', function (err,data) 
