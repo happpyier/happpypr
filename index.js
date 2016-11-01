@@ -193,6 +193,7 @@ app.get("/twitter/auth", function(req, res) {
 			_requestSecret = requestSecret;
 			document.cookie = "username="+requestToken;
 			res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
+			 window.close(); 
 		}
 	});
 });
