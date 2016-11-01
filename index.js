@@ -14,6 +14,8 @@ var uservoted_vote = "";
 var ipvoted_vote = "";
 var title_vote = "";
 var votedalready = "";
+var requestTokenToUse = "";
+var requestSecretToUse = "";
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get(['', '/polls'], function(request, response) {
@@ -170,11 +172,14 @@ app.get('/newpoll', function(request, response)
 });
 app.get('/https://api.twitter.com/oauth/:id', function(request, response)
 {
-	response.cookie('loggedIN', "Authorized", { domain: 'https://happpypr.herokuapp.com/', expires: new Date(Date.now() + 900000), httpOnly: true });
+	//response.cookie('loggedIN', "Authorized", { domain: 'https://happpypr.herokuapp.com/', expires: new Date(Date.now() + 900000), httpOnly: true });
 	response.redirect("https://happpypr.herokuapp.com/windowClose");
 });
 app.get('/windowClose', function(request, response)
 {
+	response.write(requestTokenToUse + "...requestTokenToUse <br/>" + requestSecretToUse + "...requestSecretToUse" );
+	response.end();
+	/*
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
 	{
 		if (err) 
@@ -183,6 +188,7 @@ app.get('/windowClose', function(request, response)
 		}
 		response.end(data);
 	});	
+	*/
 });
 
 app.get('/info', function(request, response)
@@ -208,6 +214,9 @@ app.get("/twitter/auth", function(req, res) {
 			res.status(500).send(err);
 		else {
 			_requestSecret = requestSecret;
+			requestTokenToUse = requestToken;
+			requestSecretToUse = requestSecret;
+			res.write(requestSecret);
 			res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
 		}
 	});
