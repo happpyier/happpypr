@@ -16,6 +16,8 @@ var title_vote = "";
 var votedalready = "";
 var requestTokenToUse = "";
 var requestSecretToUse = "";
+var accessTokenToUse = "";
+var accessTokenSecretToUse = "";
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get(['', '/polls'], function(request, response) {
@@ -172,7 +174,7 @@ app.get('/newpoll', function(request, response)
 });
 app.get('/windowClose', function(request, response)
 {
-	twitter.getAccessToken(requestToken, requestTokenSecret, oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
+	twitter.getAccessToken(requestTokenToUse, requestTokenSecretToUse, oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
     if (error) {
         console.log(error);
     } else {
@@ -181,7 +183,7 @@ app.get('/windowClose', function(request, response)
 		//store accessToken and accessTokenSecret somewhere (associated to the user) 
         //Step 4: Verify Credentials belongs here 
     }
-});
+	});
 	twitter.verifyCredentials(accessTokenToUse, accessTokenSecretToUse, params, function(error, data, response) {
     if (error) {
         //something was wrong with either accessToken or accessTokenSecret 
