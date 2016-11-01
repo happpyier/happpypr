@@ -180,8 +180,8 @@ app.get('/newpoll', function(request, response)
 });
 app.get('/windowClose', function(request, response)
 {
-	var oauth_verifierToUse = request.param('oauth_verifier');
-	twitter.getAccessToken(requestTokenToUse, requestTokenSecretToUse, oauth_verifierToUse, function(error, accessToken, accessTokenSecret, results) {
+	var oauth_verifier = request.param('oauth_verifier');
+	twitter.getAccessToken(requestToken, requestTokenSecret, oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
 		if (error){
 			response.status(500).send(error);
     } else {
