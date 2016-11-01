@@ -189,6 +189,12 @@ app.get('/twitter/auth' , function(request, response)
 		access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
 		access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 	});
+		client.get('favorites/list', function(error, tweets, response) 
+	{
+	  if(error) throw error;
+	  console.log(tweets);  // The favorites. 
+	  console.log(response);  // Raw response object. 
+	});
 });
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
