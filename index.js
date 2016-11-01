@@ -6,6 +6,7 @@ const fs = require('fs');
 var path = require("path");
 var url = require("url");
 var OAuth = require('oauth').OAuth;
+var Twitter = require('twitter');
 var randid_vote = "";
 var votechoose_vote = "";
 var votes_vote = "";
@@ -181,40 +182,13 @@ app.get('/info', function(request, response)
 app.set("Content-Type", "application/x-www-form-urlencoded")
 app.get('/twitter/auth' , function(request, response)
 {
-	consumer = new OAuth('https://api.twitter.com/oauth/request_token.php',
-                    'https://api.twitter.com/oauth/access_token.php',
-                    'YZoBVI9Ak2MAxLTRJ460c65Oq',
-					'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
-					'1.0A', null, 'HMAC-SHA1');
-	//oauth_token = '981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm';
-	//oauth_token_secret = 'bxxYDmsh7UUFCnJssfinAYCXf8nNAC7kFwrYsQrnx64TP';
-	// Get the request token                    
-	consumer.getOAuthRequestToken(function(err, oauth_token, oauth_token_secret, results ){
-		console.log('==>Get the request token');
-		console.log(arguments);
-		testVar = JSON.stringify(arguments);
-		response.write(arguments[0].statusCode);
-		response.write("...request token");
-		response.end();
+	var client = new Twitter(
+	{
+		consumer_key: process.env.TWITTER_CONSUMER_KEY,
+		consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+		access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+		access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 	});
-	/*
-	// Get the authorized access_token with the un-authorized one.
-	consumer.getOAuthAccessToken('requestkey', 'requestsecret', function (err, oauth_token, oauth_token_secret, results){
-		console.log('==>Get the access token');
-		console.log(arguments);
-		response.write("Access token");
-	});
-
-	// Access the protected resource with access token
-	var url='https://api.twitter.com/oauth/authorize';
-	consumer.get(url,'accesskey', 'accesssecret', function (err, data, response){
-		console.log('==>Access the protected resource with access token');
-		console.log(err);
-		console.log(data);
-		response.write("Access Key.");
-		response.end();
-	});
-	*/
 });
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
