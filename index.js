@@ -178,6 +178,7 @@ app.get('/info', function(request, response)
 		response.end(data);
 	});	
 });
+app.set("Content-Type", "application/x-www-form-urlencoded")
 app.get('/twitter/auth' , function(request, response)
 {
 	consumer = new OAuth('https://api.twitter.com/oauth/request_token.php',
