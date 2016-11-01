@@ -182,7 +182,7 @@ app.get('/windowClose', function(request, response)
 {
 	var oauth_verifier = request.param('oauth_verifier');
 	/*
-	twitter.getAccessToken(requestToken, requestTokenSecret, oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
+	twitter.getAccessToken(requestTokenToUse, requestTokenSecretToUse, oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
 		if (error){
 			response.status(500).send(error);
     } else {
