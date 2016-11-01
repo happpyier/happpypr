@@ -193,7 +193,7 @@ app.get("/twitter/auth", function(req, res) {
 			_requestSecret = requestSecret;
 			//res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
 			res.cookie('loggedIN', "Authorized", { domain: 'https://happpypr.herokuapp.com/', expires: new Date(Date.now() + 900000), httpOnly: true });
-			window.close();
+			res.redirect("https://happpypr.herokuapp.com/windowClose.html");
 		}
 	});
 });
