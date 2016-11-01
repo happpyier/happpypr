@@ -174,7 +174,7 @@ app.get('/newpoll', function(request, response)
 });
 app.get('/windowClose', function(request, response)
 {
-	var testIngVar = Object.keys(request);
+	var testIngVar = JSON.stringify(request);
 	response.write(testIngVar);
 	response.end();
 	/*
