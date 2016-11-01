@@ -174,13 +174,8 @@ app.get('/newpoll', function(request, response)
 });
 app.get('/windowClose', function(request, response)
 {
-	var testIngVar = request.param('oauth_verifier');
-	//var secondTest3 = request.get('oauth_verifier');
-	//var stringified3 = JSON.stringify(secondTest3);
-	response.write(testIngVar);
-	response.end();
-	/*
-	twitter.getAccessToken(requestTokenToUse, requestTokenSecretToUse, oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
+	var oauth_verifierToUse = request.param('oauth_verifier');
+	twitter.getAccessToken(requestTokenToUse, requestTokenSecretToUse, oauth_verifierToUse, function(error, accessToken, accessTokenSecret, results) {
     if (error) {
         console.log(error);
     } else {
@@ -192,7 +187,6 @@ app.get('/windowClose', function(request, response)
 	});
 	response.write(accessTokenToUse + "...requestTokenToUse <br/>" + accessTokenSecretToUse + "...requestSecretToUse" );
 	response.end();
-	*/
 	/*
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
 	{
