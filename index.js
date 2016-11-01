@@ -185,10 +185,11 @@ app.get('/info', function(request, response)
 app.get('/twitter/auth' , function(request, response)
 {
 	console.log("hello");
-	consumer = new OAuth('https://api.twitter.com/oauth/request_token.php',
-                    'https://api.twitter.com/oauth/access_token.php',
-                    'YZoBVI9Ak2MAxLTRJ460c65Oq', 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP', '1.0',
-                    null, 'HMAC-SHA1');
+	consumer = new OAuth('https://api.twitter.com/oauth/request_token',
+                    'https://api.twitter.com/oauth/access_token',
+                    'YZoBVI9Ak2MAxLTRJ460c65Oq',
+					'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
+					'1.0A', null, 'HMAC-SHA1');
 	// Get the request token                    
 	consumer.getOAuthRequestToken(function(err, oauth_token, oauth_token_secret, results ){
 		console.log('==>Get the request token');
