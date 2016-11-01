@@ -206,7 +206,7 @@ app.get('/info', function(request, response)
 var twitter = new Twitter({
 	consumerKey: 'YZoBVI9Ak2MAxLTRJ460c65Oq',
 	consumerSecret: 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
-	callback: 'https%3A%2F%2Fhapppypr.herokuapp.com%2F'
+	callback: 'https://happpypr.herokuapp.com/'
 });
 var _requestSecret;
 app.get("/twitter/auth", function(req, res) {
