@@ -6,6 +6,7 @@ const fs = require('fs');
 var path = require("path");
 var url = require("url");
 var OAuth = require('oauth').OAuth;
+var Twitter = require("node-twitter-api");
 var randid_vote = "";
 var votechoose_vote = "";
 var votes_vote = "";
@@ -178,42 +179,26 @@ app.get('/info', function(request, response)
 		response.end(data);
 	});	
 });
-app.set("Content-Type", "application/x-www-form-urlencoded")
-app.get('/twitter/auth' , function(request, response)
+module.exports = function(app) 
 {
-	consumer = new OAuth('https://api.twitter.com/oauth/request_token.php',
-                    'https://api.twitter.com/oauth/access_token.php',
-                    'YZoBVI9Ak2MAxLTRJ460c65Oq',
-					'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
-					'1.0A', null, 'HMAC-SHA1');
-	// Get the request token                    
-	consumer.getOAuthRequestToken(function(err, oauth_token, oauth_token_secret, results ){
-		console.log('==>Get the request token');
-		console.log(arguments);
-		testVar = JSON.stringify(arguments);
-		response.write(testVar);
-		response.write("...request token");
-		response.end();
+	var twitter = new Twitter({
+		consumerKey: process.env.TWITTER_CONSUMER_KEY,
+		consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
 	});
-	/*
-	// Get the authorized access_token with the un-authorized one.
-	consumer.getOAuthAccessToken('requestkey', 'requestsecret', function (err, oauth_token, oauth_token_secret, results){
-		console.log('==>Get the access token');
-		console.log(arguments);
-		response.write("Access token");
-	});
+	var _requestSecret;
 
-	// Access the protected resource with access token
-	var url='https://api.twitter.com/oauth/authorize';
-	consumer.get(url,'accesskey', 'accesssecret', function (err, data, response){
-		console.log('==>Access the protected resource with access token');
-		console.log(err);
-		console.log(data);
-		response.write("Access Key.");
-		response.end();
+	app.get("/twitter/auth", function(req, res) {
+		twitter.getRequestToken(function(err, requestToken, requestSecret) {
+			if (err)
+				res.status(500).send(err);
+			else {
+				_requestSecret = requestSecret;
+				res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
+			}
+		});
 	});
-	*/
-});
+	
+};
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
 });
