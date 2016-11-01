@@ -195,7 +195,7 @@ app.get('/windowClose', function(request, response)
     }
 	});
 	*/
-	response.write(accessTokenToUse + "...requestToken <br/>" + accessTokenSecretToUse + "...requestSecretToUse <br/>" + oauth_verifier + "...oauth_verifier" );
+	response.write(requestTokenToUse + "...requestToken <br/>" + requestTokenSecretToUse + "...requestSecretToUse <br/>" + oauth_verifier + "...oauth_verifier" );
 	response.end();
 	/*
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
