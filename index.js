@@ -179,26 +179,21 @@ app.get('/info', function(request, response)
 		response.end(data);
 	});	
 });
-module.exports = function(app) 
-{
-	var twitter = new Twitter({
-		consumerKey: process.env.TWITTER_CONSUMER_KEY,
-		consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+var twitter = new Twitter({
+	consumerKey: process.env.TWITTER_CONSUMER_KEY,
+	consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+});
+var _requestSecret;
+app.get("/twitter/auth", function(req, res) {
+	twitter.getRequestToken(function(err, requestToken, requestSecret) {
+		if (err)
+			res.status(500).send(err);
+		else {
+			_requestSecret = requestSecret;
+			res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
+		}
 	});
-	var _requestSecret;
-
-	app.get("/twitter/auth", function(req, res) {
-		twitter.getRequestToken(function(err, requestToken, requestSecret) {
-			if (err)
-				res.status(500).send(err);
-			else {
-				_requestSecret = requestSecret;
-				res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
-			}
-		});
-	});
-	
-};
+});
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
 });
