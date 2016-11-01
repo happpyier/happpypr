@@ -170,11 +170,6 @@ app.get('/newpoll', function(request, response)
 		response.end(data);
 	});	
 });
-app.get('https://api.twitter.com/oauth/:id', function(request, response)
-{
-	response.redirect("https://happpypr.herokuapp.com/windowClose");
-	//response.cookie('loggedIN', "Authorized", { domain: 'https://happpypr.herokuapp.com/', expires: new Date(Date.now() + 900000), httpOnly: true });
-});
 app.get('/windowClose', function(request, response)
 {
 	response.write("it got here.");
@@ -206,7 +201,7 @@ app.get('/info', function(request, response)
 var twitter = new Twitter({
 	consumerKey: 'YZoBVI9Ak2MAxLTRJ460c65Oq',
 	consumerSecret: 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
-	callback: 'https://happpypr.herokuapp.com/'
+	callback: 'https://happpypr.herokuapp.com/windowClose'
 });
 var _requestSecret;
 app.get("/twitter/auth", function(req, res) {
