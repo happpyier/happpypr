@@ -172,7 +172,29 @@ app.get('/newpoll', function(request, response)
 });
 app.get('/windowClose', function(request, response)
 {
-	response.write("it got here.");
+	twitter.getAccessToken(requestToken, requestTokenSecret, oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
+    if (error) {
+        console.log(error);
+    } else {
+        accessTokenToUse = accessToken;
+		accessTokenSecretToUse = accessTokenSecret;
+		//store accessToken and accessTokenSecret somewhere (associated to the user) 
+        //Step 4: Verify Credentials belongs here 
+    }
+});
+	twitter.verifyCredentials(accessTokenToUse, accessTokenSecretToUse, params, function(error, data, response) {
+    if (error) {
+        //something was wrong with either accessToken or accessTokenSecret 
+        //start over with Step 1 
+    } else {
+        //accessToken and accessTokenSecret can now be used to make api-calls (not yet implemented) 
+        //data contains the user-data described in the official Twitter-API-docs 
+        //you could e.g. display his screen_name 
+        //console.log(data["screen_name"]);
+		response.write(data["screen_name"]);
+    }
+	});
+	
 	response.write(requestTokenToUse + "...requestTokenToUse <br/>" + requestSecretToUse + "...requestSecretToUse" );
 	response.end();
 	/*
