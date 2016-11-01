@@ -170,7 +170,7 @@ app.get('/newpoll', function(request, response)
 		response.end(data);
 	});	
 });
-app.get('/api.twitter.com/oauth/:id?:next=:after', function(request, response)
+app.get('https://api.twitter.com/oauth/:id', function(request, response)
 {
 	response.redirect("https://happpypr.herokuapp.com/windowClose");
 	//response.cookie('loggedIN', "Authorized", { domain: 'https://happpypr.herokuapp.com/', expires: new Date(Date.now() + 900000), httpOnly: true });
