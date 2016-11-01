@@ -190,8 +190,8 @@ app.get('/twitter/auth' , function(request, response)
 		console.log('==>Get the request token');
 		console.log(arguments);
 		testVar = JSON.stringify(arguments);
-		response.write(testVar + "<br/> " + arguments[0].data);
-		response.write("request token");
+		response.write(arguments[0].statusCode);
+		response.write("...request token");
 		response.end();
 	});
 	/*
