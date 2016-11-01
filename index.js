@@ -18,6 +18,12 @@ var requestTokenToUse = "";
 var requestSecretToUse = "";
 var accessTokenToUse = "";
 var accessTokenSecretToUse = "";
+var twitter = new Twitter({
+	consumerKey: 'YZoBVI9Ak2MAxLTRJ460c65Oq',
+	consumerSecret: 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
+	callback: 'https://happpypr.herokuapp.com/windowClose'
+});
+var _requestSecret;
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get(['', '/polls'], function(request, response) {
@@ -176,8 +182,8 @@ app.get('/windowClose', function(request, response)
 {
 	var oauth_verifierToUse = request.param('oauth_verifier');
 	twitter.getAccessToken(requestTokenToUse, requestTokenSecretToUse, oauth_verifierToUse, function(error, accessToken, accessTokenSecret, results) {
-    if (error) {
-        console.log(error);
+		if (error){
+			response.status(500).send(error);
     } else {
         accessTokenToUse = accessToken;
 		accessTokenSecretToUse = accessTokenSecret;
@@ -213,12 +219,6 @@ app.get('/info', function(request, response)
 		response.end(data);
 	});	
 });
-var twitter = new Twitter({
-	consumerKey: 'YZoBVI9Ak2MAxLTRJ460c65Oq',
-	consumerSecret: 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
-	callback: 'https://happpypr.herokuapp.com/windowClose'
-});
-var _requestSecret;
 app.get("/twitter/auth", function(req, res) {
 	twitter.getRequestToken(function(err, requestToken, requestSecret) {
 		if (err)
