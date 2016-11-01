@@ -186,8 +186,8 @@ app.get('/twitter/auth' , function(request, response)
                     'YZoBVI9Ak2MAxLTRJ460c65Oq',
 					'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
 					'1.0A', null, 'HMAC-SHA1');
-	oauth_token = '981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm';
-	oauth_token_secret = 'bxxYDmsh7UUFCnJssfinAYCXf8nNAC7kFwrYsQrnx64TP';
+	//oauth_token = '981639187-ENufChYj4H962rxFBE42DYHu1bDAWc5wyrffJbbm';
+	//oauth_token_secret = 'bxxYDmsh7UUFCnJssfinAYCXf8nNAC7kFwrYsQrnx64TP';
 	// Get the request token                    
 	consumer.getOAuthRequestToken(function(err, oauth_token, oauth_token_secret, results ){
 		console.log('==>Get the request token');
