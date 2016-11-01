@@ -175,9 +175,6 @@ app.get('/newpoll', function(request, response)
 app.get('/windowClose', function(request, response)
 {
 	var oauth_verifierToUse = request.param('oauth_verifier');
-	response.write(typeof(oauth_verifierToUse));
-	response.end();
-	/*
 	twitter.getAccessToken(requestTokenToUse, requestTokenSecretToUse, oauth_verifierToUse, function(error, accessToken, accessTokenSecret, results) {
     if (error) {
         console.log(error);
@@ -186,11 +183,13 @@ app.get('/windowClose', function(request, response)
 		accessTokenSecretToUse = accessTokenSecret;
 		//store accessToken and accessTokenSecret somewhere (associated to the user) 
         //Step 4: Verify Credentials belongs here 
+		response.write('it got here');
+		response.end();
     }
 	});
 	
-	response.write(accessTokenToUse + "...requestTokenToUse <br/>" + accessTokenSecretToUse + "...requestSecretToUse" );
-	response.end();
+	//response.write(accessTokenToUse + "...requestTokenToUse <br/>" + accessTokenSecretToUse + "...requestSecretToUse" );
+	//response.end();
 	/*
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
 	{
