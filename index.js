@@ -237,6 +237,7 @@ app.get("/twitter/auth", function(req, res) {
 			requestTokenToUse = requestToken;
 			requestSecretToUse = requestSecret;
 			twitter.getAuthUrl(requestToken, options);
+			res.end();
 			//res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
 		}
 	});
