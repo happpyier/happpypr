@@ -168,10 +168,9 @@ app.get('/newpoll', function(request, response)
 		response.end(data);
 	});	
 });
-app.get('/windowClose', function(request, response)
+app.get('/https://api.twitter.com/oauth/authenticate?oauth_token=':id', function(request, response)
 {
-	//NEED to create the rows by title. with seperate votechoose and votes on each row.
-	
+	res.cookie('loggedIN', "Authorized", { domain: 'https://happpypr.herokuapp.com/', expires: new Date(Date.now() + 900000), httpOnly: true });
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
 	{
 		if (err) 
@@ -204,9 +203,7 @@ app.get("/twitter/auth", function(req, res) {
 			res.status(500).send(err);
 		else {
 			_requestSecret = requestSecret;
-			//res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
-			res.cookie('loggedIN', "Authorized", { domain: 'https://happpypr.herokuapp.com/', expires: new Date(Date.now() + 900000), httpOnly: true });
-			res.redirect("https://happpypr.herokuapp.com/windowClose");
+			res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
 		}
 	});
 });
