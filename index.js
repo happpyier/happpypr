@@ -191,7 +191,7 @@ app.get("/twitter/auth", function(req, res) {
 			res.status(500).send(err);
 		else {
 			_requestSecret = requestSecret;
-			res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
+			//res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
 			res.cookie('loggedIN', requestToken, { expires: new Date(Date.now() + 900000), httpOnly: true });
 			window.close();
 		}
