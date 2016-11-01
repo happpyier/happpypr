@@ -189,7 +189,7 @@ app.get('/twitter/auth' , function(request, response)
 		access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
 		access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 	});
-		client.get('favorites/list', function(error, tweets, response) 
+		client.get('https://api.twitter.com/oauth/request_token', function(error, tweets, response) 
 	{
 	  if(error) throw error;
 	  console.log(tweets);  // The favorites. 
