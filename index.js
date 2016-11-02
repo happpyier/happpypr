@@ -217,7 +217,7 @@ app.get('/verifyTwit', function(request, response)
 		response.end(data);
 	});
 	*/
-	response.write(request.cookies.name);
+	response.write(request.cookies.loggedIN);
 	response.end();
 });
 app.get('/info', function(request, response)
