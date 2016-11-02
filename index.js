@@ -207,7 +207,8 @@ app.get('/verifyTwit', function(request, response)
 		}
 	});
 	response.write(_screen_name);
-	//response.cookie('cookiename', 'cookievalue', { maxAge: 900000, httpOnly: true });
+	response.cookie('userlogged', _screen_name);
+	response.send(request.cookies.userlogged);
 	response.end();
 	/*
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
