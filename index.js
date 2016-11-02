@@ -22,7 +22,7 @@ var twitter = new Twitter({
 var _requestSecret;
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
-app.use(express.cookieParser());
+//app.use(express.cookieParser());
 app.get(['', '/polls'], function(request, response) {
 	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
 	var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
@@ -206,7 +206,7 @@ app.get('/verifyTwit', function(request, response)
 			_screen_name = data["name"];
 		}
 	});
-	//response.send(_screen_name);
+	response.send(_screen_name);
 	//response.cookie('userlogged', _screen_name);
 	//response.send(request.cookies.userlogged);
 	response.end();
