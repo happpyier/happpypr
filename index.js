@@ -174,6 +174,28 @@ app.get('/newpoll', function(request, response)
 		response.end(data);
 	});	
 });
+function verifyTwitter()
+{
+	twitter.verifyCredentials(accessToken, accessTokenSecret, function(error, data, response) 
+	{
+		if (error) 
+		{
+			console.log(error);
+		} 
+		else 
+		{
+			//accessToken and accessTokenSecret can now be used to make api-calls (not yet implemented) 
+			//data contains the user-data described in the official Twitter-API-docs 
+			//you could e.g. display his screen_name 
+			_screen_name = data["name"];
+			
+		}
+	});
+	
+	//response.write(accessToken + "...accessToken   " + accessTokenSecret + "...accessTokenSecret");
+	response.write(_screen_name);
+	response.end();
+};
 app.get('/windowClose', function(request, response)
 {
 	var oauth_verifier = request.param('oauth_verifier');
@@ -190,28 +212,7 @@ app.get('/windowClose', function(request, response)
 	});
 	accessToken = _accessToken;
 	accessTokenSecret = _accessTokenSecret;
-	setTimeout(function()
-	{
-		twitter.verifyCredentials(accessToken, accessTokenSecret, function(error, data, response) 
-		{
-			if (error) 
-			{
-				console.log(error);
-			} 
-			else 
-			{
-				//accessToken and accessTokenSecret can now be used to make api-calls (not yet implemented) 
-				//data contains the user-data described in the official Twitter-API-docs 
-				//you could e.g. display his screen_name 
-				_screen_name = data["name"];
-				
-			}
-		});
-		
-		//response.write(accessToken + "...accessToken   " + accessTokenSecret + "...accessTokenSecret");
-		response.write(_screen_name);
-		response.end();
-	}, 500);
+	verifyTwitter();
 	/*
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
 	{
