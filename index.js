@@ -181,13 +181,17 @@ app.get('/newpoll', function(request, response)
 app.get('/windowClose', function(request, response)
 {
 	var oauth_verifier = request.param('oauth_verifier');
-	twitter.getAccessToken(requestTokenToUse, requestSecretToUse, oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
-		if (error){
+	twitter.getAccessToken(requestTokenToUse, requestSecretToUse, oauth_verifier, function(error, accessToken, accessTokenSecret, results) 
+	{
+		if (error)
+		{
 			response.status(500).send(error);
-    } else {
+		} 
+		else 
+		{
         accessTokenToUse = accessToken;
 		accessTokenSecretToUse = accessTokenSecret;
-		response.write(accessToken + "accessToken");
+		response.write(accessTokenToUse + "accessToken");
 		}
 	});
 	//response.write(requestTokenToUse + "...requestToken <br/>" + requestSecretToUse + "...requestSecretToUse <br/>" + oauth_verifier + "...oauth_verifier" );
