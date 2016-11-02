@@ -191,16 +191,6 @@ app.get('/windowClose', function(request, response)
 	accessToken = _accessToken;
 	accessTokenSecret = _accessTokenSecret;
 	response.redirect("https://happpypr.herokuapp.com/verifyTwit");
-	/*
-	fs.readFile('windowClose.html', 'utf8', function (err,data) 
-	{
-		if (err) 
-		{
-			return console.log(err);
-		}
-		response.end(data);
-	});	
-	*/
 });
 app.get('/verifyTwit', function(request, response)
 {
@@ -216,6 +206,18 @@ app.get('/verifyTwit', function(request, response)
 		}
 	});
 	response.write(_screen_name);
+	response.cookie('name', "loggedIN", {user: _screen_name, expires: new Date(Date.now() + 900000), httpOnly: true });
+	/*
+	fs.readFile('windowClose.html', 'utf8', function (err,data) 
+	{
+		if (err) 
+		{
+			return console.log(err);
+		}
+		response.end(data);
+	});
+	*/
+	response.write(request.cookies.name);
 	response.end();
 });
 app.get('/info', function(request, response)
