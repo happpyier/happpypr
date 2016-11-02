@@ -189,7 +189,6 @@ app.get('/windowClose', function(request, response)
         //Step 4: Verify Credentials belongs here 
     }
 	});
-	*/
 	//response.write(accessToken + "...accessToken");
 	//response.write(requestTokenToUse + "...requestToken <br/>" + requestSecretToUse + "...requestSecretToUse <br/>" + oauth_verifier + "...oauth_verifier" );
 	//response.write(accessTokenToUse + "...accessToken <br/>" + accessTokenSecretToUse + "...accessTokenSecretToUse <br/>");
@@ -224,7 +223,6 @@ app.get("/twitter/auth", function(req, res) {
 		else {
 			_requestSecret = requestSecret;
 			_requestToken = requestToken;
-			_requestSecret = requestSecret;
 			res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
 		}
 	});
