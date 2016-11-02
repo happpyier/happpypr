@@ -204,7 +204,8 @@ app.get('/windowClose', function(request, response)
 			_screen_name = data["screen_name"];
 		}
 	});
-	response.end(_screen_name);
+	response.write(_screen_name);
+	response.end();
 	/*
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
 	{
