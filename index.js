@@ -207,7 +207,7 @@ app.get('/verifyTwit', function(request, response)
 		}
 	});
 	response.write(_screen_name);
-	response.cookie('name', 'userLoggedIn', {expires: new Date(Date.now() + 900000), httpOnly: true });
+	response.cookie('userLoggedIn', _screen_name, { expires: new Date(Date.now() + 900000), httpOnly: true });
 	/*
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
 	{
