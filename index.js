@@ -14,10 +14,6 @@ var uservoted_vote = "";
 var ipvoted_vote = "";
 var title_vote = "";
 var votedalready = "";
-var requestTokenToUse = "";
-var requestSecretToUse = "";
-var accessTokenToUse = "";
-var accessTokenSecretToUse = "";
 var twitter = new Twitter({
 	consumerKey: 'YZoBVI9Ak2MAxLTRJ460c65Oq',
 	consumerSecret: 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
@@ -181,19 +177,17 @@ app.get('/newpoll', function(request, response)
 app.get('/windowClose', function(request, response)
 {
 	var oauth_verifier = request.param('oauth_verifier');
-	twitter.getAccessToken(requestTokenToUse, requestSecretToUse, oauth_verifier, function(error, accessToken, accessTokenSecret, results) 
-	{
-		if (error)
-		{
-			response.status(500).send(error);
-		} 
-		else 
-		{
-        accessTokenToUse = accessToken;
-		accessTokenSecretToUse = accessTokenSecret;
-		}
+	twitter.getAccessToken(requestToken, requestTokenSecret, oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
+    if (error) {
+        console.log(error);
+    } else {
+        accessToken = accessToken;
+		accessTokenSecret = accessTokenSecret;
+		//store accessToken and accessTokenSecret somewhere (associated to the user) 
+        //Step 4: Verify Credentials belongs here 
+    }
 	});
-	response.write(accessTokenToUse + "...accessToken");
+	response.write(accessToken + "...accessToken");
 	//response.write(requestTokenToUse + "...requestToken <br/>" + requestSecretToUse + "...requestSecretToUse <br/>" + oauth_verifier + "...oauth_verifier" );
 	//response.write(accessTokenToUse + "...accessToken <br/>" + accessTokenSecretToUse + "...accessTokenSecretToUse <br/>");
 	response.end();
@@ -226,8 +220,8 @@ app.get("/twitter/auth", function(req, res) {
 			res.status(500).send(err);
 		else {
 			_requestSecret = requestSecret;
-			requestTokenToUse = requestToken;
-			requestSecretToUse = requestSecret;
+			requestToken = requestToken;
+			requestSecret = requestSecret;
 			res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
 		}
 	});
