@@ -187,9 +187,8 @@ app.get('/windowClose', function(request, response)
     } else {
         accessTokenToUse = accessToken;
 		accessTokenSecretToUse = accessTokenSecret;
-		//store accessToken and accessTokenSecret somewhere (associated to the user) 
-        //Step 4: Verify Credentials belongs here 
-    }
+		response.write(JSON.stringify(results));
+		}
 	});
 	//response.write(requestTokenToUse + "...requestToken <br/>" + requestSecretToUse + "...requestSecretToUse <br/>" + oauth_verifier + "...oauth_verifier" );
 	response.write(accessTokenToUse + "...accessToken <br/>" + accessTokenSecretToUse + "...accessTokenSecretToUse <br/>");
