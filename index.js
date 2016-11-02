@@ -190,7 +190,7 @@ app.get('/windowClose', function(request, response)
 	});
 	accessToken = _accessToken;
 	accessTokenSecret = _accessTokenSecret;
-	res.redirect("https://happpypr.herokuapp.com/verifyTwit");
+	response.redirect("https://happpypr.herokuapp.com/verifyTwit");
 	/*
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
 	{
