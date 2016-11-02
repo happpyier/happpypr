@@ -177,7 +177,7 @@ app.get('/newpoll', function(request, response)
 app.get('/windowClose', function(request, response)
 {
 	var oauth_verifier = request.param('oauth_verifier');
-	response.write(requestToken);
+	response.write(_requestToken);
 	/*
 	twitter.getAccessToken(requestToken, requestTokenSecret, oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
     if (error) {
@@ -223,8 +223,8 @@ app.get("/twitter/auth", function(req, res) {
 			res.status(500).send(err);
 		else {
 			_requestSecret = requestSecret;
-			requestToken = requestToken;
-			requestSecret = requestSecret;
+			_requestToken = requestToken;
+			_requestSecret = requestSecret;
 			res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
 		}
 	});
