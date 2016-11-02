@@ -185,21 +185,24 @@ app.get('/windowClose', function(request, response)
     } else {
         _accessToken = accessToken;
 		_accessTokenSecret = accessTokenSecret;
-		twitter.verifyCredentials(accessToken, accessTokenSecret, params, function(error, data, response) 
-		{
-			if (error) 
-			{
-				console.log(error);
-			} 
-			else 
-			{
-				//accessToken and accessTokenSecret can now be used to make api-calls (not yet implemented) 
-				//data contains the user-data described in the official Twitter-API-docs 
-				//you could e.g. display his screen_name 
-				_screen_name = data["screen_name"];
-			}
-		});
+
     }
+	});
+	accessToken = _accessToken;
+	accessTokenSecret = _accessTokenSecret;
+	twitter.verifyCredentials(accessToken, accessTokenSecret, params, function(error, data, response) 
+	{
+		if (error) 
+		{
+			console.log(error);
+		} 
+		else 
+		{
+			//accessToken and accessTokenSecret can now be used to make api-calls (not yet implemented) 
+			//data contains the user-data described in the official Twitter-API-docs 
+			//you could e.g. display his screen_name 
+			_screen_name = data["screen_name"];
+		}
 	});
 	response.end(_screen_name);
 	/*
