@@ -177,14 +177,14 @@ app.get('/newpoll', function(request, response)
 app.get('/windowClose', function(request, response)
 {
 	var oauth_verifier = request.param('oauth_verifier');
-	response.write(_requestToken);
-	/*
+	requestToken = _requestToken;
+	requestTokenSecret = _requestSecret;
 	twitter.getAccessToken(requestToken, requestTokenSecret, oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
     if (error) {
         console.log(error);
     } else {
-        accessToken = accessToken;
-		accessTokenSecret = accessTokenSecret;
+        _accessToken = accessToken;
+		_accessTokenSecret = accessTokenSecret;
 		//store accessToken and accessTokenSecret somewhere (associated to the user) 
         //Step 4: Verify Credentials belongs here 
     }
