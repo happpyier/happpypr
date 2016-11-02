@@ -190,6 +190,7 @@ app.get('/windowClose', function(request, response)
 	});
 	accessToken = _accessToken;
 	accessTokenSecret = _accessTokenSecret;
+	/*
 	twitter.verifyCredentials(accessToken, accessTokenSecret, params, function(error, data, response) 
 	{
 		if (error) 
@@ -204,7 +205,9 @@ app.get('/windowClose', function(request, response)
 			_screen_name = data["screen_name"];
 		}
 	});
-	response.write(_screen_name);
+	*/
+	response.write(accessToken + "...accessToken   " + accessTokenSecret + "...accessTokenSecret");
+	//response.write(_screen_name);
 	response.end();
 	/*
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
