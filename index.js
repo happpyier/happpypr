@@ -187,11 +187,11 @@ app.get('/windowClose', function(request, response)
     } else {
         accessTokenToUse = accessToken;
 		accessTokenSecretToUse = accessTokenSecret;
-		response.write(JSON.stringify(results));
+		response.write(JSON.stringify(Object.keys(results)));
 		}
 	});
 	//response.write(requestTokenToUse + "...requestToken <br/>" + requestSecretToUse + "...requestSecretToUse <br/>" + oauth_verifier + "...oauth_verifier" );
-	response.write(accessTokenToUse + "...accessToken <br/>" + accessTokenSecretToUse + "...accessTokenSecretToUse <br/>");
+	//response.write(accessTokenToUse + "...accessToken <br/>" + accessTokenSecretToUse + "...accessTokenSecretToUse <br/>");
 	response.end();
 	/*
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
