@@ -206,7 +206,7 @@ app.get('/verifyTwit', function(request, response)
 			_screen_name = data["name"];
 		}
 	});
-	response.send(_screen_name);
+	//response.send(_screen_name);
 	//response.cookie('userlogged', _screen_name);
 	//response.send(request.cookies.userlogged);
 	response.end();
