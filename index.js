@@ -14,6 +14,7 @@ var uservoted_vote = "";
 var ipvoted_vote = "";
 var title_vote = "";
 var votedalready = "";
+app.use(express.cookieParser());
 var twitter = new Twitter({
 	consumerKey: 'YZoBVI9Ak2MAxLTRJ460c65Oq',
 	consumerSecret: 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
@@ -206,7 +207,7 @@ app.get('/verifyTwit', function(request, response)
 		}
 	});
 	response.write(_screen_name);
-	response.cookie('name', "loggedIN", {user: _screen_name, expires: new Date(Date.now() + 900000), httpOnly: true });
+	response.cookie('userLoggedIn', _screen_name, {expires: new Date(Date.now() + 900000), httpOnly: true });
 	/*
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
 	{
@@ -217,7 +218,7 @@ app.get('/verifyTwit', function(request, response)
 		response.end(data);
 	});
 	*/
-	response.write(request.cookies.loggedIN);
+	response.write(request.cookies.userLoggedIn);
 	response.end();
 });
 app.get('/info', function(request, response)
