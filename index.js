@@ -191,7 +191,7 @@ app.get('/windowClose', function(request, response)
 		{
         accessTokenToUse = accessToken;
 		accessTokenSecretToUse = accessTokenSecret;
-		response.write(accessTokenToUse + "accessToken");
+		//response.write(accessTokenToUse + "accessToken");
 		}
 	});
 	//response.write(requestTokenToUse + "...requestToken <br/>" + requestSecretToUse + "...requestSecretToUse <br/>" + oauth_verifier + "...oauth_verifier" );
