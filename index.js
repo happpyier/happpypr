@@ -189,7 +189,7 @@ app.get('/windowClose', function(request, response)
         //Step 4: Verify Credentials belongs here 
     }
 	});
-	//response.write(accessToken + "...accessToken");
+	response.write(_accessToken + "...accessToken");
 	//response.write(requestTokenToUse + "...requestToken <br/>" + requestSecretToUse + "...requestSecretToUse <br/>" + oauth_verifier + "...oauth_verifier" );
 	//response.write(accessTokenToUse + "...accessToken <br/>" + accessTokenSecretToUse + "...accessTokenSecretToUse <br/>");
 	response.end();
