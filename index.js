@@ -193,7 +193,7 @@ app.get('/windowClose', function(request, response)
 		accessTokenSecretToUse = accessTokenSecret;
 		}
 	});
-	response.write(accessTokenToUse + "accessToken");
+	response.write(accessTokenToUse + "...accessToken");
 	//response.write(requestTokenToUse + "...requestToken <br/>" + requestSecretToUse + "...requestSecretToUse <br/>" + oauth_verifier + "...oauth_verifier" );
 	//response.write(accessTokenToUse + "...accessToken <br/>" + accessTokenSecretToUse + "...accessTokenSecretToUse <br/>");
 	response.end();
