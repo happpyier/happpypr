@@ -41,6 +41,7 @@ app.get(['', '/polls'], function(request, response) {
 		}
 		response.write(data+"<div id='poll_results'>");
 	});
+	response.write(request.cookies);
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(queryForSQL, function(err, result) {
 			if (err)
