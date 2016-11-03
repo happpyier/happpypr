@@ -33,7 +33,7 @@ app.get(['', '/polls'], function(request, response) {
 	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
 	var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
 	var queryForSQL = "SELECT DISTINCT randid, title FROM vote_tb LIMIT 50";
-	response.write(request.cookies.userlogged);
+	response.write(request.cookies.userlogged +" ");
 	fs.readFile('index.html', 'utf8', function (err,data) {
 		if (err) 
 		{
