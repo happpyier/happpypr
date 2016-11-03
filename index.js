@@ -221,6 +221,7 @@ app.get('/verifyTwit', function(request, response)
 			return console.log(err);
 		}
 		//response.end(data);
+		response.end();
 	});
 });
 app.get('/info', function(request, response)
