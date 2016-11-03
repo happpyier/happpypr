@@ -14,6 +14,10 @@ var uservoted_vote = "";
 var ipvoted_vote = "";
 var title_vote = "";
 var votedalready = "";
+var _requestSecret;
+var _requestToken;
+var _accessToken;
+var _accessTokenSecret;
 var twitter = new Twitter({
 	consumerKey: 'YZoBVI9Ak2MAxLTRJ460c65Oq',
 	consumerSecret: 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
@@ -189,12 +193,12 @@ app.get('/windowClose', function(request, response)
 
     }
 	});
-	accessToken = _accessToken;
-	accessTokenSecret = _accessTokenSecret;
 	response.redirect("https://happpypr.herokuapp.com/verifyTwit");
 });
 app.get('/verifyTwit', function(request, response)
 {
+	accessToken = _accessToken;
+	accessTokenSecret = _accessTokenSecret;
 	twitter.verifyCredentials(accessToken, accessTokenSecret, function(error, data, response) 
 	{
 		if (error) 
