@@ -27,7 +27,7 @@ var twitter = new Twitter({
 });
 var _requestSecret;
 app.set('port', (process.env.PORT || 5000));
-//app.use(cookieParser());
+app.use(cookieParser());
 app.set("Content-Type", "text/html");
 app.get(['', '/polls'], function(request, response) {
 	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
