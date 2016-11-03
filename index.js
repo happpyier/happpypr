@@ -33,7 +33,7 @@ app.get(['', '/polls'], function(request, response) {
 	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
 	var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
 	var queryForSQL = "SELECT DISTINCT randid, title FROM vote_tb LIMIT 50";
-	response.write(request.cookies.userlogged +" ");
+
 	fs.readFile('index.html', 'utf8', function (err,data) {
 		if (err) 
 		{
@@ -41,7 +41,6 @@ app.get(['', '/polls'], function(request, response) {
 		}
 		response.write(data+"<div id='poll_results'>");
 	});
-	
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(queryForSQL, function(err, result) {
 			if (err)
