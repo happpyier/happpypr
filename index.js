@@ -41,7 +41,6 @@ app.get(['', '/polls'], function(request, response) {
 		}
 		response.write(data+"<div id='poll_results'>");
 	});
-	response.write(request.cookies.userlogged);
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(queryForSQL, function(err, result) {
 			if (err)
@@ -211,7 +210,7 @@ app.get('/verifyTwit', function(request, response)
 		{
 			_screen_name = data["name"];
 			//response.cookie('userlogged', _screen_name { expires: new Date(Date.now() + 900000), httpOnly: true });
-			response.cookie('userlogged', data["name"], { expires: new Date(Date.now() + 900000), httpOnly: true });
+			response.cookie('userlogged', data["name"], { expires: new Date(Date.now() + 900000)});
 		}
 	});
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
