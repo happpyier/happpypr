@@ -1,6 +1,6 @@
 var express = require('express'); 
 var app = express();
-var cookieParser = require('cookie-parser');
+var cookieParser = require('cookie-parser')
 var pg = require('pg');
 const https = require('https');
 const fs = require('fs');
@@ -27,8 +27,8 @@ var twitter = new Twitter({
 });
 var _requestSecret;
 app.set('port', (process.env.PORT || 5000));
-app.set("Content-Type", "text/html");
 app.use(cookieParser());
+app.set("Content-Type", "text/html");
 app.get(['', '/polls'], function(request, response) {
 	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
 	var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
