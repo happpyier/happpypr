@@ -213,7 +213,7 @@ app.get('/verifyTwit', function(request, response)
 			response.cookie('userlogged', data["name"], { expires: new Date(Date.now() + 900000), httpOnly: true });
 		}
 	});
-	//response.cookie('userlogged', _screen_name);
+	console.log('Cookies: ', request.cookies)
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
 	{
 		if (err) 
