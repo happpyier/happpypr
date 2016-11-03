@@ -213,14 +213,14 @@ app.get('/verifyTwit', function(request, response)
 			response.cookie('userlogged', data["name"], { expires: new Date(Date.now() + 900000), httpOnly: true });
 		}
 	});
-	console.log('Cookies: ', request.cookies)
+	console.log('Cookies: ', request.cookies);
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
 	{
 		if (err) 
 		{
 			return console.log(err);
 		}
-		response.end(data);
+		//response.end(data);
 	});
 });
 app.get('/info', function(request, response)
