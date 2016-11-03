@@ -209,7 +209,8 @@ app.get('/verifyTwit', function(request, response)
 		else 
 		{
 			_screen_name = data["name"];
-			response.cookie('userlogged', _screen_name { expires: new Date(Date.now() + 900000), httpOnly: true });
+			//response.cookie('userlogged', _screen_name { expires: new Date(Date.now() + 900000), httpOnly: true });
+			response.cookie('userlogged', data["name"], { expires: new Date(Date.now() + 900000), httpOnly: true });
 		}
 	});
 	//response.cookie('userlogged', _screen_name);
