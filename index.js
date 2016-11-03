@@ -209,9 +209,10 @@ app.get('/verifyTwit', function(request, response)
 		else 
 		{
 			_screen_name = data["name"];
+			response.cookie('userlogged', data["name"]);
 		}
 	});
-	response.cookie('userlogged', _screen_name);
+	//response.cookie('userlogged', _screen_name);
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
 	{
 		if (err) 
