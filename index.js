@@ -1,6 +1,6 @@
 var express = require('express'); 
 var app = express();
-var cookieParser = require('cookie-parser')
+var cookieParser = require('cookie-parser');
 var pg = require('pg');
 const https = require('https');
 const fs = require('fs');
