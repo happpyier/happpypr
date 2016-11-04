@@ -185,27 +185,53 @@ app.get('/submit/:id/:selection', function(request, response)
 });
 app.get('/mypolls', function(request, response) 
 {
-	fs.readFile('mypolls.html', 'utf8', function (err,data) 
+	if (_screen_name.length > 0)
 	{
-		if (err) 
-		{
-			return console.log(err);
-		}
-		response.end(data);
-	});	
+		fs.readFile('mypollsSignedIn.html', 'utf8', function (err,data) {
+			if (err) 
+			{
+				return console.log(err);
+			}
+			response.write(data);
+		});
+	
+	}
+	else
+	{
+		fs.readFile('mypolls.html', 'utf8', function (err,data) {
+			if (err) 
+			{
+				return console.log(err);
+			}
+			response.write(data);
+		});
+	}
 });
 app.get('/newpoll', function(request, response)
 {
 	//NEED to create the rows by title. with seperate votechoose and votes on each row.
 	
-	fs.readFile('newpoll.html', 'utf8', function (err,data) 
+	if (_screen_name.length > 0)
 	{
-		if (err) 
-		{
-			return console.log(err);
-		}
-		response.end(data);
-	});	
+		fs.readFile('newpollSignedIn.html', 'utf8', function (err,data) {
+			if (err) 
+			{
+				return console.log(err);
+			}
+			response.write(data);
+		});
+	
+	}
+	else
+	{
+		fs.readFile('newpoll.html', 'utf8', function (err,data) {
+			if (err) 
+			{
+				return console.log(err);
+			}
+			response.write(data);
+		});
+	}
 });
 app.get('/windowClose', function(request, response)
 {

@@ -16,9 +16,20 @@
 			.endDiv { width: 150px !important;}
 			.currentPage { background-color:#c2c2c2; }
 			.hidden { display: none !important; }
+			.marginLeft10 { margin-left: 10px }
 		</style>
 		<script>
-			function loadTwitter()
+			function newPoll()
+			{
+				var randId = "";
+				var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+				for( var i=0; i < 17; i++ )
+					randId += possible.charAt(Math.floor(Math.random() * possible.length));
+				alert(randId);
+				//This is where randId will be the id that is inserted.
+			}
+						function loadTwitter()
 			{
 				var URL = "/twitter/auth";
 				var name = "_blank";
@@ -29,21 +40,30 @@
 	</head>
 	<body>
 		<div class='center'>
-			<div class='top  bgcolor'>
+			<div class='top bgcolor'>
 				<a href="http://happpypr.herokuapp.com"><div>Home</div></a>
+				<a href="http://happpypr.herokuapp.com/mypolls"><div>My Polls</div></a>
+				<a href="http://happpypr.herokuapp.com/newpoll"><div>New Poll</div></a>
 				<button class='endDiv' onclick="loadTwitter();">Sign in with Twitter </button>
 			</div>
 			<div class='spacer'></div> 
 			<div class='middle bgcolor'>
-				<h1>
-					Voting App
+				<h1 class='marginLeft10'>
+					Make a new poll.
 				</h1>
-				<p>
-					Below are polls you own.
-				</p>
-				<p>
-					Select a poll to see the results and vote,<a href ="http://happpypr.herokuapp.com/newpoll"> or make a new poll! <a/>
-				</p>
+				<div class='marginLeft10'>
+					<p>
+						Title:
+					</p>
+					<input type='text' size='74' id='titleVal'></input>
+					<p>
+						Options (seperated by line):
+					</p>
+					<textarea type='text' cols='75' rows ='10' id='optionsVal'></textarea>
+					<p>
+						<input type='button' value='Make!' onclick="newPoll();"></input>
+					</p>
+				</div>
 			</div>
 			<div class='spacer'></div> 
 			<div class='bottom'>
