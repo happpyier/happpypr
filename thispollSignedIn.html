@@ -1,0 +1,196 @@
+<html>
+	<head>
+		<style>
+			h1 { font-size: 36px; }
+			h2 { font-size: 20px; }
+			h2 { font-size: 26px; }
+			p { font-size: 16px; }
+			#poll_results div { background-color: #FFFFFF; margin-left: 4%; margin-right: 4%; margin-bottom: 1px; height: 25px; text-align: center;}
+			#chartCenter { position: relative; height: 250px; width: 250px; bottom:25%; left:50%;}
+			#choicemenu { padding-left: 50px; padding-top: 50px;}
+			#submitvote { background-color: #0000FF; color: #FFFFFF; }
+			#sharetwitter { background-color: #6F6FFF; color: #FFFFFF; }
+			.bgcolor { background-color: #E8E8E8; }
+			.bottom { }
+			.center { color:black; margin-left: 15%; margin-right: 15%; }
+			.currentPage { background-color:#c2c2c2; }
+			.endDiv { width: 150px !important;}
+			.hidden { display: none !important; }
+			.middle { height: 450px; }
+			.spacer { height: 20px; background-color:#FFFFFF; }
+			.top { text-align: right; height: 40px; }
+			.top div { width: 100px; height: 40px; display: inline-block; text-align: center; line-height: 40px; }
+			
+		</style>
+		<script>
+			function generatePoll(id, title)
+			{
+				document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+id+"'>"+title+"</a></div>";
+			}
+			function mysqlSubmit(id)
+			{
+				var idMysql = document.getElementById('randid_hidden').innerHTML.replace(/\{|\[|\"/g, "");
+				var didyouvote = document.getElementById("alreadyvoted").innerHTML.replace(/\{|\[|\"/g, "");
+				var poll_results_selection = document.getElementById("poll_results").value;
+				document.location.href='/submit/' + idMysql + '/' + poll_results_selection; 
+			}
+			function loadTwitter()
+			{
+				var URL = "/twitter/auth";
+				var name = "_blank";
+				var specs = "height=500,width=500";
+				window.open(URL,name,specs)
+			}
+			function startup()
+			{
+				var randid = document.getElementById("randid_hidden").innerHTML.replace(/\{|\[|\"/g, "");
+				var prevotechoose = document.getElementById("votechoose_hidden").innerHTML.replace(/\{|\[|\"/g, "");
+				var votechoose = prevotechoose.split('|');
+				var prevotes = document.getElementById("votes_hidden").innerHTML.replace(/\{|\[|\"/g, "");
+				var votes = prevotes.split('|');
+				var uservoted = document.getElementById("uservoted_hidden").innerHTML.replace(/\{|\[|\"/g, "");
+				var ipvoted = document.getElementById("ipvoted_hidden").innerHTML.replace(/\{|\[|\"/g, "");
+				var title = document.getElementById("title_hidden").innerHTML.replace(/\{|\[|\"/g, "");
+				var alreadyvoted = document.getElementById("alreadyvoted").innerHTML.replace(/\{|\[|\"/g, "");
+				var total = 0;
+				var labels = [];
+				var data = [];
+				var colors = [];
+				var hoverValue = [];
+				document.getElementById('title').innerHTML = title;
+				for (var i=0; i < votechoose.length; i++)
+				{
+					var optn = document.createElement("option");
+					optn.innerHTML = votechoose[i];
+					optn.value = votechoose[i];
+					document.getElementById('poll_results').appendChild(optn); 
+				}
+				//var optn = document.createElement("option");
+				//optn.innerHTML = 'I\'d like a custom option.';
+				//optn.value = 'custom';
+				//document.getElementById('poll_results').appendChild(optn);
+				for (var i=0; i < votes.length; i++)
+				{
+					total += parseInt(votes[i]); 
+				}
+				for (var k=0; k < votes.length; k++)
+				{
+					
+					var letters = '0123456789ABCDEF';
+					var colorSelection = '#';
+					for (var i = 0; i < 6; i++ ) 
+					{
+						colorSelection += letters[Math.floor(Math.random() * 16)];
+					}
+					data.push((votes[k]/total)*360);
+					labels.push(votechoose[k]);
+					colors.push(colorSelection);
+					hoverValue.push(votes[k]);
+					document.getElementById('chartCenter').innerHTML += "<div style='width:10px; height: 10px; background-color:" + colorSelection + "; display: inline-block;'> </div> " + votechoose[k];
+				}
+				function drawSegment(canvas, context, i) 
+				{
+					context.save();
+					var centerX = Math.floor(canvas.width / 2);
+					var centerY = Math.floor(canvas.height / 2);
+					radius = Math.floor(canvas.width / 2);
+
+					var startingAngle = degreesToRadians(sumTo(data, i));
+					var arcSize = degreesToRadians(data[i]);
+					var endingAngle = startingAngle + arcSize;
+
+					context.beginPath();
+					context.moveTo(centerX, centerY);
+					context.arc(centerX, centerY, radius, 
+								startingAngle, endingAngle, false);
+					context.closePath();
+
+					context.fillStyle = colors[i];
+					context.fill();
+
+					context.restore();
+
+					drawSegmentLabel(canvas, context, i);
+				}
+				function drawSegmentLabel(canvas, context, i) 
+				{
+				   context.save();
+				   var x = Math.floor(canvas.width / 2);
+				   var y = Math.floor(canvas.height / 2);
+				   var angle = degreesToRadians(sumTo(data, i));
+
+				   context.translate(x, y);
+				   context.rotate(angle);
+				   var dx = Math.floor(canvas.width * 0.5) - 10;
+				   var dy = Math.floor(canvas.height * 0.05);
+
+				   context.textAlign = "right";
+				   var fontSize = Math.floor(canvas.height / 25);
+				   context.font = fontSize + "pt Helvetica";
+
+				   context.fillText(labels[i], dx, dy);
+
+				   context.restore();
+				}
+				function degreesToRadians(degrees) 
+				{
+					return (degrees * Math.PI)/180;
+				}
+				function sumTo(a, i) 
+				{
+					var sum = 0;
+					for (var j = 0; j < i; j++) 
+					{
+					  sum += a[j];
+					}
+					return sum;
+				}
+				canvas = document.getElementById("piechart");
+				var context = canvas.getContext("2d");
+				for (var i = 0; i < data.length; i++) 
+				{
+					drawSegment(canvas, context, i);
+				}
+				
+			}
+
+		</script>
+	</head>
+	<body onload='startup();'>
+		<div class='center'>
+			<div class='top bgcolor'>
+				<a href="http://happpypr.herokuapp.com"><div class='currentPage'>Home</div></a>
+				<a href="http://happpypr.herokuapp.com/mypolls"><div>My Polls</div></a>
+				<a href="http://happpypr.herokuapp.com/newpoll"><div>New Poll</div></a>
+				<button class='endDiv' onclick="loadTwitter();">Sign in with Twitter </button>
+			</div>
+			<div class='spacer'></div> 
+			<div class='middle bgcolor'>
+				
+				<!-- <div id='testarea'> This should not say test area </div> -->
+				<div id='choicemenu'>
+					<div id='title'>  </div>
+					<p>
+						I'd like to vote for...:
+					</p>
+						<select id='poll_results'> </select>
+					<p>
+						<button id="submitvote" onclick="mysqlSubmit();"> 
+							<a>Submit</a>
+						</button>
+					</p>
+				</div>
+				<div id='chartCenter'>
+					<canvas id="piechart" width="300" height="300">
+					</canvas>
+				</div>
+			</div>
+			<div class='spacer'></div> 
+			<div class='bottom'>
+				<p>
+					This "Voting App" app is built by @happpyier of freecodecamp,<br/>following the instructions of "Basejump: Build a Voting App | Free Code Camp".<br/>Github repository: happpyier/happpypr
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

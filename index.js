@@ -90,7 +90,8 @@ app.get('/polls/:id', function(request, response) {
 	var postSqlVar = "SELECT * FROM vote_tb WHERE randid LIKE \'"+pickId+"\'";
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	{
-		client.query(postSqlVar, function(err, result) {
+		client.query(postSqlVar, function(err, result) 
+		{
 		  if (err)
 		   { resultsidSQL = ("Error " + err); }
 		  else
@@ -121,15 +122,28 @@ app.get('/polls/:id', function(request, response) {
 				response.write( "<div class='hidden' style='display:none' id= 'randid_hidden'>" + randid_vote + "</div> <div class='hidden' style='display:none' id= 'votechoose_hidden'>" + votechoose_vote + "</div> <div class='hidden' style='display:none' id= 'votes_hidden'>" + votes_vote + "</div> <div class='hidden' style='display:none' id= 'uservoted_hidden'>" + uservoted_vote + "</div> <div class='hidden' style='display:none' id= 'ipvoted_hidden'>" + ipvoted_vote + "</div> <div class='hidden' style='display:none' id= 'title_hidden'>" + title_vote + "</div> <div class='hidden' style='display:none' id= 'alreadyvoted'>" + votedalready + "</div>"	);
 		   }
 		   done();
-		   	fs.readFile('thispoll.html', 'utf8', function (err,data) 
+			if (_screen_name.length > 0)
 			{
-				if (err) 
-				{
-					return console.log(err);
-				}
-				response.end(data);
-			});	
-	});
+				fs.readFile('thispollSignedIn.html', 'utf8', function (err,data) {
+					if (err) 
+					{
+						return console.log(err);
+					}
+					response.write(data);
+				});
+			
+			}
+			else
+			{
+				fs.readFile('thispoll.html', 'utf8', function (err,data) {
+					if (err) 
+					{
+						return console.log(err);
+					}
+					response.write(data);
+				});
+			}
+		});
 
 	});
 });
