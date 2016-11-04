@@ -266,7 +266,7 @@ app.get('/verifyTwit', function(request, response)
 			//response.cookie('userlogged', data["name"], { expires: new Date(Date.now() + 900000)});
 		}
 	});
-	window.opener.reload();
+	window.opener.location.reload(true);
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
 	{
 		if (err) 
