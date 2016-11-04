@@ -33,15 +33,27 @@ app.get(['', '/polls'], function(request, response) {
 	var postSqlVarRandId = "SELECT randid FROM vote_tb LIMIT 50";
 	var postSqlVarTitle = "SELECT title FROM vote_tb LIMIT 50";
 	var queryForSQL = "SELECT DISTINCT randid, title FROM vote_tb LIMIT 50";
-
-	fs.readFile('index.html', 'utf8', function (err,data) {
-		if (err) 
-		{
-			return console.log(err);
-		}
-		response.write(data+"<div id='poll_results'>");
-	});
-	//response.write(request.cookies['userlogged']);
+	if (screen_name.length > 0)
+	{
+		fs.readFile('indexSignedIn.html', 'utf8', function (err,data) {
+			if (err) 
+			{
+				return console.log(err);
+			}
+			response.write(data+"<div id='poll_results'>");
+		});
+	
+	}
+	else
+	{
+		fs.readFile('index.html', 'utf8', function (err,data) {
+			if (err) 
+			{
+				return console.log(err);
+			}
+			response.write(data+"<div id='poll_results'>");
+		});
+	}
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(queryForSQL, function(err, result) {
 			if (err)
@@ -211,7 +223,7 @@ app.get('/verifyTwit', function(request, response)
 		{
 			_screen_name = data["name"];
 			//response.cookie('userlogged', _screen_name { expires: new Date(Date.now() + 900000), httpOnly: true });
-			response.cookie('userlogged', data["name"], { expires: new Date(Date.now() + 900000)});
+			//response.cookie('userlogged', data["name"], { expires: new Date(Date.now() + 900000)});
 		}
 	});
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
