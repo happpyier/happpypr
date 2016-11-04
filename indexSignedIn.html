@@ -30,7 +30,7 @@
 				var specs = "height=500,width=500";
 				window.open(URL,name,specs);
 			}
-			document.getElementById("loggedIN").innerHTML = "Logged In";
+			//document.getElementById("loggedIN").innerHTML = "Logged In";
 		</script>
 	</head>
 	<body>
@@ -39,7 +39,7 @@
 				<a href="http://happpypr.herokuapp.com"><div class='currentPage'>Home</div></a>
 				<a href="http://happpypr.herokuapp.com/mypolls"><div>My Polls</div></a>
 				<a href="http://happpypr.herokuapp.com/newpoll"><div>New Poll</div></a>
-				<button class='endDiv' id="loggedIN">Sign in with Twitter </button>
+				<button class='endDiv' onclick="SignOutTitter();">Sign Out </button>
 			</div>
 			<div class='spacer'></div> 
 			<div class='middle bgcolor'>
