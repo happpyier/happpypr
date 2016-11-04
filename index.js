@@ -19,7 +19,7 @@ var _requestSecret;
 var _requestToken;
 var _accessToken;
 var _accessTokenSecret;
-var _screen_name = "";;
+var _screen_name = "";
 var twitter = new Twitter({
 	consumerKey: 'YZoBVI9Ak2MAxLTRJ460c65Oq',
 	consumerSecret: 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
