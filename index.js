@@ -297,6 +297,10 @@ app.get("/twitter/auth", function(req, res) {
 		}
 	});
 });
+app.get("/twitter/SignOut", function(req, res) {
+	var _screen_name = "";
+	res.redirect("http://happpypr.herokuapp.com");
+});
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
 });
