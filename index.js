@@ -295,7 +295,7 @@ app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response
 		_clientUser = Almost_clientUser[1];
 		//var queryInsert = "INSERT INTO vote_tb VALUES ('"+pickRandid+"', '"+pickVotechoose+"', 0, '"+clientToUse+"', '"+clientIP+"', '"+pickTitle+"', 0)";
 		var location = '/polls/' + pickId;
-		response.write("INSERT INTO vote_tb VALUES (\'"+pickRandid+"\', \'"+pickVotechoose+"\', 0, \'"+clientToUse+"\', \'"+clientIP+"\', \'"+pickTitle+"\', 0)");
+		response.write("INSERT INTO vote_tb VALUES ('"+pickRandid+"',0)");
 		response.end();
 		/*
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
