@@ -163,8 +163,25 @@ app.get('/submit/:id/:customchoice/:titlechoice/:selection', function(request, r
 	var pickTitle = request.params.titlechoice;
 	var postSqlVar1 = "UPDATE vote_tb  SET votedalready = '1' WHERE ipvoted LIKE '"+clientIP+"'";
 	var postSqlVar2 = "UPDATE vote_tb  SET votes = votes+1, ipvoted='"+clientIP+"' WHERE votechoose = '"+selectionVar+"'";
-	var postSqlVar2 = "INSERT INTO vote_tb VALUES ('"+pickId+"', '"+selectionVar+"', 1, '"+_clientUser+"', '"+clientIP+"', '"+pickTitle+"', 0)";
+	var postSqlCustom = "INSERT INTO vote_tb VALUES ('"+pickId+"', '"+selectionVar+"', 1, '"+_clientUser+"', '"+clientIP+"', '"+pickTitle+"', 0)";
 	var location = '/polls/' + pickId;
+	if (custom_choice.length > 0)
+	{
+		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+		{
+			client.query(postSqlCustom, function(err, result) 
+			{
+				if (err)
+					{ resultsidSQL = ("Error " + err); }
+				else
+				{ 
+					response.redirect(location);
+					response.end();
+				}
+				done();
+			});
+		});
+	}
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	{
 		client.query(postSqlVar1, function(err, result) 
@@ -178,6 +195,7 @@ app.get('/submit/:id/:customchoice/:titlechoice/:selection', function(request, r
 			done();
 		});
 	});
+	
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	{
 		client.query(postSqlVar2, function(err, result) 
@@ -192,21 +210,7 @@ app.get('/submit/:id/:customchoice/:titlechoice/:selection', function(request, r
 			done();
 		});
 	});
-	if (custom_choice.length > 0)
-	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
-	{
-		client.query(postSqlCustom, function(err, result) 
-		{
-			if (err)
-				{ resultsidSQL = ("Error " + err); }
-			else
-			{ 
-				response.redirect(location);
-				response.end();
-			}
-			done();
-		});
-	});
+
 });
 app.get('/remove/:id', function(request, response) 
 {
