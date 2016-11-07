@@ -85,11 +85,6 @@ app.get(['', '/polls'], function(request, response) {
 });
 
 app.get('/polls/:id', function(request, response) {
-	//NEED to create the rows by title. with seperate votechoose and votes on each row.
-	//
-	//
-	//
-	//
 	var pickId = request.params.id;
 	var postSqlVar = "SELECT * FROM vote_tb WHERE randid LIKE \'"+pickId+"\'";
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
@@ -134,6 +129,7 @@ app.get('/polls/:id', function(request, response) {
 						return console.log(err);
 					}
 					response.write(data);
+					response.end();
 				});
 			
 			}
@@ -145,6 +141,7 @@ app.get('/polls/:id', function(request, response) {
 						return console.log(err);
 					}
 					response.write(data);
+					response.end();
 				});
 			}
 		});
