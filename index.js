@@ -204,6 +204,7 @@ app.get('/mypolls', function(request, response)
 	else
 	{
 		response.redirect("https://happpypr.herokuapp.com");
+		response.end();
 	}
 	_clientIP = request.ip.substring(7);
 	_clientUser = _screen_name;
