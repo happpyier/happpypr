@@ -295,9 +295,8 @@ app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response
 		var rePattern = new RegExp(/^([\w\-]+)/);
 		Almost_clientUser = pre_clientUser.match(rePattern);
 		_clientUser = Almost_clientUser[1];
-		var postSqlVar2 = "INSERT INTO vote_tb  VALUES ('"pickRandid"', '"pickVotechoose"', '0', '"clientToUse"', '"clientIP"', '"pickTitle"', '0')";
+		var postSqlVar2 = "INSERT INTO vote_tb  VALUES ('"+pickRandid+"', '"+pickVotechoose+"', '0', '"+clientToUse+"', '"+clientIP+"', '"+pickTitle+"', '0')";
 		var location = '/polls/' + pickId;
-			/*
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
 			client.query(postSqlVar2, function(err, result) 
@@ -312,7 +311,6 @@ app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response
 				done();
 			});
 		});
-	*/
 	}
 	else
 	{
