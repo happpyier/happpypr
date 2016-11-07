@@ -20,6 +20,10 @@ var _requestToken;
 var _accessToken;
 var _accessTokenSecret;
 var _screen_name = "";
+var _clientIP;
+var _clientUser;
+var clientUser;
+var clientUser;
 var twitter = new Twitter({
 	consumerKey: 'YZoBVI9Ak2MAxLTRJ460c65Oq',
 	consumerSecret: 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
@@ -151,6 +155,7 @@ app.get('/submit/:id/:selection', function(request, response)
 {
 	var pickId = request.params.id;
 	var clientIP = request.ip.substring(7);
+	
 	var selectionVar = request.params.selection;
 	var postSqlVar1 = "UPDATE vote_tb  SET votedalready = '1' WHERE ipvoted LIKE '"+clientIP+"'";
 	var postSqlVar2 = "UPDATE vote_tb  SET votes = votes+1, ipvoted='"+clientIP+"' WHERE votechoose = '"+selectionVar+"'";
@@ -200,7 +205,9 @@ app.get('/mypolls', function(request, response)
 	{
 		res.redirect("https://happpypr.herokuapp.com");
 	}
-	var queryForSQL = "SELECT DISTINCT randid, title FROM vote_tb LIMIT 50";
+	_clientIP = request.ip.substring(7);
+	_clientUser = _screen_name;
+	var queryForSQL = "SELECT DISTINCT randid, title FROM vote_tb WHERE ipvoted LIKE '"+_clientIP+"' OR uservoted LIKE '"+_clientUser+"'";
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(queryForSQL, function(err, result) {
 			if (err)
