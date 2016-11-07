@@ -203,10 +203,11 @@ app.get('/mypolls', function(request, response)
 	}
 	else
 	{
-		res.redirect("https://happpypr.herokuapp.com");
+		response.redirect("https://happpypr.herokuapp.com");
 	}
 	_clientIP = request.ip.substring(7);
 	_clientUser = _screen_name;
+	resp
 	var queryForSQL = "SELECT DISTINCT randid, title FROM vote_tb WHERE ipvoted LIKE '"+_clientIP+"' OR uservoted LIKE '"+_clientUser+"'";
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(queryForSQL, function(err, result) {
@@ -250,7 +251,7 @@ app.get('/newpoll', function(request, response)
 	}
 	else
 	{
-		res.redirect("https://happpypr.herokuapp.com");
+		response.redirect("https://happpypr.herokuapp.com");
 	}
 });
 app.get('/windowClose', function(request, response)
