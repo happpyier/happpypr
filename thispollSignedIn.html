@@ -33,6 +33,7 @@
 				var didyouvote = document.getElementById("alreadyvoted").innerHTML.replace(/\{|\[|\"/g, "");
 				var poll_results_selection = document.getElementById("poll_results").value;
 				document.location.href='/submit/' + idMysql + '/' + poll_results_selection; 
+				
 			}
 			function loadTwitter()
 			{
@@ -52,6 +53,7 @@
 				var ipvoted = document.getElementById("ipvoted_hidden").innerHTML.replace(/\{|\[|\"/g, "");
 				var title = document.getElementById("title_hidden").innerHTML.replace(/\{|\[|\"/g, "");
 				var alreadyvoted = document.getElementById("alreadyvoted").innerHTML.replace(/\{|\[|\"/g, "");
+			document.getElementById('twitterButton').href = "https://twitter.com/intent/tweet?text=https://happpypr.herokuapp.com/polls/"+randid;
 				var total = 0;
 				var labels = [];
 				var data = [];
@@ -184,10 +186,13 @@
 						</button>
 					</p>
 					<p>
-						<button id="Share on Twitter" onclick="mysqlSubmit();"> 
-							<a>Share on Twitter</a>
-						</button>
+						<a class="twitter-share-button" id="twitterButton">
+							<button id="Share on Twitter"> 
+								<a>Share on Twitter</a>
+							</button>
+						<a/>
 					</p>
+					
 				</div>
 				<div id='chartCenter'>
 					<canvas id="piechart" width="300" height="300">
