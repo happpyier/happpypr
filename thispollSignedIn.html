@@ -53,7 +53,7 @@
 				var ipvoted = document.getElementById("ipvoted_hidden").innerHTML.replace(/\{|\[|\"/g, "");
 				var title = document.getElementById("title_hidden").innerHTML.replace(/\{|\[|\"/g, "");
 				var alreadyvoted = document.getElementById("alreadyvoted").innerHTML.replace(/\{|\[|\"/g, "");
-			document.getElementById('twitterButton').href = "https://twitter.com/intent/tweet?text=https://happpypr.herokuapp.com/polls/"+randid;
+				document.getElementById('twitterButton').href = "https://twitter.com/intent/tweet?text=https://happpypr.herokuapp.com/polls/"+randid;
 				var total = 0;
 				var labels = [];
 				var data = [];
@@ -186,7 +186,7 @@
 						</button>
 					</p>
 					<p>
-						<a class="twitter-share-button" id="twitterButton">
+						<a class="twitter-share-button" id="twitterButton" target="_blank">
 							<button id="Share on Twitter"> 
 								<a>Share on Twitter</a>
 							</button>
