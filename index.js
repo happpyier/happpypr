@@ -203,6 +203,7 @@ app.get('/remove/:id', function(request, response)
 				{ resultsidSQL = ("Error " + err); }
 			else
 			{ 
+				response.write(postSqlVar2);
 				//response.redirect(location);
 				response.end();
 			}
