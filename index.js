@@ -295,8 +295,8 @@ app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response
 		_clientUser = Almost_clientUser[1];
 		/*
 		var postSqlVar2 = "INSERT INTO vote_tb  VALUES ('"+pickRandid+"', '"+pickVotechoose+"', '0', '"+clientToUse+"', '"+clientIP+"', '"+pickTitle+"', '0')";
-		var location = '/polls/' + pickId;
 		*/
+		var location = '/polls/' + pickId;
 		response.write("it got here");
 		response.end();
 		/*
