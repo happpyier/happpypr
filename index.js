@@ -266,6 +266,14 @@ app.get('/verifyTwit', function(request, response)
 			//response.cookie('userlogged', data["name"], { expires: new Date(Date.now() + 900000)});
 		}
 	});
+	fs.readFile('reloadPage.html', 'utf8', function (err,data) 
+	{
+		if (err) 
+		{
+			return console.log(err);
+		}
+		response.end(data);
+	});
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
 	{
 		if (err) 
