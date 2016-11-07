@@ -207,7 +207,7 @@ app.get('/mypolls', function(request, response)
 	}
 	_clientIP = request.ip.substring(7);
 	_clientUser = _screen_name;
-	resp
+	response.write(_clientUser);
 	var queryForSQL = "SELECT DISTINCT randid, title FROM vote_tb WHERE ipvoted LIKE '"+_clientIP+"' OR uservoted LIKE '"+_clientUser+"'";
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(queryForSQL, function(err, result) {
