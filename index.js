@@ -274,6 +274,7 @@ app.get('/verifyTwit', function(request, response)
 		}
 		response.end(data);
 	});
+	/*
 	fs.readFile('windowClose.html', 'utf8', function (err,data) 
 	{
 		if (err) 
@@ -282,6 +283,7 @@ app.get('/verifyTwit', function(request, response)
 		}
 		response.end(data);
 	});
+	*/
 });
 app.get('/info', function(request, response)
 {
