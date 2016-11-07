@@ -293,11 +293,8 @@ app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response
 		var rePattern = new RegExp(/^([\w\-]+)/);
 		Almost_clientUser = pre_clientUser.match(rePattern);
 		_clientUser = Almost_clientUser[1];
-		//var queryInsert = "INSERT INTO vote_tb VALUES ('"+pickRandid+"', '"+pickVotechoose+"', 0, '"+clientToUse+"', '"+clientIP+"', '"+pickTitle+"', 0)";
+		var queryInsert = "INSERT INTO vote_tb VALUES ('"+pickRandid+"', '"+pickVotechoose+"', 0, '"+_clientUser+"', '"+clientIP+"', '"+pickTitle+"', 0)";
 		var location = '/polls/' + pickId;
-		response.write("INSERT INTO vote_tb VALUES ('"+pickRandid+"', '"+pickVotechoose+"', 0, '"+clientToUse+"')");
-		response.end();
-		/*
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
 			client.query(queryInsert, function(err, result) 
@@ -312,7 +309,6 @@ app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response
 				done();
 			});
 		});
-		*/
 	}
 	else
 	{
