@@ -192,20 +192,38 @@ app.get('/mypolls', function(request, response)
 			{
 				return console.log(err);
 			}
-			response.write(data);
+			response.write(data+"<div id='poll_results'>");
 		});
 	
 	}
 	else
 	{
-		fs.readFile('mypolls.html', 'utf8', function (err,data) {
-			if (err) 
-			{
-				return console.log(err);
-			}
-			response.write(data);
-		});
+		res.redirect("https://happpypr.herokuapp.com");
 	}
+	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+		client.query(queryForSQL, function(err, result) {
+			if (err)
+		    {
+				resultsidSQL = ("Error term" + err);
+			}
+			else
+		    {
+				
+				testSQlValue = result.rows;
+				testSQlValue.forEach(function(value){
+					response.write("<a href=\'https://happpypr.herokuapp.com/polls/" + value["randid"] + "\'><div 'class='resultsPoll'>" + value["title"] + "</div></a>");
+				});
+			}
+			done();
+			fs.readFile('footer.html', 'utf8', function (err,data) {
+				if (err) 
+				{
+					return console.log(err);
+				}
+				response.end(data);
+			});
+		});
+	});
 });
 app.get('/newpoll', function(request, response)
 {
@@ -224,13 +242,7 @@ app.get('/newpoll', function(request, response)
 	}
 	else
 	{
-		fs.readFile('newpoll.html', 'utf8', function (err,data) {
-			if (err) 
-			{
-				return console.log(err);
-			}
-			response.write(data);
-		});
+		res.redirect("https://happpypr.herokuapp.com");
 	}
 });
 app.get('/windowClose', function(request, response)

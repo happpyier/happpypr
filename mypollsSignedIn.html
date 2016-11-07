@@ -1,29 +1,34 @@
-
 <html>
 	<head>
 		<style>
-			h1 { font-size: 36px; }
+			p { font-size: 16px; }
+			h1 { font-size: 36px; }	
 			h2 { font-size: 20px; }
 			h2 { font-size: 26px; }
-			p { font-size: 16px; }
+			#poll_results div { background-color: #FFFFFF; margin-left: 4%; margin-right: 4%; height: 40px; text-align: center; border:1px ridge gray; }
+			.bottom { color:black; margin-left: 15%; margin-right: 15%; }
+			.bgcolor { background-color: #E8E8E8; }
 			.center { color:black; margin-left: 15%; margin-right: 15%; }
-			.bgcolor { background-color:#E8E8E8; }
+			.currentPage { background-color:#c2c2c2; }
+			.endDiv { width: 150px !important;}
+			.hidden { display: none !important; }
+			.middle {  }
+			.resultsPoll { width: 100%; height: 40px; display: inline-block; 
+						   text-align: center; line-height: 40px; margin-left: 15%;
+						   margin-right: 15%; text-decoration: none;  }
+			.spacer { height: 20px; background-color:#FFFFFF; }
 			.top { text-align: right; height: 40px; }
 			.top div { width: 100px; height: 40px; display: inline-block; text-align: center; line-height: 40px; }
-			.middle { border: 5px solid blue; }
-			.bottom { }
-			.spacer { height: 20px; background-color:#FFFFFF; }
-			.endDiv { width: 150px !important;}
-			.currentPage { background-color:#c2c2c2; }
-			.hidden { display: none !important; }
+			
 		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script>
 			function loadTwitter()
 			{
 				var URL = "/twitter/auth";
-				var name = "_blank";
+				var name = "AuthWindow";
 				var specs = "height=500,width=500";
-				window.open(URL,name,specs)
+				window.open(URL,name,specs);
 			}
 			function SignOutTwitter()
 			{
@@ -33,30 +38,15 @@
 	</head>
 	<body>
 		<div class='center'>
-			<div class='top  bgcolor'>
-				<a href="http://happpypr.herokuapp.com"><div>Home</div></a>
+			<div class='top bgcolor'>
+				<a href="http://happpypr.herokuapp.com"><div class='currentPage'>Home</div></a>
 				<a href="http://happpypr.herokuapp.com/mypolls"><div>My Polls</div></a>
 				<a href="http://happpypr.herokuapp.com/newpoll"><div>New Poll</div></a>
 				<button class='endDiv' onclick="SignOutTwitter();">Sign Out </button>
 			</div>
 			<div class='spacer'></div> 
 			<div class='middle bgcolor'>
-				<h1>
-					Voting App
-				</h1>
 				<p>
-					Below are polls you own.
+					Select a poll to see the results and vote, or sign-in to make a new poll.
 				</p>
-				<p>
-					Select a poll to see the results and vote,<a href ="http://happpypr.herokuapp.com/newpoll"> or make a new poll! <a/>
-				</p>
-			</div>
-			<div class='spacer'></div> 
-			<div class='bottom'>
-				<p>
-					This "Voting App" app is built by @happpyier of freecodecamp,<br/>following the instructions of "Basejump: Build a Voting App | Free Code Camp".<br/>Github repository: happpyier/happpypr
-				</p>
-			</div>
-		</div>
-	</body>
-</html>
+				
