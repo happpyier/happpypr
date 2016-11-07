@@ -17,6 +17,7 @@
 			.endDiv { width: 150px !important;}
 			.hidden { display: none !important; }
 			.middle { height: 450px; }
+			.pollRemove { }
 			.spacer { height: 20px; background-color:#FFFFFF; }
 			.top { text-align: right; height: 40px; }
 			.top div { width: 100px; height: 40px; display: inline-block; text-align: center; line-height: 40px; }
@@ -202,13 +203,11 @@
 				<div id='chartCenter'>
 					<canvas id="piechart" width="300" height="300">
 					</canvas>
-
-				</div>
-				<div>
-					<button id="Share on Twitter" onclick="removePoll();"> 
+					<button id="Share on Twitter" class="pollRemove" onclick="removePoll();"> 
 						Remove This Poll
 					</button>
 				</div>
+
 			</div>
 			<div class='spacer'></div> 
 			<div class='bottom'>
