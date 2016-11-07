@@ -192,7 +192,7 @@ app.get('/remove/:id', function(request, response)
 	var pickId = request.params.id;
 	
 	var selectionVar = request.params.selection;
-	var postSqlVar2 = "DELETE FROM vote_tb WHERE votechoose = '"+selectionVar+"'";
+	var postSqlVar2 = "DELETE FROM vote_tb WHERE votechoose = '"+pickId+"'";
 	var location = 'https://happpypr.herokuapp.com';
 
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
