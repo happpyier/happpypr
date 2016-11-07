@@ -33,7 +33,10 @@
 				var idMysql = document.getElementById('randid_hidden').innerHTML.replace(/\{|\[|\"/g, "");
 				var didyouvote = document.getElementById("alreadyvoted").innerHTML.replace(/\{|\[|\"/g, "");
 				var poll_results_selection = document.getElementById("poll_results").value;
-				document.location.href='/submit/' + idMysql + '/' + poll_results_selection; 
+				var custom_choice = document.getElementById("custom_choice").value;
+				var _title_ = document.getElementById("title_hidden").value;
+
+				document.location.href='/submit/' + idMysql + '/' + custom_choice '/' + _title_ + '/' + poll_results_selection ; 
 				
 			}
 			function removePoll()
@@ -160,6 +163,13 @@
 				}
 				
 			}
+			function selectOptionChoice(option)
+			{
+				if (option.value = "custom")
+				{
+				
+				}
+			}
 			function SignOutTwitter()
 			{
 				window.location = "twitter/SignOut";
@@ -190,7 +200,10 @@
 					<p>
 						I'd like to vote for...:
 					</p>
-						<select id='poll_results'> </select>
+						<select id='poll_results' onchange="selectOptionChoice(this);"> 
+							<option value="custom">I'd like a custom option</option>
+						</select>
+						<input class='hidden' type="text" id="custom_choice"> </input>
 					<p>
 						<button id="submitvote" onclick="mysqlSubmit();"> 
 							<a>Submit</a>

@@ -150,14 +150,20 @@ app.get('/polls/:id', function(request, response) {
 
 	});
 });
-app.get('/submit/:id/:selection', function(request, response) 
+app.get('/submit/:id/:customchoice/:titlechoice/:selection', function(request, response) 
 {
 	var pickId = request.params.id;
 	var clientIP = request.ip.substring(7);
-	
+	pre_clientUser = _screen_name;
+	var rePattern = new RegExp(/^([\w\-]+)/);
+	Almost_clientUser = pre_clientUser.match(rePattern);
+	_clientUser = Almost_clientUser[1];
+	var custom_choice = request.params.customchoice;
 	var selectionVar = request.params.selection;
+	var pickTitle = request.params.titlechoice;
 	var postSqlVar1 = "UPDATE vote_tb  SET votedalready = '1' WHERE ipvoted LIKE '"+clientIP+"'";
 	var postSqlVar2 = "UPDATE vote_tb  SET votes = votes+1, ipvoted='"+clientIP+"' WHERE votechoose = '"+selectionVar+"'";
+	var postSqlVar2 = "INSERT INTO vote_tb VALUES ('"+pickId+"', '"+selectionVar+"', 1, '"+_clientUser+"', '"+clientIP+"', '"+pickTitle+"', 0)";
 	var location = '/polls/' + pickId;
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	{
@@ -175,6 +181,21 @@ app.get('/submit/:id/:selection', function(request, response)
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	{
 		client.query(postSqlVar2, function(err, result) 
+		{
+			if (err)
+				{ resultsidSQL = ("Error " + err); }
+			else
+			{ 
+				response.redirect(location);
+				response.end();
+			}
+			done();
+		});
+	});
+	if (custom_choice.length > 0)
+	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+	{
+		client.query(postSqlCustom, function(err, result) 
 		{
 			if (err)
 				{ resultsidSQL = ("Error " + err); }
