@@ -285,7 +285,7 @@ app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response
 	
 	if (_screen_name.length > 0)
 	{
-	/*
+
 		var pickRandid = request.params.randid;
 		var pickTitle = request.params.title;
 		var pickVotechoose = request.params.votechoose;
@@ -298,6 +298,7 @@ app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response
 		var selectionVar = request.params.selection;
 		var postSqlVar2 = "INSERT INTO vote_tb  VALUES ('"pickRandid"', '"pickVotechoose"', '0', '"clientToUse"', '"clientIP"', '"pickTitle"', '0')";
 		var location = '/polls/' + pickId;
+			/*
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
 			client.query(postSqlVar2, function(err, result) 
