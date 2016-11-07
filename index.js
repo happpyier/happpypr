@@ -281,8 +281,6 @@ app.get('/newpoll', function(request, response)
 });
 app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response)
 {
-	//NEED to create the rows by title. with seperate votechoose and votes on each row.
-	
 	if (_screen_name.length > 0)
 	{
 
@@ -297,6 +295,9 @@ app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response
 		_clientUser = Almost_clientUser[1];
 		var postSqlVar2 = "INSERT INTO vote_tb  VALUES ('"+pickRandid+"', '"+pickVotechoose+"', '0', '"+clientToUse+"', '"+clientIP+"', '"+pickTitle+"', '0')";
 		var location = '/polls/' + pickId;
+		response.write("it got here");
+		response.end();
+		/*
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
 			client.query(postSqlVar2, function(err, result) 
@@ -311,6 +312,7 @@ app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response
 				done();
 			});
 		});
+		*/
 	}
 	else
 	{
