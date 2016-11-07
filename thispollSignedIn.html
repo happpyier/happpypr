@@ -160,6 +160,13 @@
 			{
 				window.location = "twitter/SignOut";
 			}
+			function loadTweet()
+			{
+				var URL = "https://twitter.com/intent/tweet?text=https%3A%2F%2Fhapppypr.herokuapp.com%2Fpolls%2F"+randid";
+				var name = "TweetWindow";
+				var specs = "height=500,width=500";
+				window.open(URL,name,specs);
+			}
 		</script>
 	</head>
 	<body onload='startup();'>
@@ -186,11 +193,9 @@
 						</button>
 					</p>
 					<p>
-						<a class="twitter-share-button" id="twitterButton" target="_blank">
-							<button id="Share on Twitter"> 
-								Share on Twitter
-							</button>
-						<a/>
+						<button id="Share on Twitter" onclick="loadTweet();"> 
+							Share on Twitter
+						</button>
 					</p>
 					
 				</div>
