@@ -185,6 +185,29 @@ app.get('/submit/:id/:selection', function(request, response)
 		});
 	});
 });
+app.get('/remove/:id', function(request, response) 
+{
+	var pickId = request.params.id;
+	
+	var selectionVar = request.params.selection;
+	var postSqlVar2 = "DELETE FROM vote_tb WHERE votechoose = '"+selectionVar+"'";
+	var location = '/https://happpypr.herokuapp.com';
+
+	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+	{
+		client.query(postSqlVar2, function(err, result) 
+		{
+			if (err)
+				{ resultsidSQL = ("Error " + err); }
+			else
+			{ 
+				response.redirect(location);
+				response.end();
+			}
+			done();
+		});
+	});
+});
 app.get('/mypolls', function(request, response) 
 {
 	if (_screen_name.length > 0)

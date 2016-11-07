@@ -35,6 +35,10 @@
 				document.location.href='/submit/' + idMysql + '/' + poll_results_selection; 
 				
 			}
+			function removePoll()
+			{
+				document.location.href='/remove/' + idMysql; 
+			}
 			function loadTwitter()
 			{
 				var URL = "https://happpypr.herokuapp.com/twitter/auth";
@@ -199,6 +203,9 @@
 					<canvas id="piechart" width="300" height="300">
 					</canvas>
 				</div>
+				<button id="Share on Twitter" onclick="removePoll();"> 
+						Remove This Poll
+				</button>
 			</div>
 			<div class='spacer'></div> 
 			<div class='bottom'>
