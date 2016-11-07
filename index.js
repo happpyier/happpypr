@@ -319,7 +319,7 @@ app.get("/twitter/auth", function(req, res) {
 		}
 	});
 });
-app.get(['"/twitter/SignOut"', '/polls/twitter/SignOut', 'newpoll/twitter/SignOut'], function(req, res) {
+app.get(['/twitter/SignOut', '/polls/twitter/SignOut', 'newpoll/twitter/SignOut'], function(req, res) {
 	_screen_name = "";
 	res.redirect("https://happpypr.herokuapp.com");
 });
