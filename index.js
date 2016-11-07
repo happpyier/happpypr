@@ -277,6 +277,24 @@ app.get('/newpoll', function(request, response)
 		response.redirect("https://happpypr.herokuapp.com");
 	}
 });
+app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response)
+{
+	//NEED to create the rows by title. with seperate votechoose and votes on each row.
+	
+	if (_screen_name.length > 0)
+	{
+		var pickRandid = request.params.randid;
+		var pickTitle = request.params.title;
+		var pickVotechoose = request.params.votechoose;
+		response.write(pickRandid + "...pickRandid " + pickTitle + "...pickTitle " + pickVotechoose + "...pickVotechoose ");
+		response.end();
+	
+	}
+	else
+	{
+		response.redirect("https://happpypr.herokuapp.com");
+	}
+});
 app.get('/windowClose', function(request, response)
 {
 	var oauth_verifier = request.param('oauth_verifier');

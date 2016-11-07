@@ -28,8 +28,13 @@
 					randId += possible.charAt(Math.floor(Math.random() * possible.length));
 				alert(randId);
 				//This is where randId will be the id that is inserted.
+
+				var new_poll_randId = randId;
+				var new_poll_title = document.getElementById("titleVal").value;
+				var poll_results_selection = document.getElementById("optionsVal").value;
+				document.location.href='/newpoll/submit/' + new_poll_randid + '/' + new_poll_title '/' + new_poll_votechoose; 
 			}
-						function loadTwitter()
+			function loadTwitter()
 			{
 				var URL = "https://happpypr.herokuapp.com/twitter/auth";
 				var name = "_blank";
@@ -61,7 +66,7 @@
 					</p>
 					<input type='text' size='74' id='titleVal'></input>
 					<p>
-						Options (seperated by line):
+						Options (seperated by |):
 					</p>
 					<textarea type='text' cols='75' rows ='10' id='optionsVal'></textarea>
 					<p>
