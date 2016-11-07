@@ -36,7 +36,7 @@
 			}
 			function loadTwitter()
 			{
-				var URL = "/twitter/auth";
+				var URL = "https://happpypr.herokuapp.com/twitter/auth";
 				var name = "_blank";
 				var specs = "height=500,width=500";
 				window.open(URL,name,specs)
@@ -58,7 +58,7 @@
 				var colors = [];
 				var hoverValue = [];
 				document.getElementById('title').innerHTML = title;
-				alert(votechoose.length);
+				//alert(votechoose.length);
 				for (var i=0; i < votechoose.length; i++)
 				{
 					var optn = document.createElement("option");
