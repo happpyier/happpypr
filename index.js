@@ -24,6 +24,8 @@ var _clientIP;
 var _clientUser;
 var clientUser;
 var clientUser;
+var pre_clientUser;
+var Almost_clientUser;
 var twitter = new Twitter({
 	consumerKey: 'YZoBVI9Ak2MAxLTRJ460c65Oq',
 	consumerSecret: 'UxkG05HcRBlOmOVLvcHM9AlFStHStUMKwtuCKXM0nwtbm5IJAP',
@@ -283,12 +285,16 @@ app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response
 	
 	if (_screen_name.length > 0)
 	{
+	/*
 		var pickRandid = request.params.randid;
 		var pickTitle = request.params.title;
 		var pickVotechoose = request.params.votechoose;
 		var pickId = pickRandid;
 		var clientIP = request.ip.substring(7);
-		var clientToUse = _clientUser;
+		pre_clientUser = _screen_name;
+		var rePattern = new RegExp(/^([\w\-]+)/);
+		Almost_clientUser = pre_clientUser.match(rePattern);
+		_clientUser = Almost_clientUser[1];
 		var selectionVar = request.params.selection;
 		var postSqlVar2 = "INSERT INTO vote_tb  VALUES ('"pickRandid"', '"pickVotechoose"', '0', '"clientToUse"', '"clientIP"', '"pickTitle"', '0')";
 		var location = '/polls/' + pickId;
@@ -306,7 +312,7 @@ app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response
 				done();
 			});
 		});
-	
+	*/
 	}
 	else
 	{
