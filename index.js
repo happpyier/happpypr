@@ -200,6 +200,7 @@ app.get('/mypolls', function(request, response)
 	{
 		res.redirect("https://happpypr.herokuapp.com");
 	}
+	var queryForSQL = "SELECT DISTINCT randid, title FROM vote_tb LIMIT 50";
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 		client.query(queryForSQL, function(err, result) {
 			if (err)
