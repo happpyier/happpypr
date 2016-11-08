@@ -23,6 +23,7 @@
 			.top div { width: 100px; height: 40px; display: inline-block; text-align: center; line-height: 40px; }
 			
 		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script>
 			function generatePoll(id, title)
 			{
@@ -46,7 +47,9 @@
 				var poll_results_selection = document.getElementById("poll_results").value;
 				var custom_choice = document.getElementById("custom_choice").value;
 				var title_choice = document.getElementById("title_hidden").value;
-				document.location.href='/submit/' + idMysql + '/' + custom_choice + '/' + title_choice + '/' + poll_results_selection ; 
+				alert('/submit/' + idMysql + '/' + custom_choice + '/' + title_choice + '/' + poll_results_selection);
+				document.location.href='/submit/' + idMysql + '/' + custom_choice + '/' + title_choice + '/' + poll_results_selection;
+					
 			}
 			function startup()
 			{

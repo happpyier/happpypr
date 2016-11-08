@@ -1,2 +1,9 @@
 create table vote_tb (randid text, votechoose text, votes text, uservoted text, ipvoted text);
-INSERT into vote_tb values ('yPUXZS6RuZECDxztw', 'oscar|Red|curious', '1|1|1', 'Thomas', '108.190.97.161', 'Example Of Dog Kings');
+INSERT into vote_tb values ('yPUXZS6RuZECDxztw', 'oscar', '1', 'Thomas', '10.141.33.163', 'Shark', '0');
+
+happpypr::DATABASE=> select * from vote_tb;
+      randid       | votechoose | votes | uservoted |    ipvoted    |   title   | votedalready
+-------------------+------------+-------+-----------+---------------+-----------+--------------
+ UQL4RovVCC3XxqvRZ | 1|2|3      |     0 | Thomas    | 10.141.33.163 | Shark     | 0
+ UQL4RovVCC3XxqvRZ | custom     |     1 | Thomas    | 10.141.33.163 | undefined | 0
+(2 rows)
