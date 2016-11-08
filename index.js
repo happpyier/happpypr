@@ -342,9 +342,8 @@ app.get('/newpoll', function(request, response)
 });
 app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response)
 {
-	//if (_screen_name.length > 0)
-	//{
-		
+	if (_screen_name.length > 0)
+	{
 		var pickRandid = request.params.randid;
 		var pickTitle = request.params.title;
 		var prepickVotechoose = request.params.votechoose;
@@ -379,19 +378,11 @@ app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response
 		}
 		response.redirect(location);
 		response.end();
-		/*
-		for(var i = 0; i<pickVotechoose.length; i++) 
-		{
-
-		}
-		response.redirect(location);
-		response.end();
-		*/
-	//}
-	//else
-	//{
-	//	response.redirect("https://happpypr.herokuapp.com");
-	//}
+	}
+	else
+	{
+		response.redirect("https://happpypr.herokuapp.com");
+	}
 
 
 });
