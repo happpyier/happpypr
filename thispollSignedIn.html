@@ -45,6 +45,10 @@
 				var idMysql = document.getElementById('randid_hidden').innerHTML.replace(/\{|\[|\"/g, "");
 				var didyouvote = document.getElementById("alreadyvoted").innerHTML.replace(/\{|\[|\"/g, "");
 				var poll_results_selection = document.getElementById("poll_results").value;
+				if (poll_results_selection == "custom")
+				{
+					poll_results_selection = poll_results_selection = document.getElementById("custom_choice").innerHTML;
+				}
 				var title_choice = document.getElementById("title_hidden").innerHTML.replace(/\{|\[|\"/g, "");
 				document.location.href='/submit/' + idMysql + '/' + poll_results_selection + '/' + title_choice + '/' + poll_results_selection;	
 			}
