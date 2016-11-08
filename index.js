@@ -358,13 +358,6 @@ app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response
 		var pickVotechoose = Almost_pickVotechoose;
 		for(var i = 0; i<pickVotechoose.length; i++) 
 		{
-			response.write("Test" + pickVotechoose[i]);
-		}
-		
-		response.end();
-		/*
-		for(var i = 0; i<pickVotechoose.length; i++) 
-		{
 			process.nextTick(function() 
 			{
 				var queryInsert = "INSERT INTO vote_tb VALUES ('"+pickRandid+"', '"+pickVotechoose[i]+"', 0, '"+_clientUser+"', '"+clientIP+"', '"+pickTitle+"', 0)";
@@ -383,6 +376,13 @@ app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response
 					});
 				});
 			});
+		}
+		response.redirect(location);
+		response.end();
+		/*
+		for(var i = 0; i<pickVotechoose.length; i++) 
+		{
+
 		}
 		response.redirect(location);
 		response.end();
