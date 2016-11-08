@@ -33,7 +33,7 @@
 				var didyouvote = document.getElementById("alreadyvoted").innerHTML.replace(/\{|\[|\"/g, "");
 				var poll_results_selection = document.getElementById("poll_results").value;
 				var title_choice = document.getElementById("title_hidden").innerHTML.replace(/\{|\[|\"/g, "");
-				document.location.href='/submit/' + idMysql + '/' + poll_results_selection + '/' + title_choice + '/' + poll_results_selection;	
+				document.location.href='/submit/' + idMysql + '/' + poll_results_selection;	
 			}
 			function loadTwitter()
 			{

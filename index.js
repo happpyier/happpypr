@@ -211,6 +211,43 @@ app.get('/submit/:id/:selection/:titlechoice/:customchoice', function(request, r
 		});
 	});
 });
+app.get('/submit/:id/:selection', function(request, response) 
+{
+	var pickId = request.params.id;
+	var clientIP = request.ip.substring(7);
+	var selectionVar = request.params.selection;
+	var postSqlVar1 = "UPDATE vote_tb  SET votedalready = '1' WHERE ipvoted LIKE '"+clientIP+"' AND randid = '"+pickId+"' ";
+	var postSqlVar2 = "UPDATE vote_tb  SET votes = votes+1, ipvoted='"+clientIP+"' WHERE votechoose = '"+selectionVar+"' AND randid = '"+pickId+"' ";
+	var location = '/polls/' + pickId;
+	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+	{
+		client.query(postSqlVar1, function(err, result) 
+		{
+			if (err)
+				{ resultsidSQL = ("Error " + err); }
+			else
+			{
+				
+			}
+			done();
+		});
+	});
+	
+	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+	{
+		client.query(postSqlVar2, function(err, result) 
+		{
+			if (err)
+				{ resultsidSQL = ("Error " + err); }
+			else
+			{ 
+				response.redirect(location);
+				response.end();
+			}
+			done();
+		});
+	});
+});
 app.get('/remove/:id', function(request, response) 
 {
 	var pickId = request.params.id;
