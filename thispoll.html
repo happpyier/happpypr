@@ -32,7 +32,8 @@
 				var idMysql = document.getElementById('randid_hidden').innerHTML.replace(/\{|\[|\"/g, "");
 				var didyouvote = document.getElementById("alreadyvoted").innerHTML.replace(/\{|\[|\"/g, "");
 				var poll_results_selection = document.getElementById("poll_results").value;
-				document.location.href='/submit/' + idMysql + '/' + poll_results_selection; 
+				var title_choice = document.getElementById("title_hidden").innerHTML.replace(/\{|\[|\"/g, "");
+				document.location.href='/submit/' + idMysql + '/' + poll_results_selection + '/' + title_choice + '/' + poll_results_selection;	
 			}
 			function loadTwitter()
 			{
@@ -65,10 +66,6 @@
 					optn.value = votechoose[i];
 					document.getElementById('poll_results').appendChild(optn); 
 				}
-				//var optn = document.createElement("option");
-				//optn.innerHTML = 'I\'d like a custom option.';
-				//optn.value = 'custom';
-				//document.getElementById('poll_results').appendChild(optn);
 				for (var i=0; i < votes.length; i++)
 				{
 					total += parseInt(votes[i]); 
@@ -151,7 +148,17 @@
 				{
 					drawSegment(canvas, context, i);
 				}
-				
+			}
+			function selectOptionChoice(option)
+			{
+				if (option.value == "custom")
+				{
+					document.getElementById("custom_choice").className = "hidden";
+				}
+				else
+				{
+					document.getElementById("custom_choice").className = "hidden";
+				}
 			}
 
 		</script>
@@ -164,24 +171,29 @@
 			</div>
 			<div class='spacer'></div> 
 			<div class='middle bgcolor'>
-				
-				<!-- <div id='testarea'> This should not say test area </div> -->
 				<div id='choicemenu'>
 					<div id='title'>  </div>
 					<p>
 						I'd like to vote for...:
 					</p>
-						<select id='poll_results'> </select>
+						<select id='poll_results' onchange="selectOptionChoice(this);"> 
+
+						</select>
+						<input class='hidden' type="text" id="custom_choice"> </input>
 					<p>
 						<button id="submitvote" onclick="mysqlSubmit();"> 
 							<a>Submit</a>
 						</button>
-					</p>
+					</p>		
 				</div>
 				<div id='chartCenter'>
 					<canvas id="piechart" width="300" height="300">
 					</canvas>
+					<button id="Share on Twitter" class="pollRemove" onclick="removePoll();"> 
+						Remove This Poll
+					</button>
 				</div>
+
 			</div>
 			<div class='spacer'></div> 
 			<div class='bottom'>

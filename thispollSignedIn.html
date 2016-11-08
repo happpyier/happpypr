@@ -46,8 +46,7 @@
 				var didyouvote = document.getElementById("alreadyvoted").innerHTML.replace(/\{|\[|\"/g, "");
 				var poll_results_selection = document.getElementById("poll_results").value;
 				var title_choice = document.getElementById("title_hidden").innerHTML.replace(/\{|\[|\"/g, "");
-				document.location.href='/submit/' + idMysql + '/' + poll_results_selection + '/' + title_choice + '/' + poll_results_selection;
-					
+				document.location.href='/submit/' + idMysql + '/' + poll_results_selection + '/' + title_choice + '/' + poll_results_selection;	
 			}
 			function startup()
 			{
@@ -66,7 +65,6 @@
 				var colors = [];
 				var hoverValue = [];
 				document.getElementById('title').innerHTML = title;
-				//alert(votechoose.length);
 				for (var i=0; i < votechoose.length; i++)
 				{
 					var optn = document.createElement("option");
@@ -161,7 +159,6 @@
 					drawSegment(canvas, context, i);
 				}
 			}
-
 			function selectOptionChoice(option)
 			{
 				if (option.value == "custom")
@@ -173,7 +170,6 @@
 					document.getElementById("custom_choice").className = "hidden";
 				}
 			}
-
 			function SignOutTwitter()
 			{
 				window.location = "twitter/SignOut";
@@ -197,8 +193,6 @@
 			</div>
 			<div class='spacer'></div> 
 			<div class='middle bgcolor'>
-				
-				<!-- <div id='testarea'> This should not say test area </div> -->
 				<div id='choicemenu'>
 					<div id='title'>  </div>
 					<p>
