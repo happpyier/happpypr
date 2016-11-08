@@ -347,34 +347,43 @@ app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response
 		
 		var pickRandid = request.params.randid;
 		var pickTitle = request.params.title;
-		var pickVotechoose = request.params.votechoose;
+		var prepickVotechoose = request.params.votechoose;
 		var pickId = pickRandid;
 		var clientIP = request.ip.substring(7);
 		pre_clientUser = _screen_name;
 		var rePattern = new RegExp(/^([\w\-]+)/);
 		Almost_clientUser = pre_clientUser.match(rePattern);
 		_clientUser = Almost_clientUser[1];
-		var queryInsert = "INSERT INTO vote_tb VALUES ('"+pickRandid+"', '"+pickVotechoose+"', 0, '"+_clientUser+"', '"+clientIP+"', '"+pickTitle+"', 0)";
-		var location = '/polls/' + pickId;
-		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+		var pickVotechoose = prepickVotechoose.split("|");
+		for(var i = 0; i &lt; pickVotechoose.length; i++) 
 		{
-			client.query(queryInsert, function(err, result) 
+			process.nextTick(function() 
 			{
-				if (err)
-					{ resultsidSQL = ("Error " + err); }
-				else
-				{ 
-					response.redirect(location);
-					response.end();
-				}
-				done();
+				var queryInsert = "INSERT INTO vote_tb VALUES ('"+pickRandid+"', '"+pickVotechoose[i]+"', 0, '"+_clientUser+"', '"+clientIP+"', '"+pickTitle+"', 0)";
+				var location = '/polls/' + pickId;
+				pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+				{
+					client.query(queryInsert, function(err, result) 
+					{
+						if (err)
+							{ resultsidSQL = ("Error " + err); }
+						else
+						{ 
+							
+						}
+						done();
+					});
+				});
 			});
-		});
+		}
+		response.redirect(location);
+		response.end();
 	}
 	else
 	{
 		response.redirect("https://happpypr.herokuapp.com");
 	}
+
 });
 app.get('/windowClose', function(request, response)
 {
