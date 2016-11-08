@@ -161,8 +161,8 @@ app.get('/submit/:id/:selection/:titlechoice/:customchoice', function(request, r
 	var custom_choice = request.params.customchoice;
 	var selectionVar = request.params.selection;
 	var pickTitle = request.params.titlechoice;
-	var postSqlVar1 = "UPDATE vote_tb  SET votedalready = '1' WHERE ipvoted LIKE '"+clientIP+"'";
-	var postSqlVar2 = "UPDATE vote_tb  SET votes = votes+1, ipvoted='"+clientIP+"' WHERE votechoose = '"+selectionVar+"'";
+	var postSqlVar1 = "UPDATE vote_tb  SET votedalready = '1' WHERE ipvoted LIKE '"+clientIP+"' AND randid = '"+pickId+"' ";
+	var postSqlVar2 = "UPDATE vote_tb  SET votes = votes+1, ipvoted='"+clientIP+"' WHERE votechoose = '"+selectionVar+"' AND randid = '"+pickId+"' ";
 	var postSqlCustom = "INSERT INTO vote_tb VALUES ('"+pickId+"', '"+selectionVar+"', 1, '"+_clientUser+"', '"+clientIP+"', '"+pickTitle+"', 0)";
 	var location = '/polls/' + pickId;
 	if (custom_choice == "custom")
