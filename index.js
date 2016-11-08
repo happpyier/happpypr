@@ -182,6 +182,7 @@ app.get('/submit/:id/:customchoice/:titlechoice/:selection', function(request, r
 			});
 		});
 	}
+	/*
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	{
 		client.query(postSqlVar1, function(err, result) 
@@ -210,7 +211,9 @@ app.get('/submit/:id/:customchoice/:titlechoice/:selection', function(request, r
 			done();
 		});
 	});
-
+	*/
+	response.write(custom_choice + "...length-->" + custom_choice.length)
+	response.end();
 });
 app.get('/remove/:id', function(request, response) 
 {
