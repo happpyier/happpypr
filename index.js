@@ -358,7 +358,7 @@ app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response
 		var pickVotechoose = Almost_pickVotechoose[0];
 		for(var i = 0; i<pickVotechoose.length; i++) 
 		{
-			response.write("Test" + pickVotechoose);
+			response.write("Test" + pickVotechoose[i]);
 		}
 		response.end();
 		/*
