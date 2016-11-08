@@ -28,17 +28,6 @@
 			{
 				document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+id+"'>"+title+"</a></div>";
 			}
-			function mysqlSubmit(id)
-			{
-				var idMysql = document.getElementById('randid_hidden').innerHTML.replace(/\{|\[|\"/g, "");
-				var didyouvote = document.getElementById("alreadyvoted").innerHTML.replace(/\{|\[|\"/g, "");
-				var poll_results_selection = document.getElementById("poll_results").value;
-				var custom_choice = document.getElementById("custom_choice").value;
-				var _title_ = document.getElementById("title_hidden").value;
-
-				document.location.href='/submit/' + idMysql + '/' + custom_choice '/' + _title_ + '/' + poll_results_selection ; 
-				
-			}
 			function removePoll()
 			{
 				document.location.href='/remove/' + randid; 
@@ -160,6 +149,15 @@
 				for (var i = 0; i < data.length; i++) 
 				{
 					drawSegment(canvas, context, i);
+				}
+				function mysqlSubmit(id)
+				{
+					var idMysql = document.getElementById('randid_hidden').innerHTML.replace(/\{|\[|\"/g, "");
+					var didyouvote = document.getElementById("alreadyvoted").innerHTML.replace(/\{|\[|\"/g, "");
+					var poll_results_selection = document.getElementById("poll_results").value;
+					var custom_choice = document.getElementById("custom_choice").value;
+					var _title_ = document.getElementById("title_hidden").value;
+					document.location.href='/submit/' + idMysql + '/' + custom_choice '/' + _title_ + '/' + poll_results_selection ; 
 				}
 				
 			}
