@@ -356,8 +356,8 @@ app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response
 		_clientUser = Almost_clientUser[1];
 		var rePattern1 = new RegExp(/([|])/);
 		Almost_pickVotechoose = prepickVotechoose.match(rePattern1);
-		var pickVotechoose = Almost_pickVotechoose;
-		response.write(pickVotechoose.length);
+		var pickVotechoose = Almost_pickVotechoose[0];
+		response.write(pickVotechoose);
 		response.end();
 		/*
 		for(var i = 0; i<pickVotechoose.length; i++) 
