@@ -31,9 +31,11 @@
 					randId += possible.charAt(Math.floor(Math.random() * possible.length));
 					
 				}
-				var new_poll_title = document.getElementById("titleVal").value;
-				var new_poll_votechoose = document.getElementById("optionsVal").value;
+				var prenew_poll_title = document.getElementById("titleVal").value;
+				var prenew_poll_votechoose = document.getElementById("optionsVal").value;
 				var new_poll_randid = randId;
+				var new_poll_title = encodeURI(prenew_poll_title);
+				var new_poll_votechoose = encodeURI(prenew_poll_votechoose);
 				var locationLink = "https://happpypr.herokuapp.com/newpoll/submit/" + new_poll_randid + "/" + new_poll_title + "/" + new_poll_votechoose;
 				//alert(locationLink);
 				document.location.href = locationLink; 
