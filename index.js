@@ -355,11 +355,12 @@ app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response
 		Almost_clientUser = pre_clientUser.match(rePattern);
 		_clientUser = Almost_clientUser[1];
 		Almost_pickVotechoose = prepickVotechoose.split("|");
-		var pickVotechoose = Almost_pickVotechoose[0];
+		var pickVotechoose = Almost_pickVotechoose;
 		for(var i = 0; i<pickVotechoose.length; i++) 
 		{
 			response.write("Test" + pickVotechoose[i]);
 		}
+		
 		response.end();
 		/*
 		for(var i = 0; i<pickVotechoose.length; i++) 
