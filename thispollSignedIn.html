@@ -47,7 +47,7 @@
 				var poll_results_selection = document.getElementById("poll_results").value;
 				if (poll_results_selection == "custom")
 				{
-					poll_results_selection = document.getElementById("custom_choice").innerHTML;
+					poll_results_selection = document.getElementById("custom_choice").value;
 				}
 				var title_choice = document.getElementById("title_hidden").innerHTML.replace(/\{|\[|\"/g, "");
 				document.location.href='/submit/' + idMysql + '/' + poll_results_selection + '/' + title_choice + '/' + poll_results_selection;	
