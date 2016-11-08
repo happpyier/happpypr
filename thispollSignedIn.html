@@ -75,10 +75,10 @@
 					optn.value = votechoose[i];
 					document.getElementById('poll_results').appendChild(optn); 
 				}
-				//var optn = document.createElement("option");
-				//optn.innerHTML = 'I\'d like a custom option.';
-				//optn.value = 'custom';
-				//document.getElementById('poll_results').appendChild(optn);
+				var optn1 = document.createElement("option");
+				optn1.innerHTML = 'I\'d like a custom option.';
+				optn1.value = 'custom';
+				document.getElementById('poll_results').appendChild(optn1);
 				for (var i=0; i < votes.length; i++)
 				{
 					total += parseInt(votes[i]); 
@@ -163,13 +163,15 @@
 				}
 				
 			}
+			/*
 			function selectOptionChoice(option)
 			{
 				if (option.value = "custom")
 				{
-				
+					//Do nothing.
 				}
 			}
+			*/
 			function SignOutTwitter()
 			{
 				window.location = "twitter/SignOut";
@@ -201,7 +203,7 @@
 						I'd like to vote for...:
 					</p>
 						<select id='poll_results' onchange="selectOptionChoice(this);"> 
-							<option value="custom">I'd like a custom option</option>
+
 						</select>
 						<input class='hidden' type="text" id="custom_choice"> </input>
 					<p>
