@@ -165,7 +165,7 @@ app.get('/submit/:id/:selection/:titlechoice/:customchoice', function(request, r
 	var postSqlVar2 = "UPDATE vote_tb  SET votes = votes+1, ipvoted='"+clientIP+"' WHERE votechoose = '"+selectionVar+"'";
 	var postSqlCustom = "INSERT INTO vote_tb VALUES ('"+pickId+"', '"+selectionVar+"', 1, '"+_clientUser+"', '"+clientIP+"', '"+pickTitle+"', 0)";
 	var location = '/polls/' + pickId;
-	if (custom_choice.length > 0)
+	if (custom_choice == "custom")
 	{
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
