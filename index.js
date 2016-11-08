@@ -150,7 +150,7 @@ app.get('/polls/:id', function(request, response) {
 
 	});
 });
-app.get('/submit/:id/:customchoice/:titlechoice/:selection', function(request, response) 
+app.get('/submit/:id/:selection/:titlechoice/:customchoice', function(request, response) 
 {
 	var pickId = request.params.id;
 	var clientIP = request.ip.substring(7);

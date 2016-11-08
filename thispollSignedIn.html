@@ -46,7 +46,7 @@
 				var didyouvote = document.getElementById("alreadyvoted").innerHTML.replace(/\{|\[|\"/g, "");
 				var poll_results_selection = document.getElementById("poll_results").value;
 				var custom_choice = document.getElementById("custom_choice").value;
-				var title_choice = document.getElementById("title_hidden").innerHTML;
+				var title_choice = document.getElementById("title_hidden").innerHTML.replace(/\{|\[|\"/g, "");
 				alert('/submit/' + idMysql + '/' + custom_choice + '/' + title_choice + '/' + poll_results_selection);
 				document.location.href='/submit/' + idMysql + '/' + custom_choice + '/' + title_choice + '/' + poll_results_selection;
 					
