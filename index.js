@@ -212,8 +212,8 @@ app.get('/submit/:id/:selection/:titlechoice/:customchoice', function(request, r
 		});
 	});
 	*/
-	response.write(custom_choice + "...length-->" + custom_choice.length)
-	response.end();
+	//response.write(custom_choice + "...length-->" + custom_choice.length)
+	//response.end();
 });
 app.get('/remove/:id', function(request, response) 
 {
