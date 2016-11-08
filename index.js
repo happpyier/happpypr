@@ -241,7 +241,7 @@ app.get('/submit/:id/:selection', function(request, response)
 				{ resultsidSQL = ("Error " + err); }
 			else
 			{ 
-				response.redirect(location);
+				//response.redirect(location);
 				response.end();
 			}
 			done();
