@@ -27,7 +27,7 @@
 			{
 				document.getElementById('poll_results').innerHTML += "<div><a href='http://happpypr.herokuapp.com/voting/polls/"+id+"'>"+title+"</a></div>";
 			}
-			function mysqlSubmit(id)
+			function mysqlSubmit()
 			{
 				var idMysql = document.getElementById('randid_hidden').innerHTML.replace(/\{|\[|\"/g, "");
 				var didyouvote = document.getElementById("alreadyvoted").innerHTML.replace(/\{|\[|\"/g, "");
