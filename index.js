@@ -357,22 +357,19 @@ app.get('/newpoll/submit/:randid/:title/:votechoose', function(request, response
 		var pickVotechoose = Almost_pickVotechoose;
 		for(var i = 0; i<pickVotechoose.length; i++) 
 		{
-			process.nextTick(function() 
+			var queryInsert = "INSERT INTO vote_tb VALUES ('"+pickRandid+"', '"+pickVotechoose[i]+"', 0, '"+_clientUser+"', '"+clientIP+"', '"+pickTitle+"', 0)";
+			var location = '/polls/' + pickId;
+			pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 			{
-				var queryInsert = "INSERT INTO vote_tb VALUES ('"+pickRandid+"', '"+pickVotechoose[i]+"', 0, '"+_clientUser+"', '"+clientIP+"', '"+pickTitle+"', 0)";
-				var location = '/polls/' + pickId;
-				pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+				client.query(queryInsert, function(err, result) 
 				{
-					client.query(queryInsert, function(err, result) 
-					{
-						if (err)
-							{ resultsidSQL = ("Error " + err); }
-						else
-						{ 
-							
-						}
-						done();
-					});
+					if (err)
+						{ resultsidSQL = ("Error " + err); }
+					else
+					{ 
+						
+					}
+					done();
 				});
 			});
 		}
