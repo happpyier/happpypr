@@ -42,15 +42,17 @@
 			}
 			function mysqlSubmit()
 			{
+				var custom_choice_val = "";
 				var idMysql = document.getElementById('randid_hidden').innerHTML.replace(/\{|\[|\"/g, "");
 				var didyouvote = document.getElementById("alreadyvoted").innerHTML.replace(/\{|\[|\"/g, "");
 				var poll_results_selection = document.getElementById("poll_results").value;
 				if (poll_results_selection == "custom")
 				{
 					poll_results_selection = document.getElementById("custom_choice").value;
+					custom_choice_val = "custom";
 				}
 				var title_choice = document.getElementById("title_hidden").innerHTML.replace(/\{|\[|\"/g, "");
-				document.location.href='/submit/' + idMysql + '/' + poll_results_selection + '/' + title_choice + '/' + poll_results_selection;	
+				document.location.href='/submit/' + idMysql + '/' + poll_results_selection + '/' + title_choice + '/' + custom_choice_val;	
 			}
 			function startup()
 			{
